@@ -16,4 +16,16 @@
     La asignación \(R \mapsto A / R\) define una biyección entre el conjunto \(E(A)\), formado por todas las relaciones de equivalencia \(R\) sobre \(A\), y el conjunto \(Q(A)\), formado por todas las parciciones de \(A\).
   \end{theorem}
 
+  \begin{theorem}[5.2]
+    Sea \(\{A_i : i \in I\}\) una familia de conjuntos indexada por \(I\).
+    Entonces existe un conjunto \(D\), junto con una familia de aplicaciones \(\{\pi_i : D \rightarrow A_i | i \in I\}\) con la siguiente propiedad:
+    para cualquier conjunto \(C\) y familia de aplicaciones \(\{\phi_i : C \rightarrow A_i | i \in I\}\), existe una única aplicación \(\psi : C \rightarrow D\) tal que \(\pi_i \phi = \phi_i\) para todo \(i \in I\).
+    Más aún, \(D\) queda determinado univocamente salvo una biyección.
+    \[
+      \begin{tikzcd}
+        C \arrow{rd}{\phi_i} \arrow[dotted]{d}{\phi} \\
+        D \arrow{r}{\pi_i} & A_i
+      \end{tikzcd}
+    \]
+  \end{theorem}
 \end{document}
