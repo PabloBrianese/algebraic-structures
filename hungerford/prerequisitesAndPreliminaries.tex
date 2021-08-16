@@ -6,6 +6,9 @@
 \usepackage{mathtools, amsthm, amssymb}
 \usepackage{tikz-cd}
 
+\newcommand{\naturalNumbers}{\mathbb{N}}
+\newcommand{\integerNumbers}{\mathbb{Z}}
+
 \newtheorem{theorem}{Teorema}
 \begin{document}
   \maketitle
@@ -28,4 +31,36 @@
       \end{tikzcd}
     \]
   \end{theorem}
+
+  \begin{theorem}[6.2 Recursion]
+    Si \(S\) es un conjunto, \(a \in S\) y para cada \(n \in \naturalNumbers\), \(f_n : S \rightarrow S\) es una función, entonces existe una única función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = a\) y \(\phi(n + 1) = f_n(\phi(n))\) para todo \( n \in \naturalNumbers\).
+  \end{theorem}
+
+  Para cada \(N \in \integerNumbers\), denotamos \([N] = \{n \in \naturalNumbers : 0 \leq n \leq N\}\).
+
+  \begin{proof}
+    Sea \(\mathcal{N}\) el conjunto de los \(N \in \naturalNumbers\) tales que existe una única función \(\phi_N : [N] \rightarrow S\) que verifica la \emph{condición recursiva} \(\phi_N(n + 1) = f_n ( \phi_N(n))\) para todo \(n \in [N - 1]\), y la condición base \(\phi_N(0) = a\).
+
+    En un principio \(0 \in \mathcal{N}\).
+    En efecto, aquí la condición \(\phi_0(0) = a\) determina unívocamente a la función \(\phi_0 : \{0\} \rightarrow S\);
+    y la condición recursiva sobre \(\phi_0\) es vacua porque \([- 1] = \emptyset\).
+
+    Supongamos, inductivamente, que \(N \in \mathcal{N}\).
+    Entonces existe una única función \(\phi_N : [N] \rightarrow S\) tal que \(\phi_N(0) = a\) y verifica la condición recursiva.
+    Definimos \(\phi_{N + 1} : [N + 1] \rightarrow S\) como \(\phi_{N + 1}(n) = \phi_N(n)\) para \(n \in [N]\), e imponemos \(\phi_{N + 1}(N + 1) = f_N(\phi_N(N))\).
+    Entonces por construcción \(\phi_{N + 1}(0) = a\), y \(\phi_{N + 1}\) verifica la condición recursiva.
+    Para probar la unicidad de \(\phi_{N + 1}\) suponemos que \(\psi : [N + 1] \rightarrow S\) es cualquier función que verifique la condición recursiva y la condición base.
+    Si restringimos \(\psi\) al conjunto \([N]\) obtenemos una función que satisface la condición recursiva y la condición base.
+    Por hipótesis inductiva \(\left. \psi \right|_{[N]} = \phi_N\).
+    La condición recursiva para \(\psi\) dice que \(\psi(N + 1) = f_N(\psi(N))\).
+    Pero probamos \(\psi(N) = \phi_N(N)\).
+    Entonces \(\psi(N + 1) = f_N(\phi_N(N))\).
+    Por lo tanto \(\psi = \phi_{N + 1}\).
+    En conclusión \(N + 1 \in \mathcal{N}\).
+
+    Por inducción, para todo \(N \in \naturalNumbers\) existe una única función \(\phi_N : [N] \rightarrow S\) tal que \(\phi_N(0) = a\) y \(\phi_N(n + 1) = f_n ( \phi_N(n))\) para todo \(n \in [N - 1]\).
+    La propiedad de unicidad las hace compatibles, es decir que \(\left. \phi_N \right|_{[M]} = \phi_M\) si \(M \leq N\).
+    Esta compatibilidad nos permite afirmar que la unión de sus gráficas, \(\bigcup_{N \in \naturalNumbers} \text{gr}(\phi_N)\), es la gráfica de una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = a\) y \(\phi(n + 1) = f_n(\phi(n))\) para todo \( n \in \naturalNumbers\).
+    La unicidad de esta gran \(\phi\) es consecuencia de la unicidad de las pequeñas \(\phi_N\) con \(N \in \naturalNumbers\).
+  \end{proof}
 \end{document}
