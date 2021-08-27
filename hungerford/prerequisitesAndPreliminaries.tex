@@ -9,6 +9,8 @@
 \newcommand{\naturalNumbers}{\mathbb{N}}
 \newcommand{\integerNumbers}{\mathbb{Z}}
 
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
 \newtheorem{theorem}{Teorema}
 \begin{document}
   \maketitle
@@ -62,5 +64,35 @@
     La propiedad de unicidad las hace compatibles, es decir que \(\left. \phi_N \right|_{[M]} = \phi_M\) si \(M \leq N\).
     Esta compatibilidad nos permite afirmar que la unión de sus gráficas, \(\bigcup_{N \in \naturalNumbers} \text{gr}(\phi_N)\), es la gráfica de una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = a\) y \(\phi(n + 1) = f_n(\phi(n))\) para todo \( n \in \naturalNumbers\).
     La unicidad de esta gran \(\phi\) es consecuencia de la unicidad de las pequeñas \(\phi_N\) con \(N \in \naturalNumbers\).
+  \end{proof}
+
+  \begin{theorem}[6.3 Algoritmo de la División]
+    Si \(a, b \in \integerNumbers\) y \(a \neq 0\), entonces existen enteros \(q\) y \(r\), únicos tales que \(b = a q + r\) y 
+    \(0 \leq r < \abs{a}\).
+  \end{theorem}
+  \begin{proof}
+    Siendo que \(a \neq 0\), el conjunto \(a \integerNumbers\) no está acotado inferiormente.
+    Luego, existe un entero en \(a \integerNumbers\) menor o igual a \(b\).
+    Por eso el conjunto \(S = (b - a \integerNumbers) \cap \naturalNumbers\) no vacío.
+    En tanto es un subconjunto novacío de \(\naturalNumbers\), \(S\) contiene un elemento mínimo \(r = b - a q\) (para algún \(q \in \integerNumbers\)).
+
+    Tenemos, en primer lugar, que \(b = a q + r\).
+    También sabemos \(0 \leq r\) porque \(r \in \naturalNumbers\).
+
+    Supongamos, para llegar a un absurdo, que \(r \geq \abs{a}\).
+    Escribimos \(\abs{a} = a \sigma\) con \(\sigma = \pm 1\).
+    Así, \(\sigma \in \integerNumbers\) implica que \(q' = q + \sigma\), \(r' = r - a \sigma\) son números enteros tales que \(b = a q + r = a (q + \sigma) + (r - a \sigma) = a q' + r'\).
+    Más aún, \(r \geq \abs{a}\) implica \(r' \geq 0\).
+    Luego \(r' \in S\), conjunto que tiene a \(r\) como elemento mínimo.
+    Se sigue que \(r \leq r'\).
+    Pero \(a \sigma > 0\) porque \(a \neq 0\), luego \(r' = r - a \sigma < r\).
+    Esto es absurdo.
+    Por lo tanto \(r < \abs{a}\).
+
+    Para probar la unicidad de \(q\), \(r\), suponemos que \(q'\), \(r'\) son enteros tales que \(b = a q' + r'\) y \(0 \leq r' < \abs{a}\).
+    Luego, las ecuaciones \(b = a q + r\) y \(b = a q' + r'\) implican \(- a (q' - q) = r' - r\); y las desigualdades \(0  \leq r < \abs{a}\) y \(0 \leq r' < \abs{a}\) implican \(- \abs{a} < r' - r < \abs{a}\).
+    Juntas, permiten deducir que \(\abs{- a (q' - q)} < \abs{a}\) y \(\abs{q' - q} < 1\).
+    Pero \(\abs{q' - q} \in \naturalNumbers\), y el menor número natural positivo es \(1\), por lo tanto \(\abs{q' - q} = 0\).
+    Concluímos \(q' - q = 0\), y \(r' - r = - a \cdot 0 = 0\).
   \end{proof}
 \end{document}
