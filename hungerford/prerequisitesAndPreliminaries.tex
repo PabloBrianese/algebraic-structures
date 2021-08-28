@@ -95,4 +95,37 @@
     Pero \(\abs{q' - q} \in \naturalNumbers\), y el menor número natural positivo es \(1\), por lo tanto \(\abs{q' - q} = 0\).
     Concluímos \(q' - q = 0\), y \(r' - r = - a \cdot 0 = 0\).
   \end{proof}
+
+  \begin{theorem}[Existencia del máximo común divisor]
+    Si \(a_1, a_2, \dots, a_n\) son enteros, no todos nulos, entonces \((a_1, a_2, \dots, a_n)\) existe.
+    Más aún, existen enteros \(k_1, k_2, \dots, k_n\) tales que \((a_1, a_2, \dots, a_n) = k_1 a_1 + k_2 a_2 + \cdots + k_n a_n\).
+  \end{theorem}
+  \begin{proof}
+    Consideremos el conjunto \(C = a_1 \integerNumbers + a_2 \integerNumbers + \cdots + a_n \integerNumbers\).
+    Este contiene al menos a un elemento positivo \(\abs{a_1} + \abs{a_2} + \cdots + \abs{a_n}\) porque \(a_1, a_2, \dots, a_n\) no son todos nulos y \(\abs{a_i} \in a_i \integerNumbers\) para todo \(i\).
+    Luego el conjunto \(S = C \cap \integerNumbers^+\), en tanto subconjunto de \(\naturalNumbers\), tiene un elemento mínimo que denotamos por \(d\).
+    Además, este mínimo puede escribirse como \(d = k_1 a_1 + k_2 a_2 + \cdots + k_n a_n\) para unos \(k_1, k_2, \dots, k_n \in \integerNumbers\).
+
+    Dado \(a_i\) con \(i \in \{1, 2, \dots, n\}\), por el teorema del Algoritmo de la División, existen enteros \(q\), \(r\) tales que \(a_i = d q + r\) con \(0 \leq r < d\).
+    La ecuación \(r = a_i - d q\) implica \(r \in C\).
+    Y la desigualdad \(0 \leq r\) implica \(r \in \naturalNumbers\).
+    Si fuera el caso que \(r \in \integerNumbers^+\), entonces sería \(r \in S\) y \(d \leq r\) (porque \(d = \min S\)).
+    Pero \(r < d\) por el Teorema del Algoritmo de la División.
+    Luego \(r = 0\).
+    Esto prueba que \(d \mid a_i\).
+
+    Sea \(d'\) un entero que divide a cada \(a_1, a_2, \dots, a_n\).
+    Luego existen enteros \(q_1, q_2, \dots, q_n\) tales que \(a_i = d' q_i\) para todo \(i \in \{1, 2, \dots, n\}\).
+    Por eso
+    \begin{align}
+      d
+      =
+      \sum_{i = 1}^n k_i a_i
+      =
+      \sum_{i = 1}^n k_i d' q_i
+      =
+      d' \left( \sum_{i = 1}^n k_i q_i \right)
+    \end{align}
+    resulta que \(d' \mid d\).
+  \end{proof}
 \end{document}
