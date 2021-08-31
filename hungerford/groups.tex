@@ -1,0 +1,274 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+\title{Grupos \\ Hungerford}
+\author{Pablo Brianese}
+
+\usepackage{mathtools, amsthm, amssymb}
+\usepackage{tikz-cd}
+
+\newcommand{\naturalNumbers}{\mathbb{N}}
+\newcommand{\integerNumbers}{\mathbb{Z}}
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+\newtheorem{theorem}{Teorema}
+\newtheorem{proposition}{Proposición}
+\theoremstyle{remark}
+\newtheorem{remark}{Observación}
+
+\begin{document}
+  \maketitle
+
+  \begin{theorem}
+    Si \(G\) es un monoide, entonces el elemento identidad \(e\) es único.
+    Si \(G\) es un grupo, entonces
+    \begin{enumerate}
+      \item
+        \label{theorem:inAGroupOnlyTheIdentityIsIdempotent}
+        \(cc = c\) implica \(c = e\), para todo \(c \in G\);
+      \item
+        \label{theorem:leftAndRightCancellationInAGroup}
+        para todo \(a, b, c \in G\), \(a b = a c\) implica \(b = c\) y \(b a = c a\) implica \(b = c\) (cancelación a izquierda y a derecha);
+      \item
+        \label{theorem:uniquenessOfInverseElement}
+        para cada \(a \in G\), el elemento inverso \(a^{- 1}\) es único;
+      \item
+        \label{theorem:takingInversesIsAnInvolutiveOperation}
+        para cada \(a \in G\), \((a^{- 1})^{- 1} = a\);
+      \item
+        \label{theorem:inverseOfAProductFormula}
+        para \(a, b \in G\), \((a b)^{- 1} = b^{- 1} a^{- 1}\);
+      \item para \(a, b \in G\), las ecuaciones \(a x = b\) e \(y a = b\) tienen soluciones únicas en \(G\): \(x = a^{- 1} b\) e \(y = b a^{- 1}\).
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof} 
+    Si \(G\) es un monoide y \(e, e'\) son identidades bilaterales, entonces \(e = e e' = e'\).
+  \end{proof}
+  \begin{proof} \ref{theorem:inAGroupOnlyTheIdentityIsIdempotent}.
+    Porque \(e\) es la identidad
+    \(
+      c = c c
+      \Rightarrow
+      c e = (c c) e = c c
+    \).
+    Por la existencia de inversos en el grupo, podemos decir que 
+    \(
+      c e = c c
+      \Rightarrow
+      c^{- 1} (c e) = c^{- 1} (c c)
+    \).
+    La asociatividad de la operación del grupo implica 
+    \(
+      c^{- 1} (c e) = c^{- 1} (c c)
+      \Rightarrow
+      (c^{- 1} c) e = (c^{- 1} c) c
+    \).
+    Por definición del inverso \(c^{-1}\), se sigue
+    \(
+      (c^{- 1} c) e = (c^{- 1} c) c
+      \Rightarrow
+      e e = e c
+    \).
+    Nuevamente, porque \(e\) es la identidad del grupo,
+    \(
+      e e = e c
+      \Rightarrow
+      e = c
+    \).
+  \end{proof}
+  \begin{proof} \ref{theorem:leftAndRightCancellationInAGroup}.
+    Suponemos \(a b = a c\).
+    La existencia de inversos en el grupo implica \(a^{- 1} (a b) = a^{- 1} (a c)\).
+    La asociatividad de la operación del grupo implica \((a^{- 1} a) b = (a^{- 1} a) c\).
+    Por definición del inverso \(a^{- 1}\), se sigue \(e b = e c\).
+    Porque \(e\) es la identidad, concluímos \(b = c\).
+
+    Suponemos \(b a = c a\).
+    La existencia de inversos en el grupo implica \((b a) a^{- 1} = (c a) a^{- 1}\).
+    La asociatividad de la operación del grupo implica \(b (a a^{- 1}) = c (a a^{- 1})\).
+    Por definición del inverso \(a^{- 1}\), se sigue \(b e = c e\).
+    Porque \(e\) es la identidad, concluímos \(b = c\).
+  \end{proof}
+  \begin{proof} \ref{theorem:uniquenessOfInverseElement}.
+    Sea \(b\) tal que \(a b = b a = e\).
+    Por la existencia de inversos en el grupo, podemos decir que \((b a) a^{- 1} = e a^{- 1}\).
+    La asociatividad de la operación del grupo implica \(b (a a^{- 1}) = e a^{- 1}\).
+    Por definición del inverso \(a^{- 1}\), se sigue \(b e = e a^{- 1}\).
+    Porque \(e\) es la identidad, concluímos \(b = a^{- 1}\).
+  \end{proof}
+  \begin{proof} \ref{theorem:takingInversesIsAnInvolutiveOperation}
+    Sea \(b = a^{- 1}\).
+    Por definición del inverso \(a^{- 1}\), tenemos \(a b = b a = e\).
+    Por definición del inverso \(b^{- 1}\) tenemos \(b^{- 1} b = b b^{- 1} = e\).
+    Por unicidad del inverso (ver \ref{theorem:uniquenessOfInverseElement}) \(a = b^{- 1}\).
+  \end{proof}
+  \begin{proof} \ref{theorem:inverseOfAProductFormula}
+    Por la unicidad del elemento inverso (ver \ref{theorem:uniquenessOfInverseElement}) basta con calcular los productos \((a b) (b^{ - 1} a^{- 1})\) y \((b^{ - 1} a^{- 1}) (a b)\).
+
+    Usando la asociatividad del producto deducimos
+    \(
+      (a b) (b^{ - 1} a^{- 1})
+      =
+      a (b (b^{- 1} a^{- 1}))
+    \)
+    y
+    \(
+      a (b (b^{- 1} a^{- 1}))
+      =
+      a ((b b^{- 1}) a^{- 1})
+    \).
+    Por la definición del inverso \(a ((b b^{- 1}) a^{- 1}) = a (e a^{- 1})\).
+    Porque \(e\) es la identidad del grupo \(a (e a^{- 1}) = a a^{- 1}\).
+    Por la definición del inverso \(a a^{- 1} = e\).
+    Concluímos \((a b) (b^{-1} a^{- 1}) = e\).
+
+    Usando la asociatividad del producto deducimos
+    \(
+      (b^{ - 1} a^{- 1}) (a b)
+      =
+      b (a (a^{- 1} b^{- 1}))
+    \)
+    y
+    \(
+      b (a (a^{- 1} b^{- 1}))
+      =
+      b ((a a^{- 1}) b^{- 1})
+    \).
+    Por la definición del inverso \(b ((a a^{- 1}) b^{- 1}) = b (e b^{- 1})\).
+    Porque \(e\) es la identidad del grupo \(b (e b^{- 1}) = b b^{- 1}\).
+    Por la definición del inverso \(b b^{- 1} = e\).
+    Concluímos \((b^{-1} a^{- 1}) (a b) = e\).
+  \end{proof}
+
+  \begin{proposition}
+    Sea \(G\) un  semigrupo.
+    Entonces \(G\) es un grupo si y solo si se verifican las siguientes condiciones
+    \begin{enumerate}
+      \item \label{condition:leftIdentityElement} existe un elemento \(e \in G\) tal que \(e a = a\) para todo \( a \in G\) (elemento identidad izquierdo).
+      \item \label{condition:leftInverse} para cada \(a \in G\), existe un elemento \(a^{- 1} \in G\) tal que \(a^{- 1} a = e\) (inversos izquierdos).
+    \end{enumerate}
+  \end{proposition}
+
+  \begin{remark}
+    Cambiando la condición del elemento identidad izquierdo por una condición del ``elemento identidad derecho'', o cambiando la condición de los inversos izquierdos por una condición de los ``inversos derechos'', se obtienen resultados análogos que siguen siendo verdaderos.
+  \end{remark}
+
+  \begin{proof}
+    Las condiciones \ref{condition:leftIdentityElement} y \ref{condition:leftInverse} se deducen fácilmente cuando \(G\) es un grupo.
+    La implicación recíproca sí tiene interés.
+
+    Supongamos \ref{condition:leftIdentityElement} y \ref{condition:leftInverse}.
+    Entonces \(aa = a\) implica \(a = e\) para todo \(a \in G\).
+    En efecto, suponiendo \(aa = a\) se deduce
+    \begin{align}
+      aa = a
+      &\Rightarrow
+      a^{- 1} (a a) = a^{- 1} a
+      &&\text{por \ref{condition:leftInverse}}
+      \\
+      &\Rightarrow
+      (a^{- 1} a) a = a^{- 1} a
+      &&\text{por asociatividad}
+      \\
+      &\Rightarrow
+      e a = e
+      &&\text{por \ref{condition:leftInverse}}
+      \\
+      &\Rightarrow
+      a = e
+      &&\text{por \ref{condition:leftIdentityElement}}
+    \end{align}
+    Este hecho es muy importante.
+    ¿Por qué?
+    Porque para todo elemento \(a \in G\)
+    \begin{align}
+      (a a^{- 1}) (a a^{- 1})
+      &=
+      a (a^{- 1} (a a^{- 1}))
+      &&\text{por asociatividad}
+      \\
+      &=
+      a ((a^{- 1} a) a^{- 1})
+      &&\text{por asociatividad}
+      \\
+      &=
+      a (e a^{- 1})
+      &&\text{por \ref{condition:leftInverse}}
+      \\
+      &=
+      a a^{- 1}
+      &&\text{por \ref{condition:leftIdentityElement}}
+    \end{align}
+    Lo cual nos permite deducir \(a a^{- 1} = e\), cuando en un principio sólo sabíamos \(a^{- 1} a = e\) por la condición \ref{condition:leftInverse}.
+    Es decir que los inversos izquierdos son inversos bilaterales.
+    Habiendo completado la propiedad de los inversos bilaterales podemos deducir la bilateralidad del elemento identidad \(e\) como sigue
+    \begin{align}
+      a e
+      &=
+      a (a^{- 1} a)
+      &&\text{por \ref{condition:leftIdentityElement}}
+      \\
+      &=
+      (a a^{- 1}) a
+      &&\text{por asociatividad}
+      \\
+      &=
+      e a
+      &&\text{porque los inversos son bilaterales}
+      \\
+      &=
+      a
+      &&\text{por \ref{condition:leftIdentityElement}}
+    \end{align}
+  \end{proof}
+
+
+  \begin{theorem}
+    Sea \(R\) (\(\sim\)) una relación de congruencia sobre un monoide \(G\), es decir, una relación de equivalencia tal que \(a_1 \sim a_n\) y \(b_1 \sim b_2\) implican \(a_1 b_1 \sim a_2 b_2\) para todo \(a_i, b_i \in G\).
+    Entonces el conjunto \(G / R\) formado por todas las clases de equivalencia de \(G\) bajo \(R\) es un monoide bajo la operacion binaria definida por \(\overline{a} \overline{b} = \overline{a b}\), donde \(\overline{x}\) denota la clase de equivalencia de \(x \in G\).
+    Si \(G\) es un grupo [abeliano], entonces también lo es \(G / R\).
+  \end{theorem}
+  \begin{proof}
+    Lo primero que debemos probar es que la operación binaria propuesta está bien definida, es decir que el producto \(\overline{a} \overline{b} = \overline{a b}\) es independiente de la elección de elementos representativos \(a, b\).
+    Por eso tomamos un par de elementos \(a_1, a_2 \in G\) tales que \(\overline{a_1} = \overline{a_2}\), y otro par \(b_1, b_2 \in G\) con \(\overline{b_1} = \overline{b_2}\).
+    Se sigue que \(a_1 \sim a_2\) y \(b_1 \sim b_2\), por propiedades elementales de las relaciones de equivalencia.
+    Por ser \(R\) una relación de congruencia deducimos \(a_1 b_1 \sim a_2 b_2\).
+    Usando, nuevamente, propiedades elementales de las relaciones de equivalencia deducimos \(\overline{a_1 b_1} = \overline{a_2 b_2}\).
+
+    Esta operación en \(G / R\) hereda su asociatividad de \(G\).
+    Si \(a, b, c \in G\) entonces
+    \(
+      \overline{a} (\overline{b} \overline{c})
+      =
+      \overline{a} \overline{b c}
+      =
+      \overline{a (b c)}
+      =
+      \overline{(a b) c}
+      =
+      \overline{a b} \overline{c}
+      =
+      (\overline{a} \overline{b}) \overline{c}
+    \).
+    También hereda su elemento neutro.
+    Si \(a \in G\) entonces \(\overline{e}\cdot \overline{a} = \overline{e a} = \overline{a}\) y \(\overline{a} \cdot \overline{e} = \overline{a e} = \overline{a}\), lo cual hace de \(\overline{e}\) el elemento neutro de \(G / R\).
+    Por lo tanto \(G / R\) es un monoide, dado que \(G\) lo es.
+
+    Si \(G\) es un grupo, entonces \(G / R\) hereda los elementos inversos del primero.
+    Si \(a \in G\), entonces \(\overline{a} \overline{a^{- 1}} = \overline{a a^{- 1}} = \overline{e}\) y \(\overline{a^{- 1}} \overline{a} = \overline{a^{- 1} a} = \overline{e}\) de modo tal que \(\overline{a^{-1}} = \overline{a}^{- 1}\).
+    Esto hace de \(G / R\) un grupo.
+
+    Si \(G\) es conmutativo, entonces también \(G / R\) es conmutativo.
+    Si \(a, b \in G\) entonces \(\overline{a} \overline{b} = \overline{a b} = \overline{b a} = \overline{b} \overline{a}\).
+  \end{proof}
+\end{document}
+
+
+
+
+
+
+
+
+
+
