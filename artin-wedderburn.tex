@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+\usepackage{mathtools}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Teorema}
+\newtheorem{definition}{Definición}
+
+\title{Teorema de Artin--Wedderburn}
+\author{Pablo Brianese}
+\begin{document}
+  \maketitle
+
+  \begin{definition}
+    Un anillo \(R\) es \emph{noetheriano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena ascendente sobre ss ideales izquierdos (resp. derechos).
+    Se dice que \(R\) es \emph{noetheriano} si \(R\) es noetheriano izquierdo y derecho a la vez.
+
+    Un anillo \(R\) es \emph{artiniano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena descendiente sobre sus ideales izquierdos (resp. derechos).
+    Se dice que \(R\) es artiniano si \(R\) es artiniano izquierdo y derecho a la vez.
+  \end{definition}
+
+  \begin{theorem}[de Artin--Wedderburn]
+    Las siguientes condiciones sobre un anillo artiniano izquierdo \(R\) son equivalentes.
+    \begin{enumerate}
+      \item \(R\) es simple;
+      \item \(R\) es isomorfo al anillo de endomorfismos de un espacio vectorial nonulo sobre un anillo de división \(D\);
+      \item para algún entero positivo \(n\), \(R\) es isomorfo al anillo formado por las matrices \(n \times n\) sobre un anillo de división.
+    \end{enumerate}
+  \end{theorem}
+
+\end{document}
