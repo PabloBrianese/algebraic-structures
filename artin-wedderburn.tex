@@ -4,6 +4,9 @@
 \usepackage{mathtools}
 \usepackage{amsthm, amsfonts}
 
+\newcommand{\naturalNumbers}{\mathbb{N}}
+\newcommand{\Hom}{\text{Hom}}
+
 \newtheorem{theorem}{Teorema}
 \newtheorem{definition}{Definición}
 
@@ -45,10 +48,87 @@
   \begin{theorem}[de Artin--Wedderburn]
     Las siguientes condiciones sobre un anillo artiniano izquierdo \(R\) son equivalentes.
     \begin{enumerate}
-      \item \(R\) es simple;
-      \item \(R\) es isomorfo al anillo de endomorfismos de un espacio vectorial nonulo sobre un anillo de división \(D\);
-      \item para algún entero positivo \(n\), \(R\) es isomorfo al anillo formado por las matrices \(n \times n\) sobre un anillo de división.
+      \item
+        \label{property:artin--wedderburn_simple-ring}
+        \(R\) es simple;
+      \item
+        \label{property:artin--wedderburn_primitive-ring}
+        \(R\) es primitivo;
+      \item
+        \label{property:artin--wedderburn_endomorphism-ring}
+        \(R\) es isomorfo al anillo de endomorfismos de un espacio vectorial nonulo sobre un anillo de división \(D\);
+      \item
+        \label{property:artin--wedderburn_matrix-ring}
+        para algún entero positivo \(n\), \(R\) es isomorfo al anillo formado por las matrices \(n \times n\) sobre un anillo de división.
     \end{enumerate}
   \end{theorem}
+  \begin{proof}
+    \(\ref{property:artin--wedderburn_simple-ring} \Rightarrow \ref{property:artin--wedderburn_primitive-ring}\).
+    Primero observamos que \(I = \{r \in R \mid R r = 0\}\) es un ideal de \(R\), con la propiedad \(I R = 0\).
+    Pero \(R\) es simple: no tiene ideales propios, por lo cual \(I = R\) o \(I = 0\);
+    y \(R R \neq 0\), por lo cual \(I = 0\).
+
+    Consideremos el conjunto \(\mathcal{S}\) formado por todos los ideales izquierdos nonulos de \(R\).
+    Dado que \(R\) es artiniano izquierdo, satisface la condición de la cadena descendiente sobre ideales izquierdos.
+    En particular, para toda sucesión \(\{S_i\}_{i \in \naturalNumbers}\) en \(\mathcal{S}\) con \(S_0 \supseteq S_1 \supseteq S_2 \supseteq \cdots\), existe un \(m \in \naturalNumbers\) tal que \(S_m = S_i\) para todo \(i \geq m\).
+    El Lema de Zorn permite deducir de esto la existencia de un elemento minimal \(J \in \mathcal{S}\), tal que \(J \supseteq J' \rightarrow J = J'\) para todo \(J' \in \mathcal{S}\).
+    Esta minimalidad hace que \(J\) no tenga \(R\)--submódulos propios (un \(R\)--submódulo de \(J\) es un ideal izquierdo de \(R\) contenido en \(J\)).
+
+    Afirmamos que el aniquilador izquierdo \(\mathcal{A}(J)\) de \(J\) en \(R\) es cero.
+    De otro modo \(\mathcal{A}(J) = R\) por simplicidad y \(R u = 0\) para cada \(u \in J\) nonulo.
+    Consecuentemente, cada uno de estos \(u\) nonulos pertenece a \(I = 0\), lo cual es una contradicción.
+    Por lo tanto \(\mathcal{A}(J) = 0\) y \(R J \neq 0\).
+    En conclusión, \(J\) es un \(R\)--módulo simple y fiel, y \(R\) es primitivo.
+
+    \(\ref{property:artin--wedderburn_primitive-ring} \Rightarrow \ref{property:artin--wedderburn_endomorphism-ring}\)
+    Por el Teorema de Densidad de Jacobson \ref{}, \(R\) es isomorfo a un anillo denso \(T\) compuesto por endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
+    Porque \(R\) es artiniano izquierdo, \(R \simeq T = \Hom _D(V, V)\) por el teorema \ref{}.
+
+    \(\ref{property:artin--wedderburn_endomorphism-ring} \Leftrightarrow \ref{property:artin--wedderburn_matrix-ring}\)
+    Teorema \ref{}
+
+    \(\ref{property:artin--wedderburn_matrix-ring} \Leftrightarrow \ref{property:artin--wedderburn_simple-ring}\)
+    Ejercicio \ref{}
+  \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
