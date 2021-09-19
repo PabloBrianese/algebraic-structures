@@ -7,6 +7,8 @@
 \newcommand{\naturalNumbers}{\mathbb{N}}
 \newcommand{\Hom}{\text{Hom}}
 
+\DeclareMathOperator{\image}{\text{Im}}
+
 \newtheorem{theorem}{Teorema}
 \newtheorem{definition}{Definición}
 
@@ -35,6 +37,27 @@
     Considerar \(A\) como espacio vectorial sobre el anillo de división \(\Hom_R(A, A) = D\).
     Entonces \(R\) es isomorfo a un anillo denso de endomorfismos de \(D\)--espacio vectorial \(A\).
   \end{theorem}
+  \begin{proof}
+    Para cada \(r \in R\) la aplicación \(\alpha_r : A \rightarrow A\) dada por \(\alpha_r(a) = r a\) es facilmente identificada como un \(D\)--endomorfismo de \(A\): esto es, \(\alpha_r \in \Hom_D(A, A)\).
+    Además para todo par \(r, s \in R\) se verifican \(\alpha_{(r + s)} = \alpha_r + \alpha_s\) y \(\alpha_{r s} = \alpha_r \alpha_s\).
+    Consecuentemente la aplicación \(\alpha : R \rightarrow \Hom_D(A, A)\) definida por \(\alpha(r) = \alpha_r\) es un homomorfismo de anillos bien definido.
+    Dado que \(A\) es un \(R\)--módulo fiel, \(\alpha_r = 0\) si y solo si \(r \in \mathcal{A}(A) = 0\).
+    De aquí que \(\alpha\) es un monomorfismo, y \(R\) es isomorfo al subanillo \(\image \alpha\) de \(\Hom_D(A, A)\).
+
+    Para completar la prueba debemos mostrar que \(\image \alpha\) es un subanillo denso de \(\Hom_D(A, A)\).
+    Dado un subconjunto \(D\)--linealmente independiente \(\{u_1, \dots, u_n\}\) de \(A\), y un subconjunto arbitrario \(\{v_1, \dots, v_n\}\) de \(A\), debemos encontrar \(\alpha_r \in \image \alpha\) tal que \(\alpha_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
+    Para cada \(i\) sea \(V_i\) el \(D\)--subespacio de \(A\) generado por \(\{u_j : j \neq i\}\).
+    Dado que \(\{u_1, \dots, u_n\}\) es linealmente independiente, \(u_i \notin V_i\).
+    Consecuentemente, por el lema \ref{} existe \(r_i \in R\) tal que \(r_i u_i \neq 0\) y \(r_i V_i = 0\).
+    Después aplicamos el lema \ref{} al subespacio nulo y a elemento nonulo \(r_i u_i\):
+    existe \(s_i \in R\) tal que \(s_i r_i u_i \neq 0\) y \(s_i 0 = 0\).
+    Siendo \(s_i r_i u_i \neq 0\), el \(R\) submódulo \(R (r_i u_i)\) de \(A\) es nonulo, luego \(R(r_i u_i) = A\) por simplicidad.
+    Por esto existe \(t_i \in R\) tal que \(t_i r_i u_i = v_i\).
+    Sea \(r = t_1 r_1 + t_2 r_2 + \cdots + t_n r_n\).
+    Recordar que \(u_i \in V_j\) para \(i \neq j\), luego \(t_j r_j u_i \in t_j (r_j V_i) = t_j 0 = 0\).
+    Consecuentemente \(\alpha_r(u_i) = (t_1 r_1 + \cdots + t_n r_n) u_i = r_i r_i u_i = v_i\).
+    Por lo tanto \(\image \alpha\) es un anillo denso de endomorfismos de \(D\)--espacio vectorial \(A\).
+  \end{proof}
 
   \begin{definition}
     Decimos que un módulo \(A\) satisface la \emph{condición de la cadena ascendente (ACC) sobre submódulos} (o decimos que es \emph{noetheriano}) si para toda cadena \(A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots\) de submódulos de \(A\), existe un entero \(m\) tal que \(B_i = B_m\) para todo \(i \geq m\).
