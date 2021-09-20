@@ -10,6 +10,7 @@
 \DeclareMathOperator{\image}{\text{Im}}
 
 \newtheorem{theorem}{Teorema}
+\newtheorem{lemma}{Lema}
 \newtheorem{definition}{Definición}
 
 \title{Teorema de Artin--Wedderburn}
@@ -36,6 +37,12 @@
     Sea \(V\) un espacio vectorial izquierdo sobre un anillo de división \(D\).
     Un subanillo \(R\) del anillo de endomorfismos \(\Hom_D(V, V)\) es un \emph{anillo denso de endomorfismos} de \(V\) (o un \emph{subanillo denso} de \(\Hom_D(V, V)\)) si para todo entero positivo \(n\), cada subconjunto linealmente independiente \(\{u_1, \dots, u_n\}\) de \(V\) y cada subconjunto arbitrario \(\{v_1, \dots, v_n\}\) de \(V\), existe \(\theta \in R\) tal que \(\theta(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
   \end{definition}
+
+  \begin{lemma}
+    Sea \(A\) un módulo simple sobre un anillo \(R\).
+    Consideramos \(A\) como un espacio vectorial sobre el anillo de división \(D = \Hom_R(A, A)\).
+    Si \(V\) es un subespacio finito-dimensional del \(D\)-espacio vectorial \(A\) y \(a \in A \setminus V\), entonces existe \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
+  \end{lemma}
 
   \begin{theorem}[de Densidad de Jacobson]
     Sea \(R\) un anillo primitivo y \(A\) un \(R\)--módulo simple y fiel.
