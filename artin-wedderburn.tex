@@ -11,6 +11,7 @@
 
 \newtheorem{theorem}{Teorema}
 \newtheorem{lemma}{Lema}
+\newtheorem{proposition}{Proposición}
 \newtheorem{definition}{Definición}
 
 \title{Teorema de Artin--Wedderburn}
@@ -22,6 +23,16 @@
     Un módulo (izquierdo) \(A\) sobre un anillo \(R\) es \emph{simple} (o \emph{irreducible}) si \(R A \neq 0\) y \(A\) no tiene submódulos propios.
     Un anillo \(R\) es \emph{simple} si \(R^2 \neq 0\) y \(R\) no tiene ideales (bilaterales) propios.
   \end{definition}
+
+  \begin{proposition}
+    Todo módulo simple \(A\) es cíclico; de hecho, \(A = R a\) para todo \(a \in A\) nonulo.
+  \end{proposition}
+  \begin{proof}
+    Ambos \(Ra\) (con \(a \in A\) nonulo) y \(B = \{c \in A : R c = 0\}\) son submódulos de \(A\), de aquí que por simplicidad cada uno de ellos sea igual a 0 o \(A\).
+    También por simplicidad \(R A \neq 0\), esto implica \(B \neq A\) y \(B = 0\).
+    Luego \(a \notin B\) y \(R a \neq 0\).
+    En conclusión \(R a = A\).
+  \end{proof}
 
   \begin{definition}
     Un módulo (izquierdo) \(A\) es \emph{fiel} si su aniquilador (izquierdo) \(\mathcal{A}(A)\) es 0.
