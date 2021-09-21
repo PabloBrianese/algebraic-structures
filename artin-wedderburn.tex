@@ -23,6 +23,30 @@
     Si \(A\) es un conjunto parcialmente ordenado novacío tal que toda cadena en \(A\) tiene una cota superior en \(A\), entonces \(A\) contiene un elemento maximal.
   \end{theorem}
 
+  \begin{theorem}
+    Sea \(S\) el anillo formado por todas las matrices sobre un anillo de división \(D\).
+    \begin{enumerate}
+      \item
+        \label{theorem:matrixRingOverDivisionRingHasNoProperIdeals}
+        \(S\) no tiene ideales propios (es decir, 0 es un ideal maximal).
+      \item \label{theorem:matrixRingOverDivisionRingHasZeroDivisors} \(S\) tiene divisores de cero.
+      Consecuentemente,
+      \begin{enumerate}
+        \item \(S \simeq S / 0\) no es un anillo de división y
+        \item 0 es un ideal primo a pesar de no satisfacer la condición \(a b \in I \rightarrow {a \in I} \text{ o } {b \in I}\) \((\forall a, b \in S)\)
+      \end{enumerate}
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof} \ref{theorem:matrixRingOverDivisionRingHasNoProperIdeals}.
+    Si \(J\) es un ideal de \(S\), entonces \(J\) es el anillo formado por todas las matrices \(n \times n\) sobre \(I\) para algún ideal \(I\) en \(D\).
+    Pero \(D\) es un anillo de división, no tiene ideales propios.
+    Luego \(I = 0\) o \(I = D\), concluyendo que \(J = 0\) o \(J = S\).
+  \end{proof}
+  \begin{proof} \ref{theorem:matrixRingOverDivisionRingHasZeroDivisors}
+    Para encontrar divisores de cero basta observar la fórmula \(E_{r_1 s_1} E_{r_2 s_2} = \delta_{r_1 r_2} \delta_{s_1 s_2} E_{r_1 r_2}\).
+  \end{proof}
+
+
   \begin{definition}
     Un módulo (izquierdo) \(A\) sobre un anillo \(R\) es \emph{simple} (o \emph{irreducible}) si \(R A \neq 0\) y \(A\) no tiene submódulos propios.
     Un anillo \(R\) es \emph{simple} si \(R^2 \neq 0\) y \(R\) no tiene ideales (bilaterales) propios.
