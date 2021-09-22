@@ -23,6 +23,20 @@
     Si \(A\) es un conjunto parcialmente ordenado novacío tal que toda cadena en \(A\) tiene una cota superior en \(A\), entonces \(A\) contiene un elemento maximal.
   \end{theorem}
 
+  \begin{proposition}
+    Sea \(R\) un anillo con identidad, y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
+    Dentro de \(S\) podemos encontrar las matrices \(E_{r s}\), donde \(r, s \in \{1, \dots, n\}\), y \(E_{r s}\) tiene \(1_R\) como entrada \((r, s)\) y 0 en as demás posiciones.
+    Para toda matriz \(A = (a_{i j})\) en \(S\)
+    \begin{align}
+      E_{p r} A E_{s q}
+      =
+      a_{r s} E_{p q}
+    \end{align}
+  \end{proposition}
+  \begin{proof}
+    Es un cálculo directo.
+  \end{proof}
+
   \begin{theorem}
     Sea \(R\) un anillo con identidad y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
     \(J\) es un ideal de \(S\) si y solo si \(J\) es el anillo formado por todas las matrices \(n \times n\) sobre \(I\) para algún ideal \(I\) en \(R\).
