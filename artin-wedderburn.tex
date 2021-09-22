@@ -27,6 +27,59 @@
     Sea \(R\) un anillo con identidad y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
     \(J\) es un ideal de \(S\) si y solo si \(J\) es el anillo formado por todas las matrices \(n \times n\) sobre \(I\) para algún ideal \(I\) en \(R\).
   \end{theorem}
+  \begin{proof}
+    Sea \(J\) un ideal de \(S\).
+    Sea \(I\) el conjunto formado por todos los elementos de \(R\) que aparecen como entrada \((1, 1)\) de alguna matriz en \(J\).
+    Si \(a E \in J\) donde \(a \in R\) y \(E = E_{1 1} \in S\), entonces \(a \in I\).
+    La afirmación recíproca también es verdadera.
+    Notar que si \(a \in I\), entonces existe \(A = (a_{i j})\) en \(J\) con \(a_{1 1} = a\).
+    Al ser \(J\) un ideal (bilátero), tenemos \(E A E \in J\).
+    Pero \(E A E = a E\).
+    Entonces \(a E \in J\).
+    Hemos probado que \(a \in I\) si y solo si \(a E \in J\).
+
+    Afirmamos que \(I\) es un ideal.
+    En efecto, \(0 \in J\) porque \(J\) es un ideal.
+    Luego \(0 \in I\) por definición de \(I\).
+    Por otra parte, si \(a, b \in I\), entonces \(a E, b E \in J\).
+    Pero \(J\) es un ideal.
+    Entonces \((a + b) E = a E + b E \in J\).
+    Luego \(a + b \in I\).
+    Para finalizar consideramos \(r \in R\) y \(a \in I\).
+    Entonces \(r E \in S\) y \(a E \in J\).
+    Pero \(J\) es un ideal.
+    Entonces
+    \begin{align}
+      (r a) E
+      &=
+      (r a) E^2
+      =
+      (r E) (a E)
+      \in J
+      \\
+      (a r) E
+      &=
+      (a r) E^2
+      =
+      (a E) (r E)
+      \in J
+    \end{align}
+    Luego \(ra, ar \in I\).
+
+    Afirmamos que \(M_n(I) = J\).
+    Sea \(A = (a_{i j})\) una matriz en \(S\).
+    Comenzamos suponiendo \(A \in J\).
+    Consideremos \(i, j \in \{1, \dots, n\}\).
+    Porque \(J\) es un ideal, \(a_{r s} E = E_{1 r} A E_{s 1} \in J\).
+    Luego \(a_{r s} \in I\).
+    Porque \(i, j\) eran arbitrarios, se deduce \(A \in M_n(I)\).
+    Recíprocamente, suponemos que \(A = (a_{i j}) \in M_n(I)\).
+    Consideramos \(i, j \in \{1, \dots, n\}\).
+    Por hipótesis \(a_{i j} \in I\).
+    Luego \(a_{i j} E \in J\).
+    Porque \(J\) es un ideal, se deduce \(E_{i 1} (a_{i j} E) E_{1 j} \in J\) mientras \(E_{i 1} (a_{i j} E) E_{1 j} = a_{i j} E_{i j}\).
+    Porque \(i, j\) eran arbitrarios, usando que \(J\) está cerrado bajo suma, se deduce \(A = \sum_{i j} a_{i j} E_{i j} \in J\).
+  \end{proof}
 
   \begin{theorem}
     Sea \(S\) el anillo formado por todas las matrices sobre un anillo de división \(D\).
