@@ -242,7 +242,24 @@
   \begin{theorem}
     Un módulo satisface la condición de la cadena ascendente [resp. descencendente] sobre submódulos si y solo si satisface la condición maximal [resp. minimal] sobre submódulos.
   \end{theorem}
+  \begin{proof}
+    Supongamos que el módulo \(A\) satisface la condición minimal sobre submódulos y que \(A_1 \supseteq A_2 \supseteq \cdots\) es una cadena de submódulos.
+    Entonces el conjunto \(\{A_i \mid i \geq 1\}\) tiene un elemento minimal, digamos \(A_n\).
+    Consecuentemente, para \(i \geq n\) tenemos \(A_n \supseteq A_i\) por hipótesis y \(A_n \subseteq A_i\) por minimalidad, luego \(A_i = A_n\) para todo \(i \geq n\).
+    Por lo tanto, \(A\) satisface la condición descendiente de la cadena.
 
+    REcíprocamente supongamos que \(A\) satisface la condición de la cadena descendente, y \(S\) es un conjunto novacío de submódulos de \(A\).
+    Entonces existe \(B_0 \in S\).
+    Si \(S\) no tiene elemento minimal, entonces para todo submódulo \(B\) en \(S\) existe al menos un submódulo \(B'\) en \(S\) tal que \(B \supset B'\).
+    Para cada \(B\) en \(S\), elegimos uno de estos \(B'\) (Axioma de Elección).
+    Esta elección define una función \(f : S \rightarrow S\) mediante \(B \mapsto B'\).
+    Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = B_0\) y \(\phi(n + 1) = f(\phi(n))\) \((\forall n \in \naturalNumbers)\).
+    Por tanto si \(B_n = \phi(n)\) \((\forall n \in \naturalNumbers)\), entonces \(B_0 \supset B_1 \supset \cdots\) es una cadena descendiente que viola la condición descendiente de la cadena.
+    Por lo tanto, \(S\) debe tener un elemento minimal.
+    Concluímos que \(A\) satisface la condición minimal.
+
+    La prueba para las condiciones de la cadena ascendente y maximal es análoga.
+  \end{proof}
 
   \begin{theorem}[de Artin--Wedderburn]
     Las siguientes condiciones sobre un anillo artiniano izquierdo \(R\) son equivalentes.
