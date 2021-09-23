@@ -265,6 +265,24 @@
     Sea \(R\) un anillo denso de endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
     Entonces \(R\) es artiniano izquierdo [resp. derecho] si y solo si \(\dim_D V\) es finita, en cuyo caso \(R = \Hom_D(V, V)\).
   \end{theorem}
+  \begin{proof}
+    Si \(R\) es artiniano izquierdo, y \(\dim_D V\) es infinita, entonces existe un subconjunto de \(V\) linealmente independiente e infinito (numerable) \(\{u_1, u_2, \dots\}\).
+    Por el Ejercicio IV.1.7 \(V\) es un \(\Hom_D(V, V)\)-módulo izquierdo y por tanto un \(R\)-módulo izquierdo (recordar que \(R \subseteq \Hom_D(V, V)\)).
+    Para cada \(n\) sea \(I_n\) el aniquilador izquierdo en \(R\) del conjunto \(\{u_1, \dots, u_n\}\).
+    Por el Teorema 1.4 \(I_1 \supseteq I_2 \supseteq \cdots\) es una cadena descendente de ideales izquierdos de \(R\).
+    Sea \(w\) un elemento nonulo de \(V\), no importa cual de ellos sea (podría ser \(u_1\), por ejemplo).
+    Dado que \(\{u_1, \dots, u_{n + 1}\}\) es linealmente independiente (para cada \(n\)) y \(R\) es denso, existe \(\theta \in R\) tal que \(\theta u_i = 0\) \((\forall i \in \{1, \dots, n\})\) y \(\theta u_{n + 1} = w \neq 0\).
+    Consecuentemente \(\theta \in I_n\) pero \(\theta \notin I_{n + 1}\).
+    Por lo tanto \(I \supset I_2 \supset \cdots\) es una cadena estrictamente descencendente, su existencia lleva a una contradicción.
+    Luego \(\dim_D V\) es finita.
+
+    Recíprocamente, si \(\dim_D V\) es finita, entonces \(V\) tiene una base finita \(\{v_1, \dots, v_m\}\).
+    Si \(f\) es un elemento de \(\Hom_D(V, V)\), entonces \(f\) está completamente determinado por su acción sobre \(v_1, \dots, v_m\) por los teoremas IV.2.1 y IV.2.4.
+    Dado que \(R\) es denso, existe \(\theta \in R\) tal que \(\theta v_i = f v_i\) \(\forall i \in \{1, \dots, m\}\).
+    Luego \(f = \theta \in R\).
+    Por lo tanto \(\Hom_D(V, V) = R\).
+    Pero \(\Hom_D(V, V)\) es artiniano por el Teorema VII.1.4 y el corolario VIII.1.12.
+  \end{proof}
 
   \begin{theorem}[de Artin--Wedderburn]
     Las siguientes condiciones sobre un anillo artiniano izquierdo \(R\) son equivalentes.
