@@ -92,6 +92,45 @@
     Este ideal \(R E_{i i}\) está formado por todas las matrices \(A \in R\) tales que \(\Col_j A = 0\) \((\forall j \neq i)\).
     Además \(R E_{i i}\) es un ideal izquierdo nonulo minimal (es decir, no tiene submódulos propios).
   \end{theorem}
+  \begin{proof}
+    Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
+
+    Afirmamos que \(I\) es un ideal izquierdo.
+    Primero notamos que \(0 \in R\) puede expresarse como \(0 = 0 E \in I\).
+    Luego, dados \(a E, b E \in I\), tenemos \(a E + b E = (a + b) E \in I\).
+    Finalmente, si \(r \in R\) y \(a E \in I\), entonces \(r (a E) = (r a) E \in I\).
+
+    Afirmamos que \(I' = \{A \in R : \Col_j A = 0 \, (\forall j \neq j_0)\}\) es igual a \(I\).
+    Lo demostraremos usando que para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
+    \begin{align}
+      a E_{j_0 j_0}
+      =
+      I_n a E_{j_0 j_0}
+      =
+      \sum_{i = 1}^n E_{i i} a E_{j_0 j_0}
+      =
+      \sum_{j = 1}^n a_{i j_0} E_{i j_0}
+    \end{align}
+    Si \(A \in I\), entonces existe \(a \in R\) con \(A = a E\).
+    Luego \(A = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\) pertenece a \(I'\).
+    Recíprocamente, si \(A \in I'\), entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{i = 1}^n A_{i j_0} E_{i j_0} = A E_{j_0 j_0}\).
+
+    Afirmamos que \(I\) es minimal.
+    Supongamos que \(J\) es un submódulo nonulo de \(I\).
+    Entonces existe \(a \in J \setminus 0\).
+    Porque \(a \in I\) se sigue \(a = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\).
+    \(a \neq 0\) implica que \(a_{i_0 j_0} \neq 0\) para un \(i_0 \in \{1, \dots, n\}\).
+    Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por izquierda) su fila \(i_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
+    Entonces \(M a = 1_D E_{i_0 j_0} + \sum_{i \neq i_0} a_{i j_0} E_{i j_0}\).
+    Luego, existen matrices elementales de transformación \(A_i\) \((i \in \{1, \dots, n\} \setminus i_0)\), que actúan sobre \(a\) sumando a la fila \(i\)-ésima el producto (por izquierda) de \(- a_{i j_0}\) con la fila \(i_0\)-ésima.
+    Entonces \(A_1 \cdots A_n M a = 1_D E_{i_0 j_0}\) (donde definimos \(A_{i_0} = I_n\) para mejorar la notación).
+    Finalmente, para cada \(i \in \{1, \dots, n\}\), existe una matriz elemental de transformación \(P_i\) que actúa sobre \(a\) permutando las filas \(i\) e \(i_0\).
+    De ese modo \(P_i A_1 \cdots A_n M a = 1_D E_{i j_0}\).
+    Por lo tanto \(1_D E_{i j_0} \in J\) para todo \(i \in \{1, \dots, n\}\).
+    Eso implica que \(I = \sum_{i = 1}^n D E_{i j_0} \subseteq J\).
+    En conclusión \(J = I\).
+    
+  \end{proof}
 
   \begin{theorem}
     Sea \(R\) un anillo con identidad y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
