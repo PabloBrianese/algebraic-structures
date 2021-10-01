@@ -182,6 +182,68 @@
     Afirmamos que cada \(M_i\) es un ideal izquierdo de \(R\) y que \(M_i / M_{i - 1} \simeq R E_{i i}\).
     Por eso \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composicón de \(R\)-módulos izquierdos.
   \end{theorem}
+  \begin{proof}
+    Notar que \(M_i \subseteq R E_{1 1} + \cdots + R E_{i i}\).
+    Luego \(\Col_j A = 0\) \((\forall j \in \{i + 1, \dots, n\})\) para toda \(A \in M_i\).
+
+    Notar que si \(A \in M_i\) con \(A = r (E_{1 1} + \cdots + E_{i i})\) para un \(r \in R\), entonces \(A E_{i i} = r E_{i i}\).
+    En efecto
+    \begin{align}
+      A E_{i i}
+      &=
+      r (E_{11} + \cdots + E_{i i}) E_{i i}
+      \\
+      &=
+      r (E_{11} E_{i i} + \cdots + E_{i - 1, i - 1} E_{i i} + E_{i i}^2)
+      \\
+      &=
+      r (0 + \cdots + 0 + E_{i i})
+      \\
+      &=
+      r E_{i i}
+    \end{align}
+    Por este motivo \(A + M_{i - 1} = A E_{i i} + M_{i - 1}\).
+    Calculamos
+    \begin{align}
+      A + M_{i - 1}
+      &=
+      r (E_{1 1} + \cdots + E_{i i}) + M_{i - 1}
+      \\
+      &=
+      r(E_{1 1} + \cdots + E_{i - 1, i - 1}) + r E_{i i} + M_{i - 1}
+      \\
+      &=
+      r E_{i i} + M_{i - 1}
+      \\
+      &=
+      A E_{i i} + M_{i - 1}
+    \end{align}
+
+    Supongamos que \(A + M_{i - 1} = B + M_{i - 1}\).
+    Entonces \(A E_{i i} + M_{i - 1} = B E_{i i} + M_{i - 1}\).
+    Escribamos \(C = (A - B) E_{i i}\).
+    Por un lado \(C \in M_{i - 1}\) y por el otro \(C \in R E_{i i}\).
+    El primer dato implica \(\Col_j C = 0\) para \(j \in \{i, \dots, n\}\).
+    El segundo dato implica \(\Col_j C = 0\) para \(j \in \{1, \dots, n\} \setminus i\).
+    Luego \(C = 0\).
+    Es decir \(A E_{i i} = B E_{i i}\).
+
+    Esto nos permite definir una función \(\phi : M_i / M_{i - 1} \rightarrow R E_{i i}\) dada por \(A + M_{i - 1} \mapsto A E_{i i}\).
+    Así definida, es un homomorfismo de \(R\)-módulos.
+
+    Es además un monomorfismo.
+    Si \(\phi(A + M_{i - 1}) = 0\) entonces \(A E_{i i} = 0\) y \(\Col_i A = 0\).
+    Además, \(A \in M_i\) implica \(\Col_j A = 0\) \((\forall j > i)\).
+    Luego \(\Col_j A = 0\) \((\forall j \in \{i, \dots, n\})\), y \(A \in M_{i - 1}\).
+    Entonces \(A + M_{i - 1} = 0 + M_{i - 1}\).
+
+    También es un epimorfismo.
+    Dado \(A E_{i i} \in R E_{i i}\), tenemos \(A E_{i i} \in M_i\).
+    Calculamos \(\phi(A E_{i i} + M_i)= (A E_{i i}) E_{i i} = A E_{i i}^2 = A E_{i i}\).
+    Por lo tanto \(A E_{i i} \in \image \phi\).
+
+    Concluímos que \(\phi : M_i / M_{i - 1} \rightarrow R E_{i i}\) es un isomorfismo.
+  \end{proof}
 
   \begin{theorem}
     Sea \(R\) un anillo con identidad y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
