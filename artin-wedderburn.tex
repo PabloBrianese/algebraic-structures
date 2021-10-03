@@ -250,6 +250,66 @@
     Afirmamos que cada \(M_i\) es un ideal derecho de \(R\) y que \(M_i / M_{i - 1} \simeq E_{i i} R\).
     Por eso \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composición de \(R\)-módulos derechos.
   \end{theorem}
+  \begin{proof}
+    Notar que \(M_{i_0} \subseteq E_{1 1} R + \cdots + E_{i_0 i_0} R\).
+    Luego \(\Fila_i A = 0\) \((\forall i \in \{i_0 + 1, \dots, n\})\) para toda \(A \in M_{i_0}\).
+
+    Notar que se \(A \in M_{i_0}\) con \(A = (E_{1 1} + \cdots + E_{i_0 i_0}) r\) para un \(r \in R\), entonces \(E_{i_0 i_0} A = E_{i_0 i_0} r\).
+    En efecto
+    \begin{align}
+      E_{i_0 i_0} A
+      &=
+      E_{i_0 i_0} (E_{1 1} + \cdots + E_{i_0 i_0}) r
+      \\
+      &=
+      (E_{i_0 i_0} E_{1 1} + \cdots + E_{i_0 i_0} E_{i_0 - 1, i_0 - 1} + E_{i_0 i_0}^2) r
+      \\
+      &=
+      (0 + \cdots + 0 + E_{i_0 i_0}) r
+      \\
+      &=
+      E_{i_0 i_0} r
+    \end{align}
+    Por este motivo \(A + M_{i_0 - 1} = A E_{i_0 i_0} + M_{i_0 - 1}\).
+    Calculamos
+    \begin{align}
+      A + M_{i_0 - 1}
+      &=
+      (E_{1 1} + \cdots + E_{i_0 i_0}) r + M_{i_0 - 1}
+      \\
+      &=
+      (E_{1 1} + \cdots + E_{i_0 - 1, i_0 - 1}) r + E_{i_0 i_0} r + M_{i_0 - 1}
+      \\
+      &=
+      E_{i_0 i_0} r + M_{i_0 - 1}
+      \\
+      &=
+      E_{i_0 i_0} A + M_{i_0 - 1}
+    \end{align}
+
+    Supongamos que \(A + M_{i_0 - 1} = B + M_{i_0 -1}\).
+    Entonces \(E_{i_0 i_0} A + M_{i_0 - 1} = E_{i_0 i_0} B + M_{i_0 - 1}\).
+    Escribamos \(C = E_{i_0 i_0} (A - B)\).
+    Por un lado \(C \in M_{i_0 - 1}\) y por el otro \(C \in E_{i_0 i_0} R\).
+    El primer dato implica \(\Fila_i C = 0\) para \(i \in \{i_0, \dots, n\}\).
+    El segundo dato implica \(\Fila_i C = 0\) para \(i \in \{1, \dots, n\} \setminus i_0\).
+    Luego \(C = 0\).
+    Es decir \(E_{i_0 i_0} A = E_{i_0 i_0} B\).
+
+    Esto nos permite definir una función \(\phi : M_{i_0} / M_{i_0 - 1} \rightarrow E_{i_0 i_0} R\) dada por \(A + M_{i_0 - 1} \mapsto E_{i_0 i_0} A\).
+    Así definida, es un homomorfismo de \(R\)-módulos.
+
+    Es además un monomorfismo.
+    Si \(\phi(A + M_{i_0 - 1}) = 0\) entonces \(E_{i_0 i_0} A = 0\) y \(\Fila_{i_0} A = 0\).
+    Además \(A \in M_{i_0}\) implica \(\Fila_i A = 0\) \((\forall i \in \{i_0, \dots, n\})\), y \(A \in M_{i_0 - 1}\).
+    Entonces \(A + M_{i_0 - 1} = 0 + M_{i_0 - 1}\).
+
+    También es un epimorfismo.
+    Dado \(E_{i_0 i_0} A \in E_{i_0 i_0} R\), tenemos \(E_{i_0 i_0} A \in M_i\).
+    Calculamos \(\phi(E_{i_0 i_0} A + M_{i_0 - 1}) = E_{i_0 i_0} (E_{i_0 i_0} A) = E_{i_0 i_0}^2 A = E_{i_0 i_0} A\).
+    Por lo tanto \(E_{i_0 i_0} A \in \image \phi\).
+    Concluímos que \(\phi : M_{i_0} / M_{i_0 - 1} \rightarrow E_{i_0 i_0} R\) es un isomorfismo.
+  \end{proof}
 
   \begin{theorem}
     Sea \(R\) un anillo con identidad y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
