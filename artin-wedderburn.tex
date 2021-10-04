@@ -97,17 +97,15 @@
   \end{proof}
 
   \begin{theorem}
-    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces \(R E_{i i}\) es un ideal izquierdo (submódulo) de \(R\).
-    Este ideal \(R E_{i i}\) está formado por todas las matrices \(A \in R\) tales que \(\Col_j A = 0\) \((\forall j \neq i)\).
+    Sea \(D\) un anillo de división y \(R = \Mat_n D\).
+  \end{theorem}
+
+  \begin{theorem}
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(R E_{i i}\) está formado por todas las matrices \(A \in R\) tales que \(\Col_j A = 0\) \((\forall j \neq i)\).
     Además \(R E_{i i}\) es un ideal izquierdo nonulo minimal (es decir, no tiene submódulos propios).
   \end{theorem}
   \begin{proof}
     Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
-
-    Afirmamos que \(I\) es un ideal izquierdo.
-    Primero notamos que \(0 \in R\) puede expresarse como \(0 = 0 E \in I\).
-    Luego, dados \(a E, b E \in I\), tenemos \(a E + b E = (a + b) E \in I\).
-    Finalmente, si \(r \in R\) y \(a E \in I\), entonces \(r (a E) = (r a) E \in I\).
 
     Afirmamos que \(I' = \{A \in R : \Col_j A = 0 \, (\forall j \neq j_0)\}\) es igual a \(I\).
     Lo demostraremos usando que para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
@@ -142,17 +140,11 @@
 
   Argumentos análogos demuestran que
   \begin{theorem}
-    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces \(E_{i_0 i_0} R\) es un ideal derecho (submódulo) de \(R\).
-    Este ideal \(E_{i_0 i_0}\) está formado por todas las matrices \(A \in R\) tales que \(\Fila_i A = 0\) \((\forall i \neq i_0)\).
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(E_{i_0 i_0}\) está formado por todas las matrices \(A \in R\) tales que \(\Fila_i A = 0\) \((\forall i \neq i_0)\).
     Además \(E_{i_0 i_0} R\) es un ideal derecho nonulo minimal (es decir, no tiene submódulos propios).
   \end{theorem}
   \begin{proof}
     Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{i_0 i_0}\), \(I = E R\).
-
-    Afirmamos que \(I\) es un ideal derecho.
-    Primero notamos que \(0 \in R\) puede expresarse como \(0 = E 0 \in I\).
-    Luego, dados \(E a, E b \in I\), tenemos \(E a + E b = E (a + b) \in I\).
-    Finalmente, si \(r \in R\) y \(E a \in I\), entonces \((E a) r = E (a r) \in I\).
 
     Afirmamos que \(I' = \{A \in R : \Fila_i A = 0 \, (\forall i \neq i_0)\}\) es igual a \(I\).
     Lo demostraremos usando que para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
