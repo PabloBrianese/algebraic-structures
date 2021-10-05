@@ -98,7 +98,6 @@
 
   \begin{theorem}
     Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(R E_{j_0 j_0}\) está formado por todas las matrices \(A \in R\) tales que \(\Col_j A = 0\) \((\forall j \neq j_0)\).
-    Además \(R E_{j_0 j_0}\) es un ideal izquierdo nonulo minimal (es decir, no tiene submódulos propios).
   \end{theorem}
   \begin{proof}
     Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
@@ -117,6 +116,18 @@
     Si \(A \in I\), entonces existe \(a \in R\) con \(A = a E\).
     Luego \(A = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\) pertenece a \(I'\).
     Recíprocamente, si \(A \in I'\), entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{i = 1}^n A_{i j_0} E_{i j_0} = A E_{j_0 j_0}\).
+  \end{proof}
+
+  \begin{theorem}
+    Sean \(D\) un anillo de división y \(R = \Mat_n D\).
+    Entonces son simples los \(R\)-submódulos izquierdos de \(R\)
+    \begin{align}
+      R E_{j j}
+      &&(j \in \{1, \dots, n\})
+    \end{align}
+  \end{theorem}
+  \begin{proof}
+    Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
 
     Afirmamos que \(I\) es minimal.
     Supongamos que \(J\) es un submódulo nonulo de \(I\).
@@ -137,7 +148,6 @@
   Argumentos análogos demuestran que
   \begin{theorem}
     Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(E_{i_0 i_0} R\) está formado por todas las matrices \(A \in R\) tales que \(\Fila_i A = 0\) \((\forall i \neq i_0)\).
-    Además \(E_{i_0 i_0} R\) es un ideal derecho nonulo minimal (es decir, no tiene submódulos propios).
   \end{theorem}
   \begin{proof}
     Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{i_0 i_0}\), \(I = E R\).
@@ -156,6 +166,18 @@
     Si \(A \in I\) entonces existe \(a \in R\) con \(A = E a\).
     Luego \(A = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\) pertenece a \(I'\).
     Recíprocamente, si \(A \in I'\) entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{j = 1}^n A_{i_0 j} E_{i_0 j} = E_{i_0 i_0} A\).
+  \end{proof}
+
+  \begin{theorem}
+    Sean \(D\) un anillo de división y \(R = \Mat_n D\).
+    Entonces son simples los \(R\)-submódulos derechos de \(R\)
+    \begin{align}
+      E_{i i} R
+      &&(i \in \{1, \dots, n\})
+    \end{align}
+  \end{theorem}
+  \begin{proof}
+    Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{i_0 i_0}\), \(I = E R\).
 
     Afirmamos que \(I\) es minimal.
     Supongamos que \(J\) es un submódulo nonulo de \(I\).
