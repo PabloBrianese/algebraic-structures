@@ -639,9 +639,25 @@
   La Teoría de Series Normales y Subnormales para grupos puede trasladarse al caso de los módulos.
   Como consecuencia de esta tenemos el siguiente teorema.
   \begin{theorem}
-    Caulesquiera dos series normales de un módulo \(A\) tienen refinamientos que son equivalentes.
+    \label{theorem:refinementAndEquivalenceOfNormalSeries}
+    Cualesquiera dos series normales de un módulo \(A\) tienen refinamientos que son equivalentes.
     Caulesquiera dos series de composición de \(A\) son equivalentes.
   \end{theorem}
+
+  \begin{theorem}
+    Un módulo nonulo \(A\) tiene una serie de composición is y solo si \(A\) satisface tanto la condición de la cadena descencendente como la ascendente.
+  \end{theorem}
+  \begin{proof}
+    Supongamos que \(A\) tiene una serie de composición \(S\) de longitud \(n\).
+    Si alguna de las condiciones de la cadena falla, podemos encontrar submódulos \(A = A_0 \supset A_1 \supset A_2 \supset \cdots \supset A_n \supset A_{n + 1}\)
+    que forman una serie normal \(T\) de longitud \(n + 1\).
+    Por el teorema \ref{theorem:refinementAndEquivalenceOfNormalSeries}, \(S\) y \(T\) tienen refinamientos equivalentes.
+    Esto es una contradicción porque series equivalentes tienen igual longitud.
+    Todo refinamiento de la series de composición \(S\) tiene longitud \(n\) al igual que \(S\), pero todo refinamiento de \(T\) tiene longitud al menos \(n + 1\).
+    Por lo tanto \(A\) satisface ambas condiciones de la cadena.
+
+    Recíprocamente, suponemos que \(B\) es un submódulo nonulo de \(A\), definimos \(S(B)\) como el conjunto formado por todos los submódulos \(C\) de \(B\) con \(\)
+  \end{proof}
 
   \begin{theorem}[de Artin--Wedderburn]
     Las siguientes condiciones sobre un anillo artiniano izquierdo \(R\) son equivalentes.
