@@ -28,6 +28,7 @@
   \end{theorem}
 
   \begin{theorem}
+    \label{theorem:submodulesOfQuotientModule}
     Si \(R\) es un anillo y \(B\) es un submódulo de un \(R\)-módulo \(A\), entonces existe una correspondencia uno-a-uno entre el conjunto de los submódulos de \(A\) que contienen a \(B\) y el conjunto de todos los submódulos de \(A / B\), dada por \(C \mapsto C / B\).
     Por tanto todo submódulo de \(A / B\) es de la forma \(C / B\), donde \(C\) es un submódulo de \(A\) que contiene a \(B\).
   \end{theorem}
@@ -669,7 +670,7 @@
     Sea \(m\) el menor entero tal que \(A_m = 0\).
     Entonces \(m \leq n\) y \(A_k \neq 0\) \((\forall k < m)\).
     Más aún, para cada \(k < m\), \(A_{k + 1}\) es un submódulo maximal de \(A_k\) tal que \(A_k \supseteq A_{k + 1}\).
-    Consecuentemente, cada \(A_k / A_{k + 1}\) es nonulo y no tiene submódulos propios por el Teorema IV.1.10.
+    Consecuentemente, cada \(A_k / A_{k + 1}\) es nonulo y no tiene submódulos propios por el \ref{theorem:submodulesOfQuotientModule}.
     Por lo tanto \(A \supseteq A_1 \supseteq \cdots \supseteq A_m = 0\) es una serie de composición para \(A\).
   \end{proof}
 
