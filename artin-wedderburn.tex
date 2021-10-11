@@ -546,6 +546,7 @@
   \end{definition}
 
   \begin{theorem}
+    \label{theorem:equivalenceOfChainConditions}
     Un módulo satisface la condición de la cadena ascendente [resp. descencendente] sobre submódulos si y solo si satisface la condición maximal [resp. minimal] sobre submódulos.
   \end{theorem}
   \begin{proof}
@@ -660,7 +661,8 @@
     Recíprocamente, suponemos que \(B\) es un submódulo nonulo de \(A\), definimos \(S(B)\) como el conjunto formado por todos los submódulos \(C\) de \(B\) con \(C \neq B\).
     De tal modo que si \(B\) no tiene submódulos propios, entonces \(S(B) = \{0\}\).
     También definimos \(S(0) = \{0\}\).
-    Para cada \(B\), el conjunto \(S(B)\) tiene un elemento maximal \(B'\) (por el Teorema VIII.1.4).
+    Para cada \(B\), el conjunto \(S(B)\) tiene un elemento maximal \(B'\) (por el Teorema \ref{theorem:equivalenceOfChainConditions}
+    ).
     Sea \(S\) el conjunto de todos los submódulos de \(A\).
     Definimos una aplicación \(f : S \rightarrow S\) mediante \(f(B) = B'\) (usando el Axioma de Elección).
     Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = a\) y \(\phi(n + 1) = f(\phi(n))\).
