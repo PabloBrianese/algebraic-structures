@@ -462,6 +462,7 @@
   \end{definition}
 
   \begin{lemma}
+    \label{lemma:anihilatorLemma}
     Sea \(A\) un módulo simple sobre un anillo \(R\).
     Consideramos \(A\) como un espacio vectorial sobre el anillo de división \(D = \Hom_R(A, A)\).
     Si \(V\) es un subespacio finito-dimensional del \(D\)-espacio vectorial \(A\) y \(a \in A \setminus V\), entonces existe \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
@@ -521,8 +522,8 @@
     Dado un subconjunto \(D\)--linealmente independiente \(\{u_1, \dots, u_n\}\) de \(A\), y un subconjunto arbitrario \(\{v_1, \dots, v_n\}\) de \(A\), debemos encontrar \(\alpha_r \in \image \alpha\) tal que \(\alpha_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
     Para cada \(i\) sea \(V_i\) el \(D\)--subespacio de \(A\) generado por \(\{u_j : j \neq i\}\).
     Dado que \(\{u_1, \dots, u_n\}\) es linealmente independiente, \(u_i \notin V_i\).
-    Consecuentemente, por el lema \ref{} existe \(r_i \in R\) tal que \(r_i u_i \neq 0\) y \(r_i V_i = 0\).
-    Después aplicamos el lema \ref{} al subespacio nulo y a elemento nonulo \(r_i u_i\):
+    Consecuentemente, por el lema \ref{lemma:anihilatorLemma} existe \(r_i \in R\) tal que \(r_i u_i \neq 0\) y \(r_i V_i = 0\).
+    Después aplicamos el lema \ref{lemma:anihilatorLemma} al subespacio nulo y a elemento nonulo \(r_i u_i\):
     existe \(s_i \in R\) tal que \(s_i r_i u_i \neq 0\) y \(s_i 0 = 0\).
     Siendo \(s_i r_i u_i \neq 0\), el \(R\) submódulo \(R (r_i u_i)\) de \(A\) es nonulo, luego \(R(r_i u_i) = A\) por simplicidad.
     Por esto existe \(t_i \in R\) tal que \(t_i r_i u_i = v_i\).
@@ -616,8 +617,8 @@
     Debemos encontrar \(\alpha_r \in \image \alpha\) tal que \(\alpha_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
     Para cada \(i\) sea \(V_i\) el \(D\)-subespacio de \(A\) generado por \(\{u_j : j \neq i\}\).
     Dado que \(U\) es linealmente independiente, \(u_i \notin V_i\).
-    Consecuentemente, por el lema 1.11 existe \(r_i \in R\) tal que \(r_i u_i \neq 0\) y \(r_i V_i = 0\).
-    Después aplicamos el lema 1.11 al subespacio nulo y al elemento nonulo \(r_i u_i\):
+    Consecuentemente, por el lema \ref{lemma:anihilatorLemma} existe \(r_i \in R\) tal que \(r_i u_i \neq 0\) y \(r_i V_i = 0\).
+    Después aplicamos el lema \ref{lemma:anihilatorLemma}.11 al subespacio nulo y al elemento nonulo \(r_i u_i\):
     existe \(s_i \in R\) tal que \(s_i r_i u_i \neq 0\) y \(s_i 0 = 0\).
     Siendo \(s_i r_i u_i \neq 0\), el \(R\)-submódulo \(R (r_i u_i)\) de \(A\) en nonulo, luego \(R (r_i u_i) = A\) por simplicidad.
     Por esto existe \(t_i \in R\) tal que \(t_i r_i u_i = v_i\).
