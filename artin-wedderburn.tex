@@ -1,0 +1,746 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+\usepackage{mathtools}
+\usepackage{amsthm, amsfonts}
+
+\newcommand{\naturalNumbers}{\mathbb{N}}
+\newcommand{\Hom}{\textnormal{Hom}}
+\newcommand{\Mat}{\textnormal{Mat}}
+\newcommand{\Col}{\textnormal{Col}}
+\newcommand{\Fila}{\textnormal{Fila}}
+
+\DeclareMathOperator{\image}{\text{Im}}
+
+\newtheorem{theorem}{Teorema}
+\newtheorem{corollary}{Corolario}
+\newtheorem{lemma}{Lema}
+\newtheorem{proposition}{Proposición}
+\newtheorem{definition}{Definición}
+\newtheorem{remark}{Observación}
+
+\title{Teorema de Artin--Wedderburn}
+\author{Pablo Brianese}
+\begin{document}
+  \maketitle
+
+  \begin{theorem}[Lema de Zorn]
+    Si \(A\) es un conjunto parcialmente ordenado novacío tal que toda cadena en \(A\) tiene una cota superior en \(A\), entonces \(A\) contiene un elemento maximal.
+  \end{theorem}
+
+  \begin{theorem}
+    \label{theorem:submodulesOfQuotientModule}
+    Si \(R\) es un anillo y \(B\) es un submódulo de un \(R\)-módulo \(A\), entonces existe una correspondencia uno-a-uno entre el conjunto de los submódulos de \(A\) que contienen a \(B\) y el conjunto de todos los submódulos de \(A / B\), dada por \(C \mapsto C / B\).
+    Por tanto todo submódulo de \(A / B\) es de la forma \(C / B\), donde \(C\) es un submódulo de \(A\) que contiene a \(B\).
+  \end{theorem}
+
+  \begin{theorem}
+    \label{theorem:freeUnitalModulesOverARingWithIdentity}
+    Sea \(R\) un anillo con identidad.
+    Las siguientes condiciones sobre un \(R\)-módulo unitario \(F\) son equivalentes:
+    \begin{enumerate}
+      \item \(F\) tiene una base novacía;
+      \item \(F\) es la suma directa (interna) de una famile de \(R\)-módulos cíclicos, cada uno de los cuales es isomorfo (como \(R\)-módulo izquierdo) a \(R\);
+      \item \(F\) es isomorfo (como \(R\)-módulo) a una suma directa de copias del \(R\)-módulo izquierdo \(R\);
+      \item existe un conjunto novacío \(X\) y una función \(\imath : X \rightarrow F\) con la siguiente propiedad:
+      dado un \(R\)-módulo unitario \(A\) y una función \(f : X \rightarrow A\), existe un único homomorfismo de \(R\)-módulos \(\bar{f} : F \rightarrow A\) tal que \(\bar{f} \imath = f\).
+      En otras palabras, \(F\) es un objeto libre en la categoría de \(R\)-módulos unitarios.
+    \end{enumerate}
+  \end{theorem}
+
+  Un módulo unitario \(F\) sobre un anillo \(R\) con identidad, que satisface las condiciones del teorema, recibe el nombre de \emph{\(R\)-módulo libre} sobre el conjunto \(X\).
+  La cuarta propiedad hace de \(F\) un objeto libre en la categoría formada por los 
+
+  \begin{theorem}
+    \label{theorem:vectorSpaceBasis}
+    Todo espacio vectorial \(V\) sobre un anillo de división \(D\) tiene una base y es por tanto un \(D\)-módulo libre.
+    Con mayor generalidad, cada subconjunto linealmente independiente de \(V\) está contenido en una base de \(V\).
+  \end{theorem}
+
+  \begin{theorem}
+    \label{theorem:moduleHomomorphisms}
+    Sean \(A\) y \(B\) ambos \(R\)-módulos.
+    \begin{enumerate}
+      \item el conjunto \(\Hom_R(A, B)\) formado por los homomorfismos de \(R\)-módulos \(A \rightarrow B\) es un grupo abeliano con \(f + g : A \rightarrow B\) dada por \(a \mapsto f(a) + g(a)\).
+      El elemento identidad es la aplicación nula.
+      \item \(\Hom_R(A, A)\) es un anillo con identidad, donde la multiplicación es la composición de funciones.
+      \(\Hom_R(A, A)\) es el \emph{anillo de endomorfismos} de \(A\).
+      \item \(A\) es un \(\Hom_R(A, A)\)-módulo izquierdo con \(f a = f(a)\) \((\forall a \in A)\) \((\forall f \in \Hom_R(A, A))\).
+    \end{enumerate}
+  \end{theorem}
+
+  \begin{theorem}
+    \label{theorem:isomorphismBetweenMatrixAndHomomorphismRings}
+    Sea \(R\) un anillo con identidad y \(E\) un \(R\)-módulo izquierdo libre con una base finita de \(n\) elementos.
+    Entonces existe un isomorfismo de anillos
+    \begin{align}
+      \Hom_R(E, E)
+      \simeq
+      \Mat_n(R^{\textnormal{op}})
+    \end{align}
+    En particular, este isomorfismo existe para todo espacio vectorial \(E\) sobre un anillo de división \(R\) con dimensión \(n\), en cuyo caso \(R^{\textnormal{op}}\) también es un anillo de división.
+  \end{theorem}
+  \begin{remark}
+    Cuando \(R\) es conmutativo \(R = R^{\textnormal{op}}\).
+    La fórmula del teorema resulta \(\Hom_R(E, E) \simeq \Mat_n R\).
+  \end{remark}
+
+  \begin{proposition}
+    Sea \(R\) un anillo con identidad, y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
+    Dentro de \(S\) podemos encontrar las matrices \(E_{r s}\), donde \(r, s \in \{1, \dots, n\}\), y \(E_{r s}\) tiene \(1_R\) como entrada \((r, s)\) y 0 en as demás posiciones.
+    Para toda matriz \(A = (a_{i j})\) en \(S\)
+    \begin{align}
+      E_{p r} A E_{s q}
+      =
+      a_{r s} E_{p q}
+    \end{align}
+  \end{proposition}
+  \begin{proof}
+    Es un cálculo directo.
+  \end{proof}
+
+  \begin{proposition}
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\).
+    Entonces, para toda matriz \(A \in R\), \(R A\) es un ideal izquierdo de \(R\) y \(A R\) es un ideal derecho de \(R\).
+  \end{proposition}
+  \begin{proof}
+    No requiere mucho razonamiento, es un cálculo directo.
+  \end{proof}
+
+  \begin{theorem}
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(R E_{j_0 j_0}\) está formado por todas las matrices \(A \in R\) tales que \(\Col_j A = 0\) \((\forall j \neq j_0)\).
+  \end{theorem}
+  \begin{proof}
+    Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
+
+    Afirmamos que \(I' = \{A \in R : \Col_j A = 0 \, (\forall j \neq j_0)\}\) es igual a \(I\).
+    Lo demostraremos usando que para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
+    \begin{align}
+      a E_{j_0 j_0}
+      =
+      I_n a E_{j_0 j_0}
+      =
+      \sum_{i = 1}^n E_{i i} a E_{j_0 j_0}
+      =
+      \sum_{j = 1}^n a_{i j_0} E_{i j_0}
+    \end{align}
+    Si \(A \in I\), entonces existe \(a \in R\) con \(A = a E\).
+    Luego \(A = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\) pertenece a \(I'\).
+    Recíprocamente, si \(A \in I'\), entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{i = 1}^n A_{i j_0} E_{i j_0} = A E_{j_0 j_0}\).
+  \end{proof}
+
+  \begin{theorem}
+    Sean \(D\) un anillo de división y \(R = \Mat_n D\).
+    Entonces son simples los \(R\)-submódulos izquierdos de \(R\)
+    \begin{align}
+      R E_{j j}
+      &&(j \in \{1, \dots, n\})
+    \end{align}
+  \end{theorem}
+  \begin{proof}
+    Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
+
+    Afirmamos que \(I\) es minimal.
+    Supongamos que \(J\) es un submódulo nonulo de \(I\).
+    Entonces existe \(a \in J \setminus 0\).
+    Porque \(a \in I\) se sigue \(a = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\).
+    \(a \neq 0\) implica que \(a_{i_0 j_0} \neq 0\) para un \(i_0 \in \{1, \dots, n\}\).
+    Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por izquierda) su fila \(i_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
+    Entonces \(M a = 1_D E_{i_0 j_0} + \sum_{i \neq i_0} a_{i j_0} E_{i j_0}\).
+    Luego, existen matrices elementales de transformación \(A_i\) \((i \in \{1, \dots, n\} \setminus i_0)\), que actúan sobre \(a\) sumando a la fila \(i\)-ésima el producto (por izquierda) de \(- a_{i j_0}\) con la fila \(i_0\)-ésima.
+    Entonces \(A_1 \cdots A_n M a = 1_D E_{i_0 j_0}\) (donde definimos \(A_{i_0} = I_n\) para mejorar la notación).
+    Finalmente, para cada \(i \in \{1, \dots, n\}\), existe una matriz elemental de transformación \(P_i\) que actúa sobre \(a\) permutando las filas \(i\) e \(i_0\).
+    De ese modo \(P_i A_1 \cdots A_n M a = 1_D E_{i j_0}\).
+    Por lo tanto \(1_D E_{i j_0} \in J\) para todo \(i \in \{1, \dots, n\}\).
+    Eso implica que \(I = \sum_{i = 1}^n D E_{i j_0} \subseteq J\).
+    En conclusión \(J = I\).
+  \end{proof}
+
+  Argumentos análogos demuestran que
+  \begin{theorem}
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(E_{i_0 i_0} R\) está formado por todas las matrices \(A \in R\) tales que \(\Fila_i A = 0\) \((\forall i \neq i_0)\).
+  \end{theorem}
+  \begin{proof}
+    Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{i_0 i_0}\), \(I = E R\).
+
+    Afirmamos que \(I' = \{A \in R : \Fila_i A = 0 \, (\forall i \neq i_0)\}\) es igual a \(I\).
+    Lo demostraremos usando que para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
+    \begin{align}
+      E_{i_0 i_0} a
+      =
+      E_{i_0 i_0} a I_n
+      =
+      \sum_{j = 1}^n E_{i_0 i_0} a E_{j j}
+      =
+      \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}
+    \end{align}
+    Si \(A \in I\) entonces existe \(a \in R\) con \(A = E a\).
+    Luego \(A = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\) pertenece a \(I'\).
+    Recíprocamente, si \(A \in I'\) entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{j = 1}^n A_{i_0 j} E_{i_0 j} = E_{i_0 i_0} A\).
+  \end{proof}
+
+  \begin{theorem}
+    Sean \(D\) un anillo de división y \(R = \Mat_n D\).
+    Entonces son simples los \(R\)-submódulos derechos de \(R\)
+    \begin{align}
+      E_{i i} R
+      &&(i \in \{1, \dots, n\})
+    \end{align}
+  \end{theorem}
+  \begin{proof}
+    Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{i_0 i_0}\), \(I = E R\).
+
+    Afirmamos que \(I\) es minimal.
+    Supongamos que \(J\) es un submódulo nonulo de \(I\).
+    Entonces existe \(a \in J \setminus 0\).
+    Porque \(a \in I\) se sigue \(a = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\).
+    \(a \neq 0\) implica que \(a_{i_0 j_0} \neq 0\) para un \(j_0 \in \{1, \dots, n\}\).
+    Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por derecha) su columna \(j_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
+    Entonces \(a M = E_{i_0 j_0} 1_D + \sum_{j \neq j_0} a_{i_0 j} E_{i_0 j}\).
+    Luego, existen matrices elementales de transformación \(A_j\) \((j \in \{1, \dots, n\} \setminus j_0)\), que actúan sobre \(a\) sumando a la columna \(j\)-ésima el producto (por derecha) de \(- a_{i_0 j}\) con la columna \(j_0\)-ésima.
+    Entonces \(a M A_1 \cdots A_n = E_{i_0 j_0} 1_D\) (donde definimos \(A_{j_0} = I_n\) para mejorar la notación).
+    Finalmente, para cada \(j \in \{1, \dots, n\}\), existe una matriz elemental de transformación \(P_j\) que actúa sobre \(a\) permutando las columnas \(j\) y \(j_0\).
+    De ese modo \(a M A_1 \cdots A_n P_j = E_{i_0 j} 1_D\).
+    Por lo tanto \(E_{i_0 j} 1_D \in J\) para todo \(i \in \{1, \dots, n\}\).
+    Eso implica que \(I = \sum_{j = 1}^n E_{i_0 j} D \subseteq J\).
+    En conclusión \(J = I\).
+  \end{proof}
+
+  \begin{theorem}
+    \label{theorem:compositionSeriesOfLeftModulesForMatrixRing}
+    Sea \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) sea \(M_i = R (E_{1 1} + \cdots + E_{i i})\).
+    Afirmamos que cada \(M_i\) es un ideal izquierdo de \(R\) y que \(M_i / M_{i - 1} \simeq R E_{i i}\).
+    Por eso \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composicón de \(R\)-módulos izquierdos.
+  \end{theorem}
+  \begin{proof}
+    Notar que \(M_i \subseteq R E_{1 1} + \cdots + R E_{i i}\).
+    Luego \(\Col_j A = 0\) \((\forall j \in \{i + 1, \dots, n\})\) para toda \(A \in M_i\).
+
+    Notar que si \(A \in M_i\) con \(A = r (E_{1 1} + \cdots + E_{i i})\) para un \(r \in R\), entonces \(A E_{i i} = r E_{i i}\).
+    En efecto
+    \begin{align}
+      A E_{i i}
+      &=
+      r (E_{11} + \cdots + E_{i i}) E_{i i}
+      \\
+      &=
+      r (E_{11} E_{i i} + \cdots + E_{i - 1, i - 1} E_{i i} + E_{i i}^2)
+      \\
+      &=
+      r (0 + \cdots + 0 + E_{i i})
+      \\
+      &=
+      r E_{i i}
+    \end{align}
+    Por este motivo \(A + M_{i - 1} = A E_{i i} + M_{i - 1}\).
+    Calculamos
+    \begin{align}
+      A + M_{i - 1}
+      &=
+      r (E_{1 1} + \cdots + E_{i i}) + M_{i - 1}
+      \\
+      &=
+      r(E_{1 1} + \cdots + E_{i - 1, i - 1}) + r E_{i i} + M_{i - 1}
+      \\
+      &=
+      r E_{i i} + M_{i - 1}
+      \\
+      &=
+      A E_{i i} + M_{i - 1}
+    \end{align}
+
+    Supongamos que \(A + M_{i - 1} = B + M_{i - 1}\).
+    Entonces \(A E_{i i} + M_{i - 1} = B E_{i i} + M_{i - 1}\).
+    Escribamos \(C = (A - B) E_{i i}\).
+    Por un lado \(C \in M_{i - 1}\) y por el otro \(C \in R E_{i i}\).
+    El primer dato implica \(\Col_j C = 0\) para \(j \in \{i, \dots, n\}\).
+    El segundo dato implica \(\Col_j C = 0\) para \(j \in \{1, \dots, n\} \setminus i\).
+    Luego \(C = 0\).
+    Es decir \(A E_{i i} = B E_{i i}\).
+
+    Esto nos permite definir una función \(\phi : M_i / M_{i - 1} \rightarrow R E_{i i}\) dada por \(A + M_{i - 1} \mapsto A E_{i i}\).
+    Así definida, es un homomorfismo de \(R\)-módulos.
+
+    Es además un monomorfismo.
+    Si \(\phi(A + M_{i - 1}) = 0\) entonces \(A E_{i i} = 0\) y \(\Col_i A = 0\).
+    Además, \(A \in M_i\) implica \(\Col_j A = 0\) \((\forall j > i)\).
+    Luego \(\Col_j A = 0\) \((\forall j \in \{i, \dots, n\})\), y \(A \in M_{i - 1}\).
+    Entonces \(A + M_{i - 1} = 0 + M_{i - 1}\).
+
+    También es un epimorfismo.
+    Dado \(A E_{i i} \in R E_{i i}\), tenemos \(A E_{i i} \in M_i\).
+    Calculamos \(\phi(A E_{i i} + M_{i - 1})= (A E_{i i}) E_{i i} = A E_{i i}^2 = A E_{i i}\).
+    Por lo tanto \(A E_{i i} \in \image \phi\).
+
+    Concluímos que \(\phi : M_i / M_{i - 1} \rightarrow R E_{i i}\) es un isomorfismo.
+  \end{proof}
+
+  \begin{theorem}
+    \label{theorem:compositionSeriesOfRightModulesForMatrixRing}
+    Sea \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) sea \(M_i = (E_{1 1} + \cdots + E_{i i}) R\).
+    Afirmamos que cada \(M_i\) es un ideal derecho de \(R\) y que \(M_i / M_{i - 1} \simeq E_{i i} R\).
+    Por eso \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composición de \(R\)-módulos derechos.
+  \end{theorem}
+  \begin{proof}
+    Notar que \(M_{i_0} \subseteq E_{1 1} R + \cdots + E_{i_0 i_0} R\).
+    Luego \(\Fila_i A = 0\) \((\forall i \in \{i_0 + 1, \dots, n\})\) para toda \(A \in M_{i_0}\).
+
+    Notar que se \(A \in M_{i_0}\) con \(A = (E_{1 1} + \cdots + E_{i_0 i_0}) r\) para un \(r \in R\), entonces \(E_{i_0 i_0} A = E_{i_0 i_0} r\).
+    En efecto
+    \begin{align}
+      E_{i_0 i_0} A
+      &=
+      E_{i_0 i_0} (E_{1 1} + \cdots + E_{i_0 i_0}) r
+      \\
+      &=
+      (E_{i_0 i_0} E_{1 1} + \cdots + E_{i_0 i_0} E_{i_0 - 1, i_0 - 1} + E_{i_0 i_0}^2) r
+      \\
+      &=
+      (0 + \cdots + 0 + E_{i_0 i_0}) r
+      \\
+      &=
+      E_{i_0 i_0} r
+    \end{align}
+    Por este motivo \(A + M_{i_0 - 1} = A E_{i_0 i_0} + M_{i_0 - 1}\).
+    Calculamos
+    \begin{align}
+      A + M_{i_0 - 1}
+      &=
+      (E_{1 1} + \cdots + E_{i_0 i_0}) r + M_{i_0 - 1}
+      \\
+      &=
+      (E_{1 1} + \cdots + E_{i_0 - 1, i_0 - 1}) r + E_{i_0 i_0} r + M_{i_0 - 1}
+      \\
+      &=
+      E_{i_0 i_0} r + M_{i_0 - 1}
+      \\
+      &=
+      E_{i_0 i_0} A + M_{i_0 - 1}
+    \end{align}
+
+    Supongamos que \(A + M_{i_0 - 1} = B + M_{i_0 -1}\).
+    Entonces \(E_{i_0 i_0} A + M_{i_0 - 1} = E_{i_0 i_0} B + M_{i_0 - 1}\).
+    Escribamos \(C = E_{i_0 i_0} (A - B)\).
+    Por un lado \(C \in M_{i_0 - 1}\) y por el otro \(C \in E_{i_0 i_0} R\).
+    El primer dato implica \(\Fila_i C = 0\) para \(i \in \{i_0, \dots, n\}\).
+    El segundo dato implica \(\Fila_i C = 0\) para \(i \in \{1, \dots, n\} \setminus i_0\).
+    Luego \(C = 0\).
+    Es decir \(E_{i_0 i_0} A = E_{i_0 i_0} B\).
+
+    Esto nos permite definir una función \(\phi : M_{i_0} / M_{i_0 - 1} \rightarrow E_{i_0 i_0} R\) dada por \(A + M_{i_0 - 1} \mapsto E_{i_0 i_0} A\).
+    Así definida, es un homomorfismo de \(R\)-módulos.
+
+    Es además un monomorfismo.
+    Si \(\phi(A + M_{i_0 - 1}) = 0\) entonces \(E_{i_0 i_0} A = 0\) y \(\Fila_{i_0} A = 0\).
+    Además \(A \in M_{i_0}\) implica \(\Fila_i A = 0\) \((\forall i \in \{i_0, \dots, n\})\), y \(A \in M_{i_0 - 1}\).
+    Entonces \(A + M_{i_0 - 1} = 0 + M_{i_0 - 1}\).
+
+    También es un epimorfismo.
+    Dado \(E_{i_0 i_0} A \in E_{i_0 i_0} R\), tenemos \(E_{i_0 i_0} A \in M_i\).
+    Calculamos \(\phi(E_{i_0 i_0} A + M_{i_0 - 1}) = E_{i_0 i_0} (E_{i_0 i_0} A) = E_{i_0 i_0}^2 A = E_{i_0 i_0} A\).
+    Por lo tanto \(E_{i_0 i_0} A \in \image \phi\).
+    Concluímos que \(\phi : M_{i_0} / M_{i_0 - 1} \rightarrow E_{i_0 i_0} R\) es un isomorfismo.
+  \end{proof}
+
+  \begin{theorem}
+    Sea \(R\) un anillo con identidad y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
+    \(J\) es un ideal de \(S\) si y solo si \(J\) es el anillo formado por todas las matrices \(n \times n\) sobre \(I\) para algún ideal \(I\) en \(R\).
+  \end{theorem}
+  \begin{proof}
+    Sea \(J\) un ideal de \(S\).
+    Sea \(I\) el conjunto formado por todos los elementos de \(R\) que aparecen como entrada \((1, 1)\) de alguna matriz en \(J\).
+    Si \(a E \in J\) donde \(a \in R\) y \(E = E_{1 1} \in S\), entonces \(a \in I\).
+    La afirmación recíproca también es verdadera.
+    Notar que si \(a \in I\), entonces existe \(A = (a_{i j})\) en \(J\) con \(a_{1 1} = a\).
+    Al ser \(J\) un ideal (bilátero), tenemos \(E A E \in J\).
+    Pero \(E A E = a E\).
+    Entonces \(a E \in J\).
+    Hemos probado que \(a \in I\) si y solo si \(a E \in J\).
+
+    Afirmamos que \(I\) es un ideal.
+    En efecto, \(0 \in J\) porque \(J\) es un ideal.
+    Luego \(0 \in I\) por definición de \(I\).
+    Por otra parte, si \(a, b \in I\), entonces \(a E, b E \in J\).
+    Pero \(J\) es un ideal.
+    Entonces \((a + b) E = a E + b E \in J\).
+    Luego \(a + b \in I\).
+    Para finalizar consideramos \(r \in R\) y \(a \in I\).
+    Entonces \(r E \in S\) y \(a E \in J\).
+    Pero \(J\) es un ideal.
+    Entonces
+    \begin{align}
+      (r a) E
+      &=
+      (r a) E^2
+      =
+      (r E) (a E)
+      \in J
+      \\
+      (a r) E
+      &=
+      (a r) E^2
+      =
+      (a E) (r E)
+      \in J
+    \end{align}
+    Luego \(ra, ar \in I\).
+
+    Afirmamos que \(M_n(I) = J\).
+    Sea \(A = (a_{i j})\) una matriz en \(S\).
+    Comenzamos suponiendo \(A \in J\).
+    Consideremos \(i, j \in \{1, \dots, n\}\).
+    Porque \(J\) es un ideal, \(a_{r s} E = E_{1 r} A E_{s 1} \in J\).
+    Luego \(a_{r s} \in I\).
+    Porque \(i, j\) eran arbitrarios, se deduce \(A \in M_n(I)\).
+    Recíprocamente, suponemos que \(A = (a_{i j}) \in M_n(I)\).
+    Consideramos \(i, j \in \{1, \dots, n\}\).
+    Por hipótesis \(a_{i j} \in I\).
+    Luego \(a_{i j} E \in J\).
+    Porque \(J\) es un ideal, se deduce \(E_{i 1} (a_{i j} E) E_{1 j} \in J\) mientras \(E_{i 1} (a_{i j} E) E_{1 j} = a_{i j} E_{i j}\).
+    Porque \(i, j\) eran arbitrarios, usando que \(J\) está cerrado bajo suma, se deduce \(A = \sum_{i j} a_{i j} E_{i j} \in J\).
+  \end{proof}
+
+  \begin{theorem}
+    \label{theorem:idealsInTheRingOfMatricesOverADivisionRing}
+    Sea \(S\) el anillo formado por todas las matrices sobre un anillo de división \(D\).
+    \begin{enumerate}
+      \item
+        \label{theorem:matrixRingOverDivisionRingHasNoProperIdeals}
+        \(S\) no tiene ideales propios (es decir, 0 es un ideal maximal).
+      \item \label{theorem:matrixRingOverDivisionRingHasZeroDivisors} \(S\) tiene divisores de cero.
+      Consecuentemente,
+      \begin{enumerate}
+        \item \(S \simeq S / 0\) no es un anillo de división y
+        \item 0 es un ideal primo a pesar de no satisfacer la condición \(a b \in I \rightarrow {a \in I} \text{ o } {b \in I}\) \((\forall a, b \in S)\)
+      \end{enumerate}
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof} \ref{theorem:matrixRingOverDivisionRingHasNoProperIdeals}.
+    Si \(J\) es un ideal de \(S\), entonces \(J\) es el anillo formado por todas las matrices \(n \times n\) sobre \(I\) para algún ideal \(I\) en \(D\).
+    Pero \(D\) es un anillo de división, no tiene ideales propios.
+    Luego \(I = 0\) o \(I = D\), concluyendo que \(J = 0\) o \(J = S\).
+  \end{proof}
+  \begin{proof} \ref{theorem:matrixRingOverDivisionRingHasZeroDivisors}
+    Para encontrar divisores de cero basta observar la fórmula \(E_{r_1 s_1} E_{r_2 s_2} = \delta_{r_1 r_2} \delta_{s_1 s_2} E_{r_1 r_2}\).
+  \end{proof}
+
+
+  \begin{definition}
+    Un módulo (izquierdo) \(A\) sobre un anillo \(R\) es \emph{simple} (o \emph{irreducible}) si \(R A \neq 0\) y \(A\) no tiene submódulos propios.
+    Un anillo \(R\) es \emph{simple} si \(R^2 \neq 0\) y \(R\) no tiene ideales (bilaterales) propios.
+  \end{definition}
+
+  \begin{proposition}
+    Todo módulo simple \(A\) es cíclico; de hecho, \(A = R a\) para todo \(a \in A\) nonulo.
+  \end{proposition}
+  \begin{proof}
+    Ambos \(Ra\) (con \(a \in A\) nonulo) y \(B = \{c \in A : R c = 0\}\) son submódulos de \(A\), de aquí que por simplicidad cada uno de ellos sea igual a 0 o \(A\).
+    También por simplicidad \(R A \neq 0\), esto implica \(B \neq A\) y \(B = 0\).
+    Luego \(a \notin B\) y \(R a \neq 0\).
+    En conclusión \(R a = A\).
+  \end{proof}
+
+  \begin{theorem}
+    \label{theorem:anihilatorTheorem}
+    Sea \(B\) un subconjunto de un módulo izquierdo sobre un anillo \(R\).
+    Entonces \(\mathcal{A}(B) = \{r \in R \mid r b = 0 (\forall b \in B)\}\) es un ideal izquierdo de \(R\).
+    Si \(B\) es un submódulo de \(A\), entonces \(\mathcal{A}(B)\) es un ideal.
+  \end{theorem}
+  \(\mathcal{A}(B)\) es el \emph{aniquilador (izquierdo)} de \(B\).
+  El aniquilador derecho de un módulo derecho se define análogamente.
+
+  \begin{definition}
+    Un módulo (izquierdo) \(A\) es \emph{fiel} si su aniquilador (izquierdo) \(\mathcal{A}(A)\) es 0.
+    Un anillo \(R\) es \emph{primitivo} (\emph{izquierdo}) si existe un \(R\)-módulo simple y fiel.
+  \end{definition}
+
+  Los anillos primitivos derechos se definen análogamente.
+  Sí existen anillos primitivos derechos que no son primitivos izquierdos.
+  De aquí en más \emph{primitivo} siempre significará \emph{primitivo izquierdo}.
+  Sin embargo, todos los resultados probados para anillos primitivos izquierdos son verdaderos, mutatis mutandis, para anillos primitivos derechos.
+
+  \begin{definition}
+    Sea \(V\) un espacio vectorial izquierdo sobre un anillo de división \(D\).
+    Un subanillo \(R\) del anillo de endomorfismos \(\Hom_D(V, V)\) es un \emph{anillo denso de endomorfismos} de \(V\) (o un \emph{subanillo denso} de \(\Hom_D(V, V)\)) si para todo entero positivo \(n\), cada subconjunto linealmente independiente \(\{u_1, \dots, u_n\}\) de \(V\) y cada subconjunto arbitrario \(\{v_1, \dots, v_n\}\) de \(V\), existe \(\theta \in R\) tal que \(\theta(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
+  \end{definition}
+
+  \begin{lemma}
+    \label{lemma:anihilatorLemma}
+    Sea \(A\) un módulo simple sobre un anillo \(R\).
+    Consideramos \(A\) como un espacio vectorial sobre el anillo de división \(D = \Hom_R(A, A)\).
+    Si \(V\) es un subespacio finito-dimensional del \(D\)-espacio vectorial \(A\) y \(a \in A \setminus V\), entonces existe \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
+  \end{lemma}
+  \begin{proof}
+    La prueba es por inducción sobre \(n = \dim_D V\).
+    Comenzamos por el caso base.
+    Si \(n = 0\), entonces \(V = 0\) y \(a \neq 0\).
+    Porque \(A\) es simple, \(a \neq 0\) implica \(R a = A\).
+    Consecuentemente existe \(r \in R\) tal que \(r a = a \neq 0\) y \(r V = r 0 = 0\).
+
+    En el paso inductivo, supongamos \(\dim_D V = n > 0\) y que el teorema es verdadero para dimensiones menores a \(n\).
+    Sea \(\{u_1, \dots, u_{n - 1}, u\}\) una \(D\)-base de \(V\) y sea \(W\) el subespacio \((n - 1)\)-dimensional generado por \(\{u_1, \dots, u_{n - 1}\}\) (siendo \(W = 0\) cuando \(n = 1\)).
+    Entonces \(V = W \oplus D u\) (suma directa de espacios vectoriales).
+    Nuestra hipótesis inductiva tiene dos consecuencias importantes:
+    \begin{enumerate}
+      \item para todo \(v \in A \setminus W\) existe \(r \in R\) tal que \(r u \neq 0\) y \(r W = 0\);
+      \item para todo \(v \in A\), si \(r v = 0\) para todo \(r \in R\) entonces \(v \in W\).
+    \end{enumerate}
+    La primera consecuencia implica que existe \(r \in R\) tal que \(r u \neq 0\) y \(r W = 0\).
+    Pero \(r W = 0\) si y solo si \(r \in \mathcal{A}(W)\), siendo \(I = \mathcal{A}(W)\) un ideal izquierdo de \(R\).
+    Además \(r u \in I u \setminus 0\), siendo \(I u\) un submódulo de \(A\).
+    Por simplicidad, este submódulo nonulo debe ser \(I u = A\).
+
+    Para terminar el argumento inductivo, debemos encontrar \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
+    Si no existe tal \(r\), entonces podemos definir una aplicación \(\theta : A \rightarrow A\) como sigue.
+    Para \(r u \in I u = A\) definimos \(\theta(r u) = r a \in A\).
+    Afirmamos que \(\theta\) está bien definida.
+    Sean \(r_1, r_2 \in I\) tales que \(r_1 u = r_2 u\).
+    Por hipótesis \((r_1 - r_2) a = 0\) o \((r_1 - r_2) V \neq 0\).
+    Ahora bien, porque \(r_1 - r_2 \in I = \mathcal{A}(W)\) tenemos \((r_1 - r_2) W = 0\);
+    y porque \(D = \Hom_D(A, A)\), para cada \(d \in D\) tenemos \((r_1 - r_2) (d \cdot u) = (r_1 - r_2) d(u) = d((r_1 - r_2) u) = d(0) = 0\).
+    Juntos, estos dos datos implican \((r_1 - r_2) V = (r_1 - r_2) (W \oplus D u) = 0\).
+    Consecuentemente, por hipótesis \((r_1 - r_2) a = 0\).
+    Por lo tanto \(\theta(r_1 u) = r_1 a = r_2 a = \theta(r_2 u)\).
+    Podemos mostrar que \(\theta \in \Hom_D(A, A) = D\).
+    Luego para cada \(r \in I\), \(0 = \theta(r u) - r a = r \theta(u) - r a = r(\theta(u) - a)\).
+    De aquí que \(\theta(u) - a \in W\), por la segunda consecuencia de la hipótesis inductiva.
+    Consecuentemente \(a = \theta u - (\theta u - a) \in D u + W = V\),
+    lo cual contradice el hecho \(a \notin V\).
+    Por lo tanto, existe \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
+  \end{proof}
+
+  \begin{theorem}[de Densidad de Jacobson]
+    Sea \(R\) un anillo primitivo y \(A\) un \(R\)--módulo simple y fiel.
+    Considerar \(A\) como espacio vectorial sobre el anillo de división \(\Hom_R(A, A) = D\).
+    Entonces \(R\) es isomorfo a un anillo denso de endomorfismos de \(D\)--espacio vectorial \(A\).
+  \end{theorem}
+  \begin{proof}
+    Para cada \(r \in R\) la aplicación \(\alpha_r : A \rightarrow A\) dada por \(\alpha_r(a) = r a\) es facilmente identificada como un \(D\)--endomorfismo de \(A\): esto es, \(\alpha_r \in \Hom_D(A, A)\).
+    Además para todo par \(r, s \in R\) se verifican \(\alpha_{(r + s)} = \alpha_r + \alpha_s\) y \(\alpha_{r s} = \alpha_r \alpha_s\).
+    Consecuentemente la aplicación \(\alpha : R \rightarrow \Hom_D(A, A)\) definida por \(\alpha(r) = \alpha_r\) es un homomorfismo de anillos bien definido.
+    Dado que \(A\) es un \(R\)--módulo fiel, \(\alpha_r = 0\) si y solo si \(r \in \mathcal{A}(A) = 0\).
+    De aquí que \(\alpha\) es un monomorfismo, y \(R\) es isomorfo al subanillo \(\image \alpha\) de \(\Hom_D(A, A)\).
+
+    Para completar la prueba debemos mostrar que \(\image \alpha\) es un subanillo denso de \(\Hom_D(A, A)\).
+    Dado un subconjunto \(D\)--linealmente independiente \(\{u_1, \dots, u_n\}\) de \(A\), y un subconjunto arbitrario \(\{v_1, \dots, v_n\}\) de \(A\), debemos encontrar \(\alpha_r \in \image \alpha\) tal que \(\alpha_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
+    Para cada \(i\) sea \(V_i\) el \(D\)--subespacio de \(A\) generado por \(\{u_j : j \neq i\}\).
+    Dado que \(\{u_1, \dots, u_n\}\) es linealmente independiente, \(u_i \notin V_i\).
+    Consecuentemente, por el lema \ref{lemma:anihilatorLemma} existe \(r_i \in R\) tal que \(r_i u_i \neq 0\) y \(r_i V_i = 0\).
+    Después aplicamos el lema \ref{lemma:anihilatorLemma} al subespacio nulo y a elemento nonulo \(r_i u_i\):
+    existe \(s_i \in R\) tal que \(s_i r_i u_i \neq 0\) y \(s_i 0 = 0\).
+    Siendo \(s_i r_i u_i \neq 0\), el \(R\) submódulo \(R (r_i u_i)\) de \(A\) es nonulo, luego \(R(r_i u_i) = A\) por simplicidad.
+    Por esto existe \(t_i \in R\) tal que \(t_i r_i u_i = v_i\).
+    Sea \(r = t_1 r_1 + t_2 r_2 + \cdots + t_n r_n\).
+    Recordar que \(u_i \in V_j\) para \(i \neq j\), luego \(t_j r_j u_i \in t_j (r_j V_i) = t_j 0 = 0\).
+    Consecuentemente \(\alpha_r(u_i) = (t_1 r_1 + \cdots + t_n r_n) u_i = r_i r_i u_i = v_i\).
+    Por lo tanto \(\image \alpha\) es un anillo denso de endomorfismos de \(D\)--espacio vectorial \(A\).
+  \end{proof}
+
+  \begin{definition}
+    Decimos que un módulo \(A\) satisface la \emph{condición de la cadena ascendente (ACC) sobre submódulos} (o decimos que es \emph{noetheriano}) si para toda cadena \(A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots\) de submódulos de \(A\), existe un entero \(m\) tal que \(B_i = B_m\) para todo \(i \geq m\).
+  \end{definition}
+
+  Si un anillo \(R\) es pensado como módulo izquierdo (resp. derecho) sobre si mismo, entonces es facil ver que los submódulos de \(R\) son precisamente los ideales izquierdos (resp. derechos) de \(R\).
+  Consecuentemente, en este caso se acostumbra hablar de condiciones de cadena sobre ideales (izquierdos o derechos) en lugar de submódulos.
+
+  \begin{definition}
+    Un anillo \(R\) es \emph{noetheriano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena ascendente sobre ss ideales izquierdos (resp. derechos).
+    Se dice que \(R\) es \emph{noetheriano} si \(R\) es noetheriano izquierdo y derecho a la vez.
+
+    Un anillo \(R\) es \emph{artiniano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena descendiente sobre sus ideales izquierdos (resp. derechos).
+    Se dice que \(R\) es artiniano si \(R\) es artiniano izquierdo y derecho a la vez.
+  \end{definition}
+
+  \begin{definition}
+    Un módulo \(A\) satisface la \emph{condición maximal} [resp. \emph{minimal}] \emph{sobre submódulos} si todo conjunto novacío de submódulos de \(A\) contiene un elemento maximal [resp. minimal] (con respecto al orden dado por la inclusión de conjuntos).
+  \end{definition}
+
+  \begin{theorem}
+    \label{theorem:equivalenceOfChainConditions}
+    Un módulo satisface la condición de la cadena ascendente [resp. descencendente] sobre submódulos si y solo si satisface la condición maximal [resp. minimal] sobre submódulos.
+  \end{theorem}
+  \begin{proof}
+    Supongamos que el módulo \(A\) satisface la condición minimal sobre submódulos y que \(A_1 \supseteq A_2 \supseteq \cdots\) es una cadena de submódulos.
+    Entonces el conjunto \(\{A_i \mid i \geq 1\}\) tiene un elemento minimal, digamos \(A_n\).
+    Consecuentemente, para \(i \geq n\) tenemos \(A_n \supseteq A_i\) por hipótesis y \(A_n \subseteq A_i\) por minimalidad, luego \(A_i = A_n\) para todo \(i \geq n\).
+    Por lo tanto, \(A\) satisface la condición descendiente de la cadena.
+
+    Recíprocamente supongamos que \(A\) satisface la condición de la cadena descendente, y \(S\) es un conjunto novacío de submódulos de \(A\).
+    Entonces existe \(B_0 \in S\).
+    Si \(S\) no tiene elemento minimal, entonces para todo submódulo \(B\) en \(S\) existe al menos un submódulo \(B'\) en \(S\) tal que \(B \supset B'\).
+    Para cada \(B\) en \(S\), elegimos uno de estos \(B'\) (Axioma de Elección).
+    Esta elección define una función \(f : S \rightarrow S\) mediante \(B \mapsto B'\).
+    Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = B_0\) y \(\phi(n + 1) = f(\phi(n))\) \((\forall n \in \naturalNumbers)\).
+    Por tanto si \(B_n = \phi(n)\) \((\forall n \in \naturalNumbers)\), entonces \(B_0 \supset B_1 \supset \cdots\) es una cadena descendiente que viola la condición descendiente de la cadena.
+    Por lo tanto, \(S\) debe tener un elemento minimal.
+    Concluímos que \(A\) satisface la condición minimal.
+
+    La prueba para las condiciones de la cadena ascendente y maximal es análoga.
+  \end{proof}
+
+  \begin{theorem}
+    \label{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}
+    Sea \(R\) un anillo denso de endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
+    Entonces \(R\) es artiniano izquierdo [resp. derecho] si y solo si \(\dim_D V\) es finita, en cuyo caso \(R = \Hom_D(V, V)\).
+  \end{theorem}
+  \begin{proof}
+    Si \(R\) es artiniano izquierdo, y \(\dim_D V\) es infinita, entonces existe un subconjunto de \(V\) linealmente independiente e infinito (numerable) \(\{u_1, u_2, \dots\}\).
+    Por el Ejercicio \ref{theorem:moduleHomomorphisms} \(V\) es un \(\Hom_D(V, V)\)-módulo izquierdo y por tanto un \(R\)-módulo izquierdo (recordar que \(R \subseteq \Hom_D(V, V)\)).
+    Para cada \(n\) sea \(I_n\) el aniquilador izquierdo en \(R\) del conjunto \(\{u_1, \dots, u_n\}\).
+    Por el Teorema \ref{theorem:anihilatorTheorem} \(I_1 \supseteq I_2 \supseteq \cdots\) es una cadena descendente de ideales izquierdos de \(R\).
+    Sea \(w\) un elemento nonulo de \(V\), no importa cual de ellos sea (podría ser \(u_1\), por ejemplo).
+    Dado que \(\{u_1, \dots, u_{n + 1}\}\) es linealmente independiente (para cada \(n\)) y \(R\) es denso, existe \(\theta \in R\) tal que \(\theta u_i = 0\) \((\forall i \in \{1, \dots, n\})\) y \(\theta u_{n + 1} = w \neq 0\).
+    Consecuentemente \(\theta \in I_n\) pero \(\theta \notin I_{n + 1}\).
+    Por lo tanto \(I \supset I_2 \supset \cdots\) es una cadena estrictamente descencendente, su existencia lleva a una contradicción.
+    Luego \(\dim_D V\) es finita.
+
+    Recíprocamente, si \(\dim_D V\) es finita, entonces \(V\) tiene una base finita \(\{v_1, \dots, v_m\}\).
+    Si \(f\) es un elemento de \(\Hom_D(V, V)\), entonces \(f\) está completamente determinado por su acción sobre \(v_1, \dots, v_m\) por los teoremas \ref{theorem:freeUnitalModulesOverARingWithIdentity} y \ref{theorem:vectorSpaceBasis}.
+    Dado que \(R\) es denso, existe \(\theta \in R\) tal que \(\theta v_i = f v_i\) \(\forall i \in \{1, \dots, m\}\).
+    Luego \(f = \theta \in R\).
+    Por lo tanto \(\Hom_D(V, V) = R\).
+    Pero \(\Hom_D(V, V)\) es artiniano por el Teorema \ref{theorem:isomorphismBetweenMatrixAndHomomorphismRings} y el corolario \ref{corollary:matrixRingIsArtinianAndNoetherian}.
+  \end{proof}
+
+  \begin{theorem}[de Densidad de Jacobson]
+    \label{theorem:jacobsonDensityTheorem}
+    Sea \(R\) un anillo primitivo y \(A\) un \(R\)-módulo simple y fiel.
+    Considerar \(A\) como espacio vectorial sobre el anillo de división \(\Hom_R(A, A) = D\).
+    Entonces \(R\) es isomorfo a un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
+  \end{theorem}
+  \begin{proof}
+    Para cada \(r \in R\) la aplicación \(\alpha_r : A \rightarrow A\) dada por \(\alpha_r(a) = r a\) es facilmente identificada como un \(D\)-endomorfismo de \(A\): esto es, \(\alpha_r \in \Hom_D(A, A)\).
+    Además \(\alpha_{(r + s)} = \alpha_r + \alpha_s\) y \(\alpha_{r s} = \alpha_r \alpha_s\) para todo par \(r, s \in R\).
+    Consecuentemente la aplicación \(\alpha : R \rightarrow \Hom_D(A, A)\) definida por \(\alpha(r) = \alpha r\) es un homomorfismo de anillos bien definido.
+    Dado que \(A\) es un \(R\)-módulo fiel, \(\alpha_r = 0\) si y solo si \(r \in \mathcal{A}(A) = 0\).
+    De aquí que \(\alpha\) es un monomorfismo, y \(R\) es isomorfo al subanillo \(\image \alpha\) de \(\Hom_D(A, A)\).
+
+    Para completar la prueba debemos mostrar que \(\image \alpha\) es un subanillo denso de \(\Hom_D(A, A)\).
+    Sea \(U = \{u_1, \dots, u_n\}\) un subconjunto \(D\)-linealmente independiente de \(A\); y sea \(\{v_1, \dots, v_n\}\) un subconjunto arbitrario de \(A\).
+    Debemos encontrar \(\alpha_r \in \image \alpha\) tal que \(\alpha_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
+    Para cada \(i\) sea \(V_i\) el \(D\)-subespacio de \(A\) generado por \(\{u_j : j \neq i\}\).
+    Dado que \(U\) es linealmente independiente, \(u_i \notin V_i\).
+    Consecuentemente, por el lema \ref{lemma:anihilatorLemma} existe \(r_i \in R\) tal que \(r_i u_i \neq 0\) y \(r_i V_i = 0\).
+    Después aplicamos el lema \ref{lemma:anihilatorLemma}.11 al subespacio nulo y al elemento nonulo \(r_i u_i\):
+    existe \(s_i \in R\) tal que \(s_i r_i u_i \neq 0\) y \(s_i 0 = 0\).
+    Siendo \(s_i r_i u_i \neq 0\), el \(R\)-submódulo \(R (r_i u_i)\) de \(A\) en nonulo, luego \(R (r_i u_i) = A\) por simplicidad.
+    Por esto existe \(t_i \in R\) tal que \(t_i r_i u_i = v_i\).
+    Sea \(r = t_1 r_1 + t_2 r_2 + \cdots + t_n r_n \in R\).
+    Recordar que \(u_i \in V_j\) para \(i \neq j\), luego \(t_j r_j u_i \in t_j (r_j V_i) = t_j 0 = 0\).
+    Consecuentemente \(\alpha_r(u_i) = (t_1 r_1 + \cdots + t_n r_n) u_i = t_i r_i u_i = v_i\).
+    Por lo tanto \(\image \alpha\) es un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
+  \end{proof}
+
+  \begin{definition}
+    Una \emph{serie subnormal} de un grupo \(G\) es una cadena de subgrupos \(G = G_0 \geq G_1 \geq \cdots \geq G_n = \langle e \rangle\) tal que \(G_{i + 1}\) es normal en \(G_i\) para \(1 \leq i \leq n\).
+    Los \emph{factores} de la serie son los grupos cociente \(G_i / G_{i + 1}\).
+    La \emph{longitud} de la serie es el número de inclusiones estrictas (alternativamente, el número de factores con orden mayor a 1).
+    Una serie subnormal es una \emph{serie de composición} si cada factor \(G_i / G_{i + 1}\) es simple.
+  \end{definition}
+
+  Una \emph{serie normal} para un módulo \(A\) es una cadena de submódulos:
+  \(A = A_0 \supseteq A_1 \supseteq A_2 \supseteq \cdots \supseteq A_n\).
+  Los \emph{factores} de la serie son los módulos cociente \(A_i / A_{i + 1}\) \((0 \leq i < n)\).
+  La \emph{longitud} de la serie es el número de inclusiones propias (igual al número de factores notriviales).
+  Uni \emph{refinamiento propio} es un refinamiento con longitud mayor a la serie original.
+  Dos series normales son \emph{equivalentes} si existe una correspondencia uno-a-uno entre los factores notriviales tal que factores correspondientes sean isomorfos.
+  De tal modo, series equivalentes tienen igual longitud.
+  Una \emph{serie de composición} para \(A\) es una serie normal
+  \(A = A_0 \supseteq A_1 \supseteq A_2 \supseteq \cdots \supseteq A_n = 0\)
+  tal que cada factor \(A_k / A_{k + 1}\) \((0 \leq k < n)\) es un módulo nonulo sin submódulos propios.
+  Si \(R\) es unitario, decimos que un módulo unitario sin submódulos propios es \emph{simple}.
+
+  La Teoría de Series Normales y Subnormales para grupos puede trasladarse al caso de los módulos.
+  Como consecuencia de esta tenemos el siguiente teorema.
+  \begin{theorem}
+    \label{theorem:refinementAndEquivalenceOfNormalSeries}
+    Cualesquiera dos series normales de un módulo \(A\) tienen refinamientos que son equivalentes.
+    Caulesquiera dos series de composición de \(A\) son equivalentes.
+  \end{theorem}
+
+  \begin{theorem}
+    \label{theorem:compositionSeriesAndChainConditions}
+    Un módulo nonulo \(A\) tiene una serie de composición is y solo si \(A\) satisface tanto la condición de la cadena descencendente como la ascendente.
+  \end{theorem}
+  \begin{proof}
+    Supongamos que \(A\) tiene una serie de composición \(S\) de longitud \(n\).
+    Si alguna de las condiciones de la cadena falla, podemos encontrar submódulos \(A = A_0 \supset A_1 \supset A_2 \supset \cdots \supset A_n \supset A_{n + 1}\)
+    que forman una serie normal \(T\) de longitud \(n + 1\).
+    Por el teorema \ref{theorem:refinementAndEquivalenceOfNormalSeries}, \(S\) y \(T\) tienen refinamientos equivalentes.
+    Esto es una contradicción porque series equivalentes tienen igual longitud.
+    Todo refinamiento de la series de composición \(S\) tiene longitud \(n\) al igual que \(S\), pero todo refinamiento de \(T\) tiene longitud al menos \(n + 1\).
+    Por lo tanto \(A\) satisface ambas condiciones de la cadena.
+
+    Recíprocamente, suponemos que \(B\) es un submódulo nonulo de \(A\), definimos \(S(B)\) como el conjunto formado por todos los submódulos \(C\) de \(B\) con \(C \neq B\).
+    De tal modo que si \(B\) no tiene submódulos propios, entonces \(S(B) = \{0\}\).
+    También definimos \(S(0) = \{0\}\).
+    Para cada \(B\), el conjunto \(S(B)\) tiene un elemento maximal \(B'\) (por el Teorema \ref{theorem:equivalenceOfChainConditions}
+    ).
+    Sea \(S\) el conjunto de todos los submódulos de \(A\).
+    Definimos una aplicación \(f : S \rightarrow S\) mediante \(f(B) = B'\) (usando el Axioma de Elección).
+    Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = a\) y \(\phi(n + 1) = f(\phi(n))\).
+    Si \(A_i = \phi(i)\), entonces \(A \supseteq A_1 \supseteq A_2 \supseteq \cdots\) es una cadena descendiente por construcción.
+    Luego para un \(n\), \(A_i = A_n\) \((\forall i \geq n)\).
+    Dado que \(A_{n + 1} = f(A_n)\), la definición de \(f\) muestra que \(A_{n + 1} = A_n\) solo si \(A_n = 0 = A_{n + 1}\).
+    Sea \(m\) el menor entero tal que \(A_m = 0\).
+    Entonces \(m \leq n\) y \(A_k \neq 0\) \((\forall k < m)\).
+    Más aún, para cada \(k < m\), \(A_{k + 1}\) es un submódulo maximal de \(A_k\) tal que \(A_k \supseteq A_{k + 1}\).
+    Consecuentemente, cada \(A_k / A_{k + 1}\) es nonulo y no tiene submódulos propios por el \ref{theorem:submodulesOfQuotientModule}.
+    Por lo tanto \(A \supseteq A_1 \supseteq \cdots \supseteq A_m = 0\) es una serie de composición para \(A\).
+  \end{proof}
+
+  \begin{corollary}
+    \label{corollary:matrixRingIsArtinianAndNoetherian}
+    Si \(D\) es un anillo de división, entonces el anillo \(\Mat_n D\) formado por todas las matrices \(n \times n\) sobre \(D\) es a la vez artiniano y noetheriano.
+  \end{corollary}
+  \begin{proof}
+    Es una consecuencia del teorema \ref{theorem:compositionSeriesAndChainConditions}.
+    En efecto, usando tal resultado, el teorema \ref{theorem:compositionSeriesOfLeftModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano izquierdo; y el teorema \ref{theorem:compositionSeriesOfRightModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano derecho.
+  \end{proof}
+
+  \begin{theorem}[de Artin--Wedderburn]
+    Las siguientes condiciones sobre un anillo artiniano izquierdo \(R\) son equivalentes.
+    \begin{enumerate}
+      \item
+        \label{property:artin--wedderburn_simple-ring}
+        \(R\) es simple;
+      \item
+        \label{property:artin--wedderburn_primitive-ring}
+        \(R\) es primitivo;
+      \item
+        \label{property:artin--wedderburn_endomorphism-ring}
+        \(R\) es isomorfo al anillo de endomorfismos de un espacio vectorial nonulo sobre un anillo de división \(D\);
+      \item
+        \label{property:artin--wedderburn_matrix-ring}
+        para algún entero positivo \(n\), \(R\) es isomorfo al anillo formado por las matrices \(n \times n\) sobre un anillo de división.
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}
+    \(\ref{property:artin--wedderburn_simple-ring} \Rightarrow \ref{property:artin--wedderburn_primitive-ring}\).
+    Primero observamos que \(I = \{r \in R \mid R r = 0\}\) es un ideal de \(R\), con la propiedad \(I R = 0\).
+    Pero \(R\) es simple: no tiene ideales propios, por lo cual \(I = R\) o \(I = 0\);
+    y \(R R \neq 0\), por lo cual \(I = 0\).
+
+    Consideremos el conjunto \(\mathcal{S}\) formado por todos los ideales izquierdos nonulos de \(R\).
+    Dado que \(R\) es artiniano izquierdo, satisface la condición de la cadena descendiente sobre ideales izquierdos.
+    En particular, para toda sucesión \(\{S_i\}_{i \in \naturalNumbers}\) en \(\mathcal{S}\) con \(S_0 \supseteq S_1 \supseteq S_2 \supseteq \cdots\), existe un \(m \in \naturalNumbers\) tal que \(S_m = S_i\) para todo \(i \geq m\).
+    El Lema de Zorn permite deducir de esto la existencia de un elemento minimal \(J \in \mathcal{S}\), tal que \(J \supseteq J' \rightarrow J = J'\) para todo \(J' \in \mathcal{S}\).
+    Esta minimalidad hace que \(J\) no tenga \(R\)--submódulos propios (un \(R\)--submódulo de \(J\) es un ideal izquierdo de \(R\) contenido en \(J\)).
+
+    Afirmamos que el aniquilador izquierdo \(\mathcal{A}(J)\) de \(J\) en \(R\) es cero.
+    De otro modo \(\mathcal{A}(J) = R\) por simplicidad y \(R u = 0\) para cada \(u \in J\) nonulo.
+    Consecuentemente, cada uno de estos \(u\) nonulos pertenece a \(I = 0\), lo cual es una contradicción.
+    Por lo tanto \(\mathcal{A}(J) = 0\) y \(R J \neq 0\).
+    En conclusión, \(J\) es un \(R\)--módulo simple y fiel, y \(R\) es primitivo.
+
+    \(\ref{property:artin--wedderburn_primitive-ring} \Rightarrow \ref{property:artin--wedderburn_endomorphism-ring}\)
+    Por el Teorema de Densidad de Jacobson \ref{theorem:jacobsonDensityTheorem}, \(R\) es isomorfo a un anillo denso \(T\) compuesto por endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
+    Porque \(R\) es artiniano izquierdo, \(R \simeq T = \Hom _D(V, V)\) por el Teorema \ref{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}.
+
+    \(\ref{property:artin--wedderburn_endomorphism-ring} \Leftrightarrow \ref{property:artin--wedderburn_matrix-ring}\)
+    Teorema \ref{theorem:isomorphismBetweenMatrixAndHomomorphismRings}
+
+    \(\ref{property:artin--wedderburn_matrix-ring} \Leftrightarrow \ref{property:artin--wedderburn_simple-ring}\)
+    Teorema \ref{theorem:idealsInTheRingOfMatricesOverADivisionRing}
+  \end{proof}
+\end{document}
