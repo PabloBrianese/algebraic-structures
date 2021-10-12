@@ -13,6 +13,7 @@
 \DeclareMathOperator{\image}{\text{Im}}
 
 \newtheorem{theorem}{Teorema}
+\newtheorem{corollary}{Corolario}
 \newtheorem{lemma}{Lema}
 \newtheorem{proposition}{Proposición}
 \newtheorem{definition}{Definición}
@@ -206,6 +207,7 @@
   \end{proof}
 
   \begin{theorem}
+    \label{theorem:compositionSeriesOfLeftModulesForMatrixRing}
     Sea \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) sea \(M_i = R (E_{1 1} + \cdots + E_{i i})\).
     Afirmamos que cada \(M_i\) es un ideal izquierdo de \(R\) y que \(M_i / M_{i - 1} \simeq R E_{i i}\).
     Por eso \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composicón de \(R\)-módulos izquierdos.
@@ -274,6 +276,7 @@
   \end{proof}
 
   \begin{theorem}
+    \label{theorem:compositionSeriesOfRightModulesForMatrixRing}
     Sea \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) sea \(M_i = (E_{1 1} + \cdots + E_{i i}) R\).
     Afirmamos que cada \(M_i\) es un ideal derecho de \(R\) y que \(M_i / M_{i - 1} \simeq E_{i i} R\).
     Por eso \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composición de \(R\)-módulos derechos.
@@ -656,6 +659,7 @@
   \end{theorem}
 
   \begin{theorem}
+    \label{theorem:compositionSeriesAndChainConditions}
     Un módulo nonulo \(A\) tiene una serie de composición is y solo si \(A\) satisface tanto la condición de la cadena descencendente como la ascendente.
   \end{theorem}
   \begin{proof}
@@ -683,6 +687,15 @@
     Más aún, para cada \(k < m\), \(A_{k + 1}\) es un submódulo maximal de \(A_k\) tal que \(A_k \supseteq A_{k + 1}\).
     Consecuentemente, cada \(A_k / A_{k + 1}\) es nonulo y no tiene submódulos propios por el \ref{theorem:submodulesOfQuotientModule}.
     Por lo tanto \(A \supseteq A_1 \supseteq \cdots \supseteq A_m = 0\) es una serie de composición para \(A\).
+  \end{proof}
+
+  \begin{corollary}
+    \label{corollary:matrixRingIsArtinianAndNoetherian}
+    Si \(D\) es un anillo de división, entonces el anillo \(\Mat_n D\) formado por todas las matrices \(n \times n\) sobre \(D\) es a la vez artiniano y noetheriano.
+  \end{corollary}
+  \begin{proof}
+    Es una consecuencia del teorema \ref{theorem:compositionSeriesAndChainConditions}.
+    En efecto, usando tal resultado, el teorema \ref{theorem:compositionSeriesOfLeftModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano izquierdo; y el teorema \ref{theorem:compositionSeriesOfRightModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano derecho.
   \end{proof}
 
   \begin{theorem}[de Artin--Wedderburn]
