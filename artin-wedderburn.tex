@@ -31,6 +31,78 @@
 
   \chapter{Matrices}
 
+  \begin{proposition}
+    \label{proposition:matrixEntryCalculation}
+    Sea \(R\) un anillo con identidad, y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
+    Dentro de \(S\) podemos encontrar las matrices \(E_{r s}\), donde \(r, s \in \{1, \dots, n\}\), y \(E_{r s}\) tiene \(1_R\) como entrada \((r, s)\) y 0 en las demás posiciones.
+    Para toda matriz \(A = (a_{i j})\) en \(S\)
+    \begin{align}
+      E_{p r} A E_{s q}
+      =
+      a_{r s} E_{p q}
+    \end{align}
+  \end{proposition}
+  \begin{proof}
+    Es un cálculo directo.
+  \end{proof}
+
+  \begin{theorem}
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(R E_{j_0 j_0}\) está formado por todas las matrices \(A \in R\) tales que \(\Col_j A = 0\) \((\forall j \neq j_0)\).
+	Es decir
+	\begin{align}
+	  R E_{j_0 j_0}
+	  =
+	  \sum_{i = 1}^n D E_{i j_0}
+	\end{align}
+  \end{theorem}
+  \begin{proof}
+    Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
+
+    Afirmamos que \(I' = \{A \in R : \Col_j A = 0 \, (\forall j \neq j_0)\}\) es igual a \(I\).
+    Lo demostraremos usando que, por la proposición \ref{proposition:matrixEntryCalculation}, para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
+    \begin{align}
+      a E_{j_0 j_0}
+      =
+      I_n a E_{j_0 j_0}
+      =
+      \sum_{i = 1}^n E_{i i} a E_{j_0 j_0}
+      =
+      \sum_{j = 1}^n a_{i j_0} E_{i j_0}
+    \end{align}
+    Si \(A \in I\), entonces existe \(a \in R\) con \(A = a E\).
+    Luego \(A = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\) pertenece a \(I'\).
+    Recíprocamente, si \(A \in I'\), entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{i = 1}^n A_{i j_0} E_{i j_0} = A E_{j_0 j_0}\).
+  \end{proof}
+
+  Argumentos análogos demuestran que
+  \begin{theorem}
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(E_{i_0 i_0} R\) está formado por todas las matrices \(A \in R\) tales que \(\Fila_i A = 0\) \((\forall i \neq i_0)\).
+    Es decir
+    \begin{align}
+      E_{i_0 i_0} R
+      =
+      \sum_{j = 1}^n E_{i_0 j} D
+    \end{align}
+  \end{theorem}
+  \begin{proof}
+    Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{i_0 i_0}\), \(I = E R\).
+
+    Afirmamos que \(I' = \{A \in R : \Fila_i A = 0 \, (\forall i \neq i_0)\}\) es igual a \(I\).
+    Lo demostraremos usando que, por la proposición \ref{proposition:matrixEntryCalculation}, para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
+    \begin{align}
+      E_{i_0 i_0} a
+      =
+      E_{i_0 i_0} a I_n
+      =
+      \sum_{j = 1}^n E_{i_0 i_0} a E_{j j}
+      =
+      \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}
+    \end{align}
+    Si \(A \in I\) entonces existe \(a \in R\) con \(A = E a\).
+    Luego \(A = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\) pertenece a \(I'\).
+    Recíprocamente, si \(A \in I'\) entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{j = 1}^n A_{i_0 j} E_{i_0 j} = E_{i_0 i_0} A\).
+  \end{proof}
+
   \begin{theorem}
     Sean \(D\) un anillo de división y \(R = \Mat_n D\).
     Entonces son simples los \(R\)-submódulos izquierdos de \(R\)
@@ -50,7 +122,7 @@
     Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por izquierda) su fila \(i_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
     Entonces \(M a = 1_D E_{i_0 j_0} + \sum_{i \neq i_0} a_{i j_0} E_{i j_0}\).
     Luego, existen matrices elementales de transformación \(A_i\) \((i \in \{1, \dots, n\} \setminus i_0)\), que actúan sobre \(a\) sumando a la fila \(i\)-ésima el producto (por izquierda) de \(- a_{i j_0}\) con la fila \(i_0\)-ésima.
-    Entonces \(A_1 \cdots A_n M a = 1_D E_{i_0 j_0}\) (donde definimos \(A_{i_0} = I_n\) para mejorar la notación).
+    Entonces \(A_1 \cdots A_n M a = 1_D E_{i_0 j_0}\) (donde definimos \(A_{i_0} = I_n\), la matriz identidad, para mejorar la notación).
     Finalmente, para cada \(i \in \{1, \dots, n\}\), existe una matriz elemental de transformación \(P_i\) que actúa sobre \(a\) permutando las filas \(i\) e \(i_0\).
     De ese modo \(P_i A_1 \cdots A_n M a = 1_D E_{i j_0}\).
     Por lo tanto \(1_D E_{i j_0} \in J\) para todo \(i \in \{1, \dots, n\}\).
@@ -77,7 +149,7 @@
     Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por derecha) su columna \(j_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
     Entonces \(a M = E_{i_0 j_0} 1_D + \sum_{j \neq j_0} a_{i_0 j} E_{i_0 j}\).
     Luego, existen matrices elementales de transformación \(A_j\) \((j \in \{1, \dots, n\} \setminus j_0)\), que actúan sobre \(a\) sumando a la columna \(j\)-ésima el producto (por derecha) de \(- a_{i_0 j}\) con la columna \(j_0\)-ésima.
-    Entonces \(a M A_1 \cdots A_n = E_{i_0 j_0} 1_D\) (donde definimos \(A_{j_0} = I_n\) para mejorar la notación).
+    Entonces \(a M A_1 \cdots A_n = E_{i_0 j_0} 1_D\) (donde definimos \(A_{j_0} = I_n\), la matriz identidad, para mejorar la notación).
     Finalmente, para cada \(j \in \{1, \dots, n\}\), existe una matriz elemental de transformación \(P_j\) que actúa sobre \(a\) permutando las columnas \(j\) y \(j_0\).
     De ese modo \(a M A_1 \cdots A_n P_j = E_{i_0 j} 1_D\).
     Por lo tanto \(E_{i_0 j} 1_D \in J\) para todo \(i \in \{1, \dots, n\}\).
@@ -90,8 +162,7 @@
   \begin{theorem}
     \label{theorem:compositionSeriesOfLeftModulesForMatrixRing}
     Sea \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) sea \(M_i = R (E_{1 1} + \cdots + E_{i i})\).
-    Afirmamos que cada \(M_i\) es un ideal izquierdo de \(R\) y que \(M_i / M_{i - 1} \simeq R E_{i i}\).
-    Por eso \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composicón de \(R\)-módulos izquierdos.
+    Entonces \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composición de \(R\)-módulos izquierdos, con factores \(M_i / M_{i - 1} \simeq R E_{i i}\).
   \end{theorem}
   \begin{proof}
     Notar que \(M_i \subseteq R E_{1 1} + \cdots + R E_{i i}\).
@@ -159,8 +230,7 @@
   \begin{theorem}
     \label{theorem:compositionSeriesOfRightModulesForMatrixRing}
     Sea \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) sea \(M_i = (E_{1 1} + \cdots + E_{i i}) R\).
-    Afirmamos que cada \(M_i\) es un ideal derecho de \(R\) y que \(M_i / M_{i - 1} \simeq E_{i i} R\).
-    Por eso \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composición de \(R\)-módulos derechos.
+    Entonces \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composición de \(R\)-módulos derechos, con factores \(M_i / M_{i - 1} \simeq E_{i i} R\).
   \end{theorem}
   \begin{proof}
     Notar que \(M_{i_0} \subseteq E_{1 1} R + \cdots + E_{i_0 i_0} R\).
@@ -399,73 +469,6 @@
     Cuando \(R\) es conmutativo \(R = R^{\textnormal{op}}\).
     La fórmula del teorema resulta \(\Hom_R(E, E) \simeq \Mat_n R\).
   \end{remark}
-
-  \begin{proposition}
-    Sea \(R\) un anillo con identidad, y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
-    Dentro de \(S\) podemos encontrar las matrices \(E_{r s}\), donde \(r, s \in \{1, \dots, n\}\), y \(E_{r s}\) tiene \(1_R\) como entrada \((r, s)\) y 0 en as demás posiciones.
-    Para toda matriz \(A = (a_{i j})\) en \(S\)
-    \begin{align}
-      E_{p r} A E_{s q}
-      =
-      a_{r s} E_{p q}
-    \end{align}
-  \end{proposition}
-  \begin{proof}
-    Es un cálculo directo.
-  \end{proof}
-
-  \begin{proposition}
-    Si \(D\) es un anillo de división y \(R = \Mat_n D\).
-    Entonces, para toda matriz \(A \in R\), \(R A\) es un ideal izquierdo de \(R\) y \(A R\) es un ideal derecho de \(R\).
-  \end{proposition}
-  \begin{proof}
-    No requiere mucho razonamiento, es un cálculo directo.
-  \end{proof}
-
-  \begin{theorem}
-    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(R E_{j_0 j_0}\) está formado por todas las matrices \(A \in R\) tales que \(\Col_j A = 0\) \((\forall j \neq j_0)\).
-  \end{theorem}
-  \begin{proof}
-    Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
-
-    Afirmamos que \(I' = \{A \in R : \Col_j A = 0 \, (\forall j \neq j_0)\}\) es igual a \(I\).
-    Lo demostraremos usando que para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
-    \begin{align}
-      a E_{j_0 j_0}
-      =
-      I_n a E_{j_0 j_0}
-      =
-      \sum_{i = 1}^n E_{i i} a E_{j_0 j_0}
-      =
-      \sum_{j = 1}^n a_{i j_0} E_{i j_0}
-    \end{align}
-    Si \(A \in I\), entonces existe \(a \in R\) con \(A = a E\).
-    Luego \(A = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\) pertenece a \(I'\).
-    Recíprocamente, si \(A \in I'\), entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{i = 1}^n A_{i j_0} E_{i j_0} = A E_{j_0 j_0}\).
-  \end{proof}
-
-  Argumentos análogos demuestran que
-  \begin{theorem}
-    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(E_{i_0 i_0} R\) está formado por todas las matrices \(A \in R\) tales que \(\Fila_i A = 0\) \((\forall i \neq i_0)\).
-  \end{theorem}
-  \begin{proof}
-    Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{i_0 i_0}\), \(I = E R\).
-
-    Afirmamos que \(I' = \{A \in R : \Fila_i A = 0 \, (\forall i \neq i_0)\}\) es igual a \(I\).
-    Lo demostraremos usando que para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
-    \begin{align}
-      E_{i_0 i_0} a
-      =
-      E_{i_0 i_0} a I_n
-      =
-      \sum_{j = 1}^n E_{i_0 i_0} a E_{j j}
-      =
-      \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}
-    \end{align}
-    Si \(A \in I\) entonces existe \(a \in R\) con \(A = E a\).
-    Luego \(A = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\) pertenece a \(I'\).
-    Recíprocamente, si \(A \in I'\) entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{j = 1}^n A_{i_0 j} E_{i_0 j} = E_{i_0 i_0} A\).
-  \end{proof}
 
   \begin{theorem}
     Sea \(R\) un anillo con identidad y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
