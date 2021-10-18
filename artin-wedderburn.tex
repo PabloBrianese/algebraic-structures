@@ -361,13 +361,6 @@
   \end{proof}
 
   \section{series subnormales}
-  
-  \begin{definition}
-    Una \emph{serie subnormal} de un grupo \(G\) es una cadena de subgrupos \(G = G_0 \geq G_1 \geq \cdots \geq G_n = \langle e \rangle\) tal que \(G_{i + 1}\) es normal en \(G_i\) para \(1 \leq i \leq n\).
-    Los \emph{factores} de la serie son los grupos cociente \(G_i / G_{i + 1}\).
-    La \emph{longitud} de la serie es el número de inclusiones estrictas (alternativamente, el número de factores con orden mayor a 1).
-    Una serie subnormal es una \emph{serie de composición} si cada factor \(G_i / G_{i + 1}\) es simple.
-  \end{definition}
 
   Una \emph{serie normal} para un módulo \(A\) es una cadena de submódulos:
   \(A = A_0 \supseteq A_1 \supseteq A_2 \supseteq \cdots \supseteq A_n\).
@@ -392,7 +385,7 @@
 
   \begin{theorem}
     \label{theorem:compositionSeriesAndChainConditions}
-    Un módulo nonulo \(A\) tiene una serie de composición is y solo si \(A\) satisface tanto la condición de la cadena descencendente como la ascendente.
+    Un módulo nonulo \(A\) tiene una serie de composición si y solo si \(A\) satisface tanto la condición de la cadena descendente como la ascendente.
   \end{theorem}
   \begin{proof}
     Supongamos que \(A\) tiene una serie de composición \(S\) de longitud \(n\).
@@ -400,23 +393,24 @@
     que forman una serie normal \(T\) de longitud \(n + 1\).
     Por el teorema \ref{theorem:refinementAndEquivalenceOfNormalSeries}, \(S\) y \(T\) tienen refinamientos equivalentes.
     Esto es una contradicción porque series equivalentes tienen igual longitud.
-    Todo refinamiento de la series de composición \(S\) tiene longitud \(n\) al igual que \(S\), pero todo refinamiento de \(T\) tiene longitud al menos \(n + 1\).
+    Sin embargo todo refinamiento de la series de composición \(S\) tiene longitud \(n\) al igual que \(S\), pero todo refinamiento de \(T\) tiene longitud al menos \(n + 1\).
     Por lo tanto \(A\) satisface ambas condiciones de la cadena.
 
-    Recíprocamente, suponemos que \(B\) es un submódulo nonulo de \(A\), definimos \(S(B)\) como el conjunto formado por todos los submódulos \(C\) de \(B\) con \(C \neq B\).
+    Recíprocamente, suponemos que \(A\) satisface ambas condiciones de la cadena.
+    Dado \(B\), un submódulo nonulo de \(A\), definimos \(S(B)\) como el conjunto formado por todos los submódulos \(C\) de \(B\) con \(C \neq B\).
     De tal modo que si \(B\) no tiene submódulos propios, entonces \(S(B) = \{0\}\).
     También definimos \(S(0) = \{0\}\).
-    Para cada \(B\), el conjunto \(S(B)\) tiene un elemento maximal \(B'\) (por el Teorema \ref{theorem:equivalenceOfChainConditions}
+    Para cada \(B\), la condición de la cadena ascendente nos asegura que el conjunto \(S(B)\) tiene un elemento maximal \(B'\) (por el Teorema \ref{theorem:equivalenceOfChainConditions}
     ).
     Sea \(S\) el conjunto de todos los submódulos de \(A\).
     Definimos una aplicación \(f : S \rightarrow S\) mediante \(f(B) = B'\) (usando el Axioma de Elección).
-    Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = a\) y \(\phi(n + 1) = f(\phi(n))\).
+    Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = A\) y \(\phi(n + 1) = f(\phi(n))\).
     Si \(A_i = \phi(i)\), entonces \(A \supseteq A_1 \supseteq A_2 \supseteq \cdots\) es una cadena descendente por construcción.
-    Luego para un \(n\), \(A_i = A_n\) \((\forall i \geq n)\).
+    Luego, por la condición de la cadena descendente, para un \(n\), \(A_i = A_n\) \((\forall i \geq n)\).
     Dado que \(A_{n + 1} = f(A_n)\), la definición de \(f\) muestra que \(A_{n + 1} = A_n\) solo si \(A_n = 0 = A_{n + 1}\).
     Sea \(m\) el menor entero tal que \(A_m = 0\).
     Entonces \(m \leq n\) y \(A_k \neq 0\) \((\forall k < m)\).
-    Más aún, para cada \(k < m\), \(A_{k + 1}\) es un submódulo maximal de \(A_k\) tal que \(A_k \supseteq A_{k + 1}\).
+    Más aún, para cada \(k < m\), \(A_{k + 1}\) es un submódulo maximal de \(A_k\).
     Consecuentemente, cada \(A_k / A_{k + 1}\) es nonulo y no tiene submódulos propios por el teorema \ref{theorem:submodulesOfQuotientModule}.
     Por lo tanto \(A \supseteq A_1 \supseteq \cdots \supseteq A_m = 0\) es una serie de composición para \(A\).
   \end{proof}
