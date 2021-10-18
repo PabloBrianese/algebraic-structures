@@ -47,6 +47,7 @@
   \end{proof}
 
   \begin{theorem}
+    \label{theorem:matricesWhereAlmostEveryColumnIsNull}
     Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(R E_{j_0 j_0}\) está formado por todas las matrices \(A \in R\) tales que \(\Col_j A = 0\) \((\forall j \neq j_0)\).
 	Es decir
 	\begin{align}
@@ -76,6 +77,7 @@
 
   Argumentos análogos demuestran que
   \begin{theorem}
+    \label{theorem:matricesWhereAlmostEveryRowIsNull}
     Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(E_{i_0 i_0} R\) está formado por todas las matrices \(A \in R\) tales que \(\Fila_i A = 0\) \((\forall i \neq i_0)\).
     Es decir
     \begin{align}
@@ -166,7 +168,7 @@
   \end{theorem}
   \begin{proof}
     Notar que \(M_i \subseteq R E_{1 1} + \cdots + R E_{i i}\).
-    Luego \(\Col_j A = 0\) \((\forall j \in \{i + 1, \dots, n\})\) para toda \(A \in M_i\).
+    Usando el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}, se sigue \(\Col_j A = 0\) \((\forall j \in \{i + 1, \dots, n\})\) para toda \(A \in M_i\).
 
     Notar que si \(A \in M_i\) con \(A = r (E_{1 1} + \cdots + E_{i i})\) para un \(r \in R\), entonces \(A E_{i i} = r E_{i i}\).
     En efecto
@@ -212,18 +214,15 @@
 
     Esto nos permite definir una función \(\phi : M_i / M_{i - 1} \rightarrow R E_{i i}\) dada por \(A + M_{i - 1} \mapsto A E_{i i}\).
     Así definida, es un homomorfismo de \(R\)-módulos.
-
     Es además un monomorfismo.
     Si \(\phi(A + M_{i - 1}) = 0\) entonces \(A E_{i i} = 0\) y \(\Col_i A = 0\).
     Además, \(A \in M_i\) implica \(\Col_j A = 0\) \((\forall j > i)\).
     Luego \(\Col_j A = 0\) \((\forall j \in \{i, \dots, n\})\), y \(A \in M_{i - 1}\).
     Entonces \(A + M_{i - 1} = 0 + M_{i - 1}\).
-
     También es un epimorfismo.
     Dado \(A E_{i i} \in R E_{i i}\), tenemos \(A E_{i i} \in M_i\).
     Calculamos \(\phi(A E_{i i} + M_{i - 1})= (A E_{i i}) E_{i i} = A E_{i i}^2 = A E_{i i}\).
     Por lo tanto \(A E_{i i} \in \image \phi\).
-
     Concluímos que \(\phi : M_i / M_{i - 1} \rightarrow R E_{i i}\) es un isomorfismo.
   \end{proof}
 
@@ -234,7 +233,7 @@
   \end{theorem}
   \begin{proof}
     Notar que \(M_{i_0} \subseteq E_{1 1} R + \cdots + E_{i_0 i_0} R\).
-    Luego \(\Fila_i A = 0\) \((\forall i \in \{i_0 + 1, \dots, n\})\) para toda \(A \in M_{i_0}\).
+    Usando el teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull}, se sigue \(\Fila_i A = 0\) \((\forall i \in \{i_0 + 1, \dots, n\})\) para toda \(A \in M_{i_0}\).
 
     Notar que se \(A \in M_{i_0}\) con \(A = (E_{1 1} + \cdots + E_{i_0 i_0}) r\) para un \(r \in R\), entonces \(E_{i_0 i_0} A = E_{i_0 i_0} r\).
     En efecto
@@ -280,12 +279,10 @@
 
     Esto nos permite definir una función \(\phi : M_{i_0} / M_{i_0 - 1} \rightarrow E_{i_0 i_0} R\) dada por \(A + M_{i_0 - 1} \mapsto E_{i_0 i_0} A\).
     Así definida, es un homomorfismo de \(R\)-módulos.
-
     Es además un monomorfismo.
     Si \(\phi(A + M_{i_0 - 1}) = 0\) entonces \(E_{i_0 i_0} A = 0\) y \(\Fila_{i_0} A = 0\).
     Además \(A \in M_{i_0}\) implica \(\Fila_i A = 0\) \((\forall i \in \{i_0, \dots, n\})\), y \(A \in M_{i_0 - 1}\).
     Entonces \(A + M_{i_0 - 1} = 0 + M_{i_0 - 1}\).
-
     También es un epimorfismo.
     Dado \(E_{i_0 i_0} A \in E_{i_0 i_0} R\), tenemos \(E_{i_0 i_0} A \in M_i\).
     Calculamos \(\phi(E_{i_0 i_0} A + M_{i_0 - 1}) = E_{i_0 i_0} (E_{i_0 i_0} A) = E_{i_0 i_0}^2 A = E_{i_0 i_0} A\).
