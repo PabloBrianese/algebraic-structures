@@ -313,7 +313,7 @@
     Un anillo \(R\) es \emph{noetheriano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena ascendente sobre ss ideales izquierdos (resp. derechos).
     Se dice que \(R\) es \emph{noetheriano} si \(R\) es noetheriano izquierdo y derecho a la vez.
 
-    Un anillo \(R\) es \emph{artiniano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena descendiente sobre sus ideales izquierdos (resp. derechos).
+    Un anillo \(R\) es \emph{artiniano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena descendente sobre sus ideales izquierdos (resp. derechos).
     Se dice que \(R\) es artiniano si \(R\) es artiniano izquierdo y derecho a la vez.
   \end{definition}
 
@@ -328,20 +328,36 @@
   \begin{proof}
     Supongamos que el módulo \(A\) satisface la condición minimal sobre submódulos y que \(A_1 \supseteq A_2 \supseteq \cdots\) es una cadena de submódulos.
     Entonces el conjunto \(\{A_i \mid i \geq 1\}\) tiene un elemento minimal, digamos \(A_n\).
-    Consecuentemente, para \(i \geq n\) tenemos \(A_n \supseteq A_i\) por hipótesis y \(A_n \subseteq A_i\) por minimalidad, luego \(A_i = A_n\) para todo \(i \geq n\).
-    Por lo tanto, \(A\) satisface la condición descendiente de la cadena.
+    Consecuentemente, para \(i \geq n\) tenemos \(A_n \supseteq A_i\) por hipótesis y \(A_n \subseteq A_i\) por minimalidad. Luego \(A_i = A_n\) para todo \(i \geq n\).
+    Por lo tanto, \(A\) satisface la condición descendente de la cadena.
 
-    Recíprocamente supongamos que \(A\) satisface la condición de la cadena descendente, y \(S\) es un conjunto novacío de submódulos de \(A\).
+    Recíprocamente, supongamos que \(A\) satisface la condición de la cadena descendente, y \(S\) es un conjunto novacío de submódulos de \(A\).
     Entonces existe \(B_0 \in S\).
     Si \(S\) no tiene elemento minimal, entonces para todo submódulo \(B\) en \(S\) existe al menos un submódulo \(B'\) en \(S\) tal que \(B \supset B'\).
     Para cada \(B\) en \(S\), elegimos uno de estos \(B'\) (Axioma de Elección).
     Esta elección define una función \(f : S \rightarrow S\) mediante \(B \mapsto B'\).
     Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = B_0\) y \(\phi(n + 1) = f(\phi(n))\) \((\forall n \in \naturalNumbers)\).
-    Por tanto si \(B_n = \phi(n)\) \((\forall n \in \naturalNumbers)\), entonces \(B_0 \supset B_1 \supset \cdots\) es una cadena descendiente que viola la condición descendiente de la cadena.
+    Por tanto si \(B_n = \phi(n)\) \((\forall n \in \naturalNumbers)\), entonces \(B_0 \supset B_1 \supset \cdots\) es una cadena descendente que viola la condición descendente de la cadena.
     Por lo tanto, \(S\) debe tener un elemento minimal.
     Concluímos que \(A\) satisface la condición minimal.
+  \end{proof}
+  La prueba para las condiciones de la cadena ascendente y maximal es análoga.
+  \begin{proof}
+    Supongamos que el módulo \(A\) satisface la condición maximal sobre submódulos y que \(A_1 \subseteq A_2 \subseteq \cdots\) es una cadena de submódulos.
+    Entonces el conjunto \(\{A_i : i \geq 1\}\) tiene un elemento maximal, digamos \(A_n\).
+    Consecuentemente, para \(i \geq n\) tenemos \(A_n \subseteq A_i\) por hipótesis y \(A_n \supseteq A_i\) por maximalidad.
+    Luego \(A_i = A_n\) para todo \(i \geq n\).
+    Por lo tanto, \(A\) satisface la condición ascendente de la cadena.
 
-    La prueba para las condiciones de la cadena ascendente y maximal es análoga.
+    Recíprocamente, supongamos que \(A\) satisface la condición de la cadena ascendente, y \(S\) es un conjunto novacío de submódulos de \(A\).
+    Entonces existe \(B_0 \in S\).
+    Si \(S\) no tiene elemento maximal, entonces para todo submódulo \(B \in S\) existe al menos un submódulo \(B' \in S\) tal que \(B \subset B'\).
+    Para cada \(B \in S\), elegimos uno de estos \(B'\) (Axioma de Elección).
+    Esta elección define una función \(f : S \rightarrow S\) mediante \(B \mapsto B'\).
+    Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = B_0\) y \(\phi(n + 1) = f(\phi(n))\) \((\forall n \in \naturalNumbers)\).
+    Por tanto si \(B_n = \phi(n)\) \((\forall n \in \naturalNumbers)\) entonces \(B_0 \supset B_1 \supset \cdots\) es una cadena ascendente que viola la condición ascendente de la cadena.
+    Por lo tanto, \(S\) debe tener un elemento maximal.
+    Concluimos que \(A\) satisface la condición maximal de la cadena.
   \end{proof}
 
   \section{series subnormales}
@@ -395,7 +411,7 @@
     Sea \(S\) el conjunto de todos los submódulos de \(A\).
     Definimos una aplicación \(f : S \rightarrow S\) mediante \(f(B) = B'\) (usando el Axioma de Elección).
     Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = a\) y \(\phi(n + 1) = f(\phi(n))\).
-    Si \(A_i = \phi(i)\), entonces \(A \supseteq A_1 \supseteq A_2 \supseteq \cdots\) es una cadena descendiente por construcción.
+    Si \(A_i = \phi(i)\), entonces \(A \supseteq A_1 \supseteq A_2 \supseteq \cdots\) es una cadena descendente por construcción.
     Luego para un \(n\), \(A_i = A_n\) \((\forall i \geq n)\).
     Dado que \(A_{n + 1} = f(A_n)\), la definición de \(f\) muestra que \(A_{n + 1} = A_n\) solo si \(A_n = 0 = A_{n + 1}\).
     Sea \(m\) el menor entero tal que \(A_m = 0\).
@@ -740,7 +756,7 @@
     y \(R R \neq 0\), por lo cual \(I = 0\).
 
     Consideremos el conjunto \(\mathcal{S}\) formado por todos los ideales izquierdos nonulos de \(R\).
-    Dado que \(R\) es artiniano izquierdo, satisface la condición de la cadena descendiente sobre ideales izquierdos.
+    Dado que \(R\) es artiniano izquierdo, satisface la condición de la cadena descendente sobre ideales izquierdos.
     En particular, para toda sucesión \(\{S_i\}_{i \in \naturalNumbers}\) en \(\mathcal{S}\) con \(S_0 \supseteq S_1 \supseteq S_2 \supseteq \cdots\), existe un \(m \in \naturalNumbers\) tal que \(S_m = S_i\) para todo \(i \geq m\).
     El Lema de Zorn permite deducir de esto la existencia de un elemento minimal \(J \in \mathcal{S}\), tal que \(J \supseteq J' \rightarrow J = J'\) para todo \(J' \in \mathcal{S}\).
     Esta minimalidad hace que \(J\) no tenga \(R\)--submódulos propios (un \(R\)--submódulo de \(J\) es un ideal izquierdo de \(R\) contenido en \(J\)).
