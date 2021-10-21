@@ -31,36 +31,47 @@
 
   \chapter{Matrices}
 
+  En el presente capítulo estudiaremos matrices.
+  Matrices cuadradas con entradas en un anillo de división.
+  Nuestro objetivo final será probar que el anillo formado por estas es artiniano y noetheriano.
+  Para conocer las cadenas de ideales del anillo usaremos las llamadas series de composición.
+  Por un lado, trabajaremos con series de composición concretas.
+  Por el otro, estudiaremos la relación abstracta que existe entre las series de composición y las cadenas de ideales.
+
+  Sea \(D\) un anillo de división, escribimos \(\Mat_n D\) para denotar al anillo formado por las matrices \(n \times n\) con entradas en \(D\).
+  Nuestra principal herramienta a la hora de calcular dentro del anillo \(\Mat_n D\) seran las matrices elementales \(E_{r s}\), donde \(r, s \in \{1, \dots, n\}\), y \(E_{r s}\) tiene \(1_D\) como entrada \((r, s)\) y \(0_D\) en las demás posiciones.
+  Parte de su valor se explica en la siguiente proposición.
   \begin{proposition}
     \label{proposition:matrixEntryCalculation}
-    Sea \(R\) un anillo con identidad, y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
-    Dentro de \(S\) podemos encontrar las matrices \(E_{r s}\), donde \(r, s \in \{1, \dots, n\}\), y \(E_{r s}\) tiene \(1_R\) como entrada \((r, s)\) y 0 en las demás posiciones.
-    Para toda matriz \(A = (a_{i j})\) en \(S\)
+    Sea \(D\) un anillo de división y \(R = \Mat_n D\).
+    Para toda matriz \(A = (A_{i j})_{i j}\) en \(R\)
     \begin{align}
       E_{p r} A E_{s q}
       =
-      a_{r s} E_{p q}
+      A_{r s} E_{p q}
     \end{align}
   \end{proposition}
   \begin{proof}
     Es un cálculo directo.
   \end{proof}
 
+  Usamos esta proposición para entender algunos ideales cíclicos de \(\Mat_n D\), con propiedades especiales.
+
   \begin{theorem}
     \label{theorem:matricesWhereAlmostEveryColumnIsNull}
-    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(R E_{j_0 j_0}\) está formado por todas las matrices \(A \in R\) tales que \(\Col_j A = 0\) \((\forall j \neq j_0)\).
-	Es decir
-	\begin{align}
-	  R E_{j_0 j_0}
-	  =
-	  \sum_{i = 1}^n D E_{i j_0}
-	\end{align}
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces 
+    \begin{align}
+      R E_{j_0 j_0}
+      =
+      \sum_{i = 1}^n D E_{i j_0}
+      &&(\forall j_0 \in \{1, \dots, n\})
+    \end{align}
   \end{theorem}
   \begin{proof}
-    Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
+    Fijamos \(j_0 \in \{1, \dots, n\}\), y escribimos \(I = R E_{j_0 j_0}\).
 
-    Afirmamos que \(I' = \{A \in R : \Col_j A = 0 \, (\forall j \neq j_0)\}\) es igual a \(I\).
-    Lo demostraremos usando que, por la proposición \ref{proposition:matrixEntryCalculation}, para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
+    Afirmamos que \(I' = \sum_{i = 1}^n D E_{i j_0}\) es igual a \(I\).
+    Lo demostraremos usando que, por la proposición \ref{proposition:matrixEntryCalculation}, toda matriz \(a = (a_{i j})_{i j}\) en \(R\) verifica
     \begin{align}
       a E_{j_0 j_0}
       =
@@ -68,29 +79,30 @@
       =
       \sum_{i = 1}^n E_{i i} a E_{j_0 j_0}
       =
-      \sum_{j = 1}^n a_{i j_0} E_{i j_0}
+      \sum_{i = 1}^n a_{i j_0} E_{i j_0}
     \end{align}
-    Si \(A \in I\), entonces existe \(a \in R\) con \(A = a E\).
-    Luego \(A = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\) pertenece a \(I'\).
-    Recíprocamente, si \(A \in I'\), entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{i = 1}^n A_{i j_0} E_{i j_0} = A E_{j_0 j_0}\).
+    Si \(A \in I\), entonces existe \(a \in R\) con \(A = a E_{j_0 j_0}\).
+    Luego \(A = a E_{j_0 j_0} = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\), también pertenece a \(I'\).
+    Recíprocamente, si \(A = (A_{i j})_{i j}\) pertenece \(I'\), entonces \(A = \sum_{i = 1}^n A_{i j_0} E_{i j_0} = A E_{j_0 j_0}\), y también es un elemento de \(I\).
   \end{proof}
 
   Argumentos análogos demuestran que
   \begin{theorem}
     \label{theorem:matricesWhereAlmostEveryRowIsNull}
-    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces el ideal \(E_{i_0 i_0} R\) está formado por todas las matrices \(A \in R\) tales que \(\Fila_i A = 0\) \((\forall i \neq i_0)\).
-    Es decir
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces
     \begin{align}
+      \displaystyle
       E_{i_0 i_0} R
       =
       \sum_{j = 1}^n E_{i_0 j} D
+      &&(\forall i_0 \in \{1, \dots, n\})
     \end{align}
   \end{theorem}
   \begin{proof}
-    Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{i_0 i_0}\), \(I = E R\).
+    Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(I = E_{i_0 i_0} R\).
 
-    Afirmamos que \(I' = \{A \in R : \Fila_i A = 0 \, (\forall i \neq i_0)\}\) es igual a \(I\).
-    Lo demostraremos usando que, por la proposición \ref{proposition:matrixEntryCalculation}, para toda matriz \(a = (a_{i j})_{i j}\) en \(R\)
+    Afirmamos que \(I' = \sum_{j = 1}^n E_{i_0 j} D\) es igual a \(I\).
+    Lo demostraremos usando que, por la proposición \ref{proposition:matrixEntryCalculation}, toda matriz \(a = (a_{i j})_{i j}\) en \(R\) verifica
     \begin{align}
       E_{i_0 i_0} a
       =
@@ -100,194 +112,213 @@
       =
       \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}
     \end{align}
-    Si \(A \in I\) entonces existe \(a \in R\) con \(A = E a\).
-    Luego \(A = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\) pertenece a \(I'\).
-    Recíprocamente, si \(A \in I'\) entonces \(A = (A_{i j})_{i j}\) puede escribirse como \(A = \sum_{i = 1}^n \sum_{j = 1}^n A_{i j} E_{i j} = \sum_{j = 1}^n A_{i_0 j} E_{i_0 j} = E_{i_0 i_0} A\).
+    Si \(A \in I\) entonces existe \(a \in R\) con \(A = E_{i_0 i_0} a\).
+    Luego \(A = E_{i_0 i_0} a = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\), también pertenece a \(I'\).
+    Recíprocamente, si \(A = (A_{i j})_{i j}\) pertenece a \(I'\), entonces \(A = \sum_{j = 1}^n A_{i_0 j} E_{i_0 j} = E_{i_0 i_0} A\), y también es un elemento de \(I\).
   \end{proof}
 
+  Ahora probaremos propiedades importantes de estos módulos cíclicos.
+
   \begin{theorem}
-    Sean \(D\) un anillo de división y \(R = \Mat_n D\).
-    Entonces son simples los \(R\)-submódulos izquierdos de \(R\)
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\),
+    entonces los \(R\)-submódulos izquierdos de \(R\)
     \begin{align}
       R E_{j j}
       &&(j \in \{1, \dots, n\})
     \end{align}
+    no tienen submódulos propios.
   \end{theorem}
   \begin{proof}
     Fijemos \(j_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{j_0 j_0}\), \(I = R E\).
 
-    Afirmamos que \(I\) es minimal.
     Supongamos que \(J\) es un submódulo nonulo de \(I\).
+    Probaremos \(J = I\).
     Entonces existe \(a \in J \setminus 0\).
-    Porque \(a \in I\) se sigue \(a = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\).
-    \(a \neq 0\) implica que \(a_{i_0 j_0} \neq 0\) para un \(i_0 \in \{1, \dots, n\}\).
+    Porque \(a \in I\) se sigue del teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull} que \(a = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\).
+    Notemos que \(a \neq 0\) implica \(a_{i_0 j_0} \neq 0\) para un \(i_0 \in \{1, \dots, n\}\).
     Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por izquierda) su fila \(i_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
-    Entonces \(M a = 1_D E_{i_0 j_0} + \sum_{i \neq i_0} a_{i j_0} E_{i j_0}\).
+    Entonces \(M a = E_{i_0 j_0} + \sum_{i \neq i_0} a_{i j_0} E_{i j_0}\).
     Luego, existen matrices elementales de transformación \(A_i\) \((i \in \{1, \dots, n\} \setminus i_0)\), que actúan sobre \(a\) sumando a la fila \(i\)-ésima el producto (por izquierda) de \(- a_{i j_0}\) con la fila \(i_0\)-ésima.
-    Entonces \(A_1 \cdots A_n M a = 1_D E_{i_0 j_0}\) (donde definimos \(A_{i_0} = I_n\), la matriz identidad, para mejorar la notación).
+    Entonces \(A_1 \cdots A_n M a = E_{i_0 j_0}\) (donde definimos \(A_{i_0} = I_n\), la matriz identidad, para mejorar la notación).
     Finalmente, para cada \(i \in \{1, \dots, n\}\), existe una matriz elemental de transformación \(P_i\) que actúa sobre \(a\) permutando las filas \(i\) e \(i_0\).
-    De ese modo \(P_i A_1 \cdots A_n M a = 1_D E_{i j_0}\).
-    Por lo tanto \(1_D E_{i j_0} \in J\) para todo \(i \in \{1, \dots, n\}\).
-    Eso implica que \(I = \sum_{i = 1}^n D E_{i j_0} \subseteq J\).
+    De ese modo \(P_i A_1 \cdots A_n M a = E_{i j_0}\).
+    Por lo tanto \(E_{i j_0} \in J\) para todo \(i \in \{1, \dots, n\}\).
+    Eso implica que \(I = \sum_{i = 1}^n D E_{i j_0} \subseteq J\) (recordar el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}).
     En conclusión \(J = I\).
   \end{proof}
 
+  Argumentos similares demuestran que
   \begin{theorem}
-    Sean \(D\) un anillo de división y \(R = \Mat_n D\).
-    Entonces son simples los \(R\)-submódulos derechos de \(R\)
+    Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces los \(R\)-submódulos derechos de \(R\)
     \begin{align}
       E_{i i} R
       &&(i \in \{1, \dots, n\})
     \end{align}
+    no tienen submódulos propios.
   \end{theorem}
   \begin{proof}
     Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(E = E_{i_0 i_0}\), \(I = E R\).
 
-    Afirmamos que \(I\) es minimal.
     Supongamos que \(J\) es un submódulo nonulo de \(I\).
     Entonces existe \(a \in J \setminus 0\).
-    Porque \(a \in I\) se sigue \(a = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\).
-    \(a \neq 0\) implica que \(a_{i_0 j_0} \neq 0\) para un \(j_0 \in \{1, \dots, n\}\).
+    Porque \(a \in I\) se sigue del teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull} que \(a = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\).
+    Notemos que \(a \neq 0\) implica \(a_{i_0 j_0} \neq 0\) para un \(j_0 \in \{1, \dots, n\}\).
     Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por derecha) su columna \(j_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
     Entonces \(a M = E_{i_0 j_0} 1_D + \sum_{j \neq j_0} a_{i_0 j} E_{i_0 j}\).
     Luego, existen matrices elementales de transformación \(A_j\) \((j \in \{1, \dots, n\} \setminus j_0)\), que actúan sobre \(a\) sumando a la columna \(j\)-ésima el producto (por derecha) de \(- a_{i_0 j}\) con la columna \(j_0\)-ésima.
     Entonces \(a M A_1 \cdots A_n = E_{i_0 j_0} 1_D\) (donde definimos \(A_{j_0} = I_n\), la matriz identidad, para mejorar la notación).
     Finalmente, para cada \(j \in \{1, \dots, n\}\), existe una matriz elemental de transformación \(P_j\) que actúa sobre \(a\) permutando las columnas \(j\) y \(j_0\).
     De ese modo \(a M A_1 \cdots A_n P_j = E_{i_0 j} 1_D\).
-    Por lo tanto \(E_{i_0 j} 1_D \in J\) para todo \(i \in \{1, \dots, n\}\).
-    Eso implica que \(I = \sum_{j = 1}^n E_{i_0 j} D \subseteq J\).
+    Por lo tanto \(E_{i_0 j} 1_D \in J\) para todo \(j \in \{1, \dots, n\}\).
+    Eso implica que \(I = \sum_{j = 1}^n E_{i_0 j} D \subseteq J\) (recordar el teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull}).
     En conclusión \(J = I\).
   \end{proof}
 
-
+  Estos módulos cíclicos que hemos estudiado aparecen como cocientes en cadenas formadas por otros módulos cíclicos, que pasamos a investigar.
 
   \begin{theorem}
     \label{theorem:compositionSeriesOfLeftModulesForMatrixRing}
-    Sea \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) sea \(M_i = R (E_{1 1} + \cdots + E_{i i})\).
-    Entonces \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composición de \(R\)-módulos izquierdos, con factores \(M_i / M_{i - 1} \simeq R E_{i i}\).
+    Sea \(D\) un anillo de división y \(R = \Mat_n D\).
+    Definimos \(M_0 = 0\) y para \(j \in \{1, \dots, n\}\) definimos \(M_j = R (E_{1 1} + \cdots + E_{j j})\).
+    Entonces la secuencia \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\), formada por \(R\)-submódulos izquierdos de \(R\), satisface \(M_j / M_{j - 1} \simeq R E_{j j}\).
   \end{theorem}
   \begin{proof}
-    Notar que \(M_i \subseteq R E_{1 1} + \cdots + R E_{i i}\).
-    Usando el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}, se sigue \(\Col_j A = 0\) \((\forall j \in \{i + 1, \dots, n\})\) para toda \(A \in M_i\).
+    Primera observación.
+    Sea \(j \in \{1, \dots, n\}\) arbitrario.
+    Notar que \(M_j \subseteq R E_{1 1} + \cdots + R E_{j j}\).
+    Usando el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}, se sigue que, para toda \(A \in M_j\), son nulas las columnas \(j + 1, \dots, n\) de \(A\).
 
-    Notar que si \(A \in M_i\) con \(A = r (E_{1 1} + \cdots + E_{i i})\) para un \(r \in R\), entonces \(A E_{i i} = r E_{i i}\).
+    Fijemos \(j_0 \in \{1, \dots, n\}\), y simplifiquemos la notación escribiendo \(E = E_{j_0 j_0}\), \(M = M_{j_0}\), \(N = M_{j_0 - 1}\).
+
+    Segunda observación.
+    Notar que si \(A \in M\) con \(A = r (E_{1 1} + \cdots + E_{j_0 j_0})\) para un \(r \in R\), entonces \(A E = r E\).
     En efecto
     \begin{align}
-      A E_{i i}
+      A E
       &=
-      r (E_{11} + \cdots + E_{i i}) E_{i i}
+      r (E_{11} + \cdots + E_{j_0 j_0}) E
       \\
       &=
-      r (E_{11} E_{i i} + \cdots + E_{i - 1, i - 1} E_{i i} + E_{i i}^2)
+      r (E_{11} E + \cdots + E_{j_0 - 1, j_0 - 1} E + E^2)
       \\
       &=
-      r (0 + \cdots + 0 + E_{i i})
+      r (0 + \cdots + 0 + E)
       \\
       &=
-      r E_{i i}
+      r E
     \end{align}
-    Por este motivo \(A + M_{i - 1} = A E_{i i} + M_{i - 1}\).
-    Calculamos
+    Por este motivo \(A + N = A E + N\).
+    Para verlo, calculamos
     \begin{align}
-      A + M_{i - 1}
+      A + N
       &=
-      r (E_{1 1} + \cdots + E_{i i}) + M_{i - 1}
+      r (E_{1 1} + \cdots + E_{j_0 j_0}) + N
       \\
       &=
-      r(E_{1 1} + \cdots + E_{i - 1, i - 1}) + r E_{i i} + M_{i - 1}
+      r(E_{1 1} + \cdots + E_{j_0 - 1, j_0 - 1}) + r E + N
       \\
       &=
-      r E_{i i} + M_{i - 1}
+      r E + N
       \\
       &=
-      A E_{i i} + M_{i - 1}
+      A E + N
     \end{align}
 
-    Supongamos que \(A + M_{i - 1} = B + M_{i - 1}\).
-    Entonces \(A E_{i i} + M_{i - 1} = B E_{i i} + M_{i - 1}\).
-    Escribamos \(C = (A - B) E_{i i}\).
-    Por un lado \(C \in M_{i - 1}\) y por el otro \(C \in R E_{i i}\).
-    El primer dato implica \(\Col_j C = 0\) para \(j \in \{i, \dots, n\}\).
-    El segundo dato implica \(\Col_j C = 0\) para \(j \in \{1, \dots, n\} \setminus i\).
+    Tercera observación.
+    Supongamos que \(A + N = B + N\) para unas matrices \(A, B \in M\) arbitrarias.
+    Entonces \(A E + N = B E + N\) por nuestra segunda observación.
+    Escribamos \(C = (A - B) E\).
+    Por un lado, la ecuación \(A E + N = B E + N\) implica \(C \in N\), y por el otro \(C \in R E\).
+    El primer dato, mediante nuestra primera observación, implica \(\Col_j C = 0\) para \(j \in \{j_0, \dots, n\}\).
+    El segundo dato, mediante el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}, implica \(\Col_j C = 0\) para \(j \in \{1, \dots, n\} \setminus j_0\).
     Luego \(C = 0\).
-    Es decir \(A E_{i i} = B E_{i i}\).
+    Es decir \(A E = B E\).
 
-    Esto nos permite definir una función \(\phi : M_i / M_{i - 1} \rightarrow R E_{i i}\) dada por \(A + M_{i - 1} \mapsto A E_{i i}\).
-    Así definida, es un homomorfismo de \(R\)-módulos.
+    Esta última observación nos permite definir una función \(\phi : M / N \rightarrow R E\) dada por \(A + N \mapsto A E\).
+    Resulta ser un homomorfismo de \(R\)-módulos.
     Es además un monomorfismo.
-    Si \(\phi(A + M_{i - 1}) = 0\) entonces \(A E_{i i} = 0\) y \(\Col_i A = 0\).
-    Además, \(A \in M_i\) implica \(\Col_j A = 0\) \((\forall j > i)\).
-    Luego \(\Col_j A = 0\) \((\forall j \in \{i, \dots, n\})\), y \(A \in M_{i - 1}\).
-    Entonces \(A + M_{i - 1} = 0 + M_{i - 1}\).
+    Si \(\phi(A + N) = 0\) entonces \(A E = 0\) y \(\Col_{j_0} A = 0\).
+    Además, \(A \in M\) implica \(\Col_j A = 0\) \((\forall j \in \{j_0 + 1, \dots, n\})\).
+    Luego \(\Col_j A = 0\) \((\forall j \in \{j_0, \dots, n\})\), y \(A \in N\).
+    Entonces \(A + N = 0 + N\), el elemento nulo del cociente.
     También es un epimorfismo.
-    Dado \(A E_{i i} \in R E_{i i}\), tenemos \(A E_{i i} \in M_i\).
-    Calculamos \(\phi(A E_{i i} + M_{i - 1})= (A E_{i i}) E_{i i} = A E_{i i}^2 = A E_{i i}\).
-    Por lo tanto \(A E_{i i} \in \image \phi\).
-    Concluímos que \(\phi : M_i / M_{i - 1} \rightarrow R E_{i i}\) es un isomorfismo.
+    Dado \(a E \in R E\), tenemos \(a E \in M\) por el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}.
+    Calculamos \(\phi(a E + N)= (a E) E = a E^2 = a E\).
+    Por lo tanto \(a E \in \image \phi\).
+    Concluímos que \(\phi : M / N \rightarrow R E\) es un isomorfismo.
   \end{proof}
 
+  Argumentos análogos demuestran el siguiente teorema
   \begin{theorem}
     \label{theorem:compositionSeriesOfRightModulesForMatrixRing}
-    Sea \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) sea \(M_i = (E_{1 1} + \cdots + E_{i i}) R\).
-    Entonces \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\) es una serie de composición de \(R\)-módulos derechos, con factores \(M_i / M_{i - 1} \simeq E_{i i} R\).
+    Sea \(D\) un anillo de división y \(R = \Mat_n D\).
+    Definimos \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) definimos \(M_i = (E_{1 1} + \cdots + E_{i i}) R\).
+    Entonces la secuencia \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\), formada por \(R\)-módulos derechos, satisface \(M_i / M_{i - 1} \simeq E_{i i} R\).
   \end{theorem}
   \begin{proof}
-    Notar que \(M_{i_0} \subseteq E_{1 1} R + \cdots + E_{i_0 i_0} R\).
-    Usando el teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull}, se sigue \(\Fila_i A = 0\) \((\forall i \in \{i_0 + 1, \dots, n\})\) para toda \(A \in M_{i_0}\).
+    Primera observación.
+    Sea \(i \in \{1, \dots, n\}\) arbitrario.
+    Notar que \(M_i \subseteq E_{1 1} R + \cdots + E_{i i} R\).
+    Usando el teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull}, se sigue que, para toda \(A \in M_i\), son nulas las filas \(i + 1, \dots, n\) de \(A\).
 
-    Notar que se \(A \in M_{i_0}\) con \(A = (E_{1 1} + \cdots + E_{i_0 i_0}) r\) para un \(r \in R\), entonces \(E_{i_0 i_0} A = E_{i_0 i_0} r\).
+    Fijemos \(i_0 \in \{1, \dots, n\}\), y simplifiquemos la notación escribiendo \(E = E_{i_0 i_0}\), \(M = M_{i_0}\), \(N = M_{i_0 - 1}\).
+
+    Segunda observación.
+    Notar que si \(A \in M\) con \(A = (E_{1 1} + \cdots + E_{i_0 i_0}) r\) para un \(r \in R\), entonces \(E A = E r\).
     En efecto
     \begin{align}
-      E_{i_0 i_0} A
+      E A
       &=
-      E_{i_0 i_0} (E_{1 1} + \cdots + E_{i_0 i_0}) r
+      E (E_{1 1} + \cdots + E_{i_0 i_0}) r
       \\
       &=
-      (E_{i_0 i_0} E_{1 1} + \cdots + E_{i_0 i_0} E_{i_0 - 1, i_0 - 1} + E_{i_0 i_0}^2) r
+      (E E_{1 1} + \cdots + E E_{i_0 - 1, i_0 - 1} + E^2) r
       \\
       &=
-      (0 + \cdots + 0 + E_{i_0 i_0}) r
+      (0 + \cdots + 0 + E) r
       \\
       &=
-      E_{i_0 i_0} r
+      E r
     \end{align}
-    Por este motivo \(A + M_{i_0 - 1} = A E_{i_0 i_0} + M_{i_0 - 1}\).
-    Calculamos
+    Por este motivo \(A + N = A E + N\).
+    Para verlo, calculamos
     \begin{align}
-      A + M_{i_0 - 1}
+      A + N
       &=
-      (E_{1 1} + \cdots + E_{i_0 i_0}) r + M_{i_0 - 1}
+      (E_{1 1} + \cdots + E_{i_0 i_0}) r + N
       \\
       &=
-      (E_{1 1} + \cdots + E_{i_0 - 1, i_0 - 1}) r + E_{i_0 i_0} r + M_{i_0 - 1}
+      (E_{1 1} + \cdots + E_{i_0 - 1, i_0 - 1}) r + E r + N
       \\
       &=
-      E_{i_0 i_0} r + M_{i_0 - 1}
+      E r + N
       \\
       &=
-      E_{i_0 i_0} A + M_{i_0 - 1}
+      E A + N
     \end{align}
 
-    Supongamos que \(A + M_{i_0 - 1} = B + M_{i_0 -1}\).
-    Entonces \(E_{i_0 i_0} A + M_{i_0 - 1} = E_{i_0 i_0} B + M_{i_0 - 1}\).
-    Escribamos \(C = E_{i_0 i_0} (A - B)\).
-    Por un lado \(C \in M_{i_0 - 1}\) y por el otro \(C \in E_{i_0 i_0} R\).
-    El primer dato implica \(\Fila_i C = 0\) para \(i \in \{i_0, \dots, n\}\).
-    El segundo dato implica \(\Fila_i C = 0\) para \(i \in \{1, \dots, n\} \setminus i_0\).
+    Tercera observación.
+    Supongamos que \(A + N = B + M_{i_0 -1}\) para unas matrices \(A, B \in M\) arbitrarias.
+    Entonces \(E A + N = E B + N\), por nuestra segunda observación.
+    Escribamos \(C = E (A - B)\).
+    Por un lado, la ecuación \(E A + N = E B + N\) implica \(C \in N\), y por el otro \(C \in E R\).
+    El primer dato, mediante nuestra primera observación, implica \(\Fila_i C = 0\) para \(i \in \{i_0, \dots, n\}\).
+    El segundo dato, mediante el teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull}, implica \(\Fila_i C = 0\) para \(i \in \{1, \dots, n\} \setminus i_0\).
     Luego \(C = 0\).
-    Es decir \(E_{i_0 i_0} A = E_{i_0 i_0} B\).
+    Es decir \(E A = E B\).
 
-    Esto nos permite definir una función \(\phi : M_{i_0} / M_{i_0 - 1} \rightarrow E_{i_0 i_0} R\) dada por \(A + M_{i_0 - 1} \mapsto E_{i_0 i_0} A\).
-    Así definida, es un homomorfismo de \(R\)-módulos.
+    Esta última observación nos permite definir una función \(\phi : M / N \rightarrow E R\) dada por \(A + N \mapsto E A\).
+    Resulta ser un homomorfismo de \(R\)-módulos.
     Es además un monomorfismo.
-    Si \(\phi(A + M_{i_0 - 1}) = 0\) entonces \(E_{i_0 i_0} A = 0\) y \(\Fila_{i_0} A = 0\).
-    Además \(A \in M_{i_0}\) implica \(\Fila_i A = 0\) \((\forall i \in \{i_0, \dots, n\})\), y \(A \in M_{i_0 - 1}\).
-    Entonces \(A + M_{i_0 - 1} = 0 + M_{i_0 - 1}\).
+    Si \(\phi(A + N) = 0\) entonces \(E A = 0\) y \(\Fila_{i_0} A = 0\).
+    Además, \(A \in M\) implica \(\Fila_i A = 0\) \((\forall i \in \{i_0 + 1, \dots, n\})\).
+    Luego \(\Fila_i A = 0\) \((\forall i \in \{i_0, \dots, n\})\), y \(A \in N\).
+    Entonces \(A + N = 0 + N\), el elemento nulo del cociente.
     También es un epimorfismo.
-    Dado \(E_{i_0 i_0} A \in E_{i_0 i_0} R\), tenemos \(E_{i_0 i_0} A \in M_i\).
-    Calculamos \(\phi(E_{i_0 i_0} A + M_{i_0 - 1}) = E_{i_0 i_0} (E_{i_0 i_0} A) = E_{i_0 i_0}^2 A = E_{i_0 i_0} A\).
-    Por lo tanto \(E_{i_0 i_0} A \in \image \phi\).
-    Concluímos que \(\phi : M_{i_0} / M_{i_0 - 1} \rightarrow E_{i_0 i_0} R\) es un isomorfismo.
+    Dado \(E a \in E R\), tenemos \(E a \in M_i\) \ref{theorem:matricesWhereAlmostEveryRowIsNull}.
+    Calculamos \(\phi(E a + N) = E (E a) = E^2 a = E a\).
+    Por lo tanto \(E a \in \image \phi\).
+    Concluímos que \(\phi : M / N \rightarrow E R\) es un isomorfismo.
   \end{proof}
 
   \section{módulos}
@@ -310,11 +341,11 @@
   Consecuentemente, en este caso se acostumbra hablar de condiciones de cadena sobre ideales (izquierdos o derechos) en lugar de submódulos.
 
   \begin{definition}
-    Un anillo \(R\) es \emph{noetheriano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena ascendente sobre ss ideales izquierdos (resp. derechos).
+    Un anillo \(R\) es \emph{noetheriano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena ascendente sobre sus ideales izquierdos (resp. derechos).
     Se dice que \(R\) es \emph{noetheriano} si \(R\) es noetheriano izquierdo y derecho a la vez.
 
     Un anillo \(R\) es \emph{artiniano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena descendente sobre sus ideales izquierdos (resp. derechos).
-    Se dice que \(R\) es artiniano si \(R\) es artiniano izquierdo y derecho a la vez.
+    Se dice que \(R\) es \emph{artiniano} si \(R\) es artiniano izquierdo y derecho a la vez.
   \end{definition}
 
   \begin{definition}
@@ -332,14 +363,14 @@
     Por lo tanto, \(A\) satisface la condición descendente de la cadena.
 
     Recíprocamente, supongamos que \(A\) satisface la condición de la cadena descendente, y \(S\) es un conjunto novacío de submódulos de \(A\).
-    Entonces existe \(B_0 \in S\).
+    Para empezar, existe \(B_0 \in S\).
     Si \(S\) no tiene elemento minimal, entonces para todo submódulo \(B\) en \(S\) existe al menos un submódulo \(B'\) en \(S\) tal que \(B \supset B'\).
     Para cada \(B\) en \(S\), elegimos uno de estos \(B'\) (Axioma de Elección).
     Esta elección define una función \(f : S \rightarrow S\) mediante \(B \mapsto B'\).
     Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = B_0\) y \(\phi(n + 1) = f(\phi(n))\) \((\forall n \in \naturalNumbers)\).
     Por tanto si \(B_n = \phi(n)\) \((\forall n \in \naturalNumbers)\), entonces \(B_0 \supset B_1 \supset \cdots\) es una cadena descendente que viola la condición descendente de la cadena.
     Por lo tanto, \(S\) debe tener un elemento minimal.
-    Concluímos que \(A\) satisface la condición minimal.
+    Concluímos que \(A\) satisface la condición minimal sobre submódulos.
   \end{proof}
   La prueba para las condiciones de la cadena ascendente y maximal es análoga.
   \begin{proof}
@@ -366,7 +397,7 @@
   \(A = A_0 \supseteq A_1 \supseteq A_2 \supseteq \cdots \supseteq A_n\).
   Los \emph{factores} de la serie son los módulos cociente \(A_i / A_{i + 1}\) \((0 \leq i < n)\).
   La \emph{longitud} de la serie es el número de inclusiones propias (igual al número de factores notriviales).
-  Uni \emph{refinamiento propio} es un refinamiento con longitud mayor a la serie original.
+  Un \emph{refinamiento propio} es un refinamiento con longitud mayor a la serie original.
   Dos series normales son \emph{equivalentes} si existe una correspondencia uno-a-uno entre los factores notriviales tal que factores correspondientes sean isomorfos.
   De tal modo, series equivalentes tienen igual longitud.
   Una \emph{serie de composición} para \(A\) es una serie normal
@@ -375,7 +406,8 @@
   Si \(R\) es unitario, decimos que un módulo unitario sin submódulos propios es \emph{simple}.
 
   La Teoría de Series Normales y Subnormales para grupos puede trasladarse al caso de los módulos.
-  Como consecuencia de esta tenemos el siguiente teorema.
+  Esta teoría incluye análogos al lema de Zassenhaus, y a los teoremas de Schreier y Jordan-Hölder.
+  Como consecuencia tenemos el siguiente teorema.
   \begin{theorem}
     \label{theorem:refinementAndEquivalenceOfNormalSeries}
     Cualesquiera dos series normales de un módulo \(A\) tienen refinamientos que son equivalentes.
@@ -393,7 +425,7 @@
     que forman una serie normal \(T\) de longitud \(n + 1\).
     Por el teorema \ref{theorem:refinementAndEquivalenceOfNormalSeries}, \(S\) y \(T\) tienen refinamientos equivalentes.
     Esto es una contradicción porque series equivalentes tienen igual longitud.
-    Sin embargo todo refinamiento de la series de composición \(S\) tiene longitud \(n\) al igual que \(S\), pero todo refinamiento de \(T\) tiene longitud al menos \(n + 1\).
+    Sin embargo todo refinamiento de la serie de composición \(S\) tiene longitud \(n\) al igual que \(S\), pero todo refinamiento de \(T\) tiene longitud al menos \(n + 1\).
     Por lo tanto \(A\) satisface ambas condiciones de la cadena.
 
     Recíprocamente, suponemos que \(A\) satisface ambas condiciones de la cadena.
@@ -410,8 +442,8 @@
     Dado que \(A_{n + 1} = f(A_n)\), la definición de \(f\) muestra que \(A_{n + 1} = A_n\) solo si \(A_n = 0 = A_{n + 1}\).
     Sea \(m\) el menor entero tal que \(A_m = 0\).
     Entonces \(m \leq n\) y \(A_k \neq 0\) \((\forall k < m)\).
-    Más aún, para cada \(k < m\), \(A_{k + 1}\) es un submódulo maximal de \(A_k\).
-    Consecuentemente, cada \(A_k / A_{k + 1}\) es nonulo y no tiene submódulos propios por el teorema \ref{theorem:submodulesOfQuotientModule}.
+    Más aún, para cada \(k < m\), \(A_{k + 1}\) es por construcción un submódulo maximal de \(A_k\).
+    Consecuentemente, cada factor \(A_k / A_{k + 1}\) es nonulo y no tiene submódulos propios por el teorema \ref{theorem:submodulesOfQuotientModule}.
     Por lo tanto \(A \supseteq A_1 \supseteq \cdots \supseteq A_m = 0\) es una serie de composición para \(A\).
   \end{proof}
 
