@@ -458,6 +458,64 @@
     En efecto, usando tal resultado, el teorema \ref{theorem:compositionSeriesOfLeftModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano izquierdo; y el teorema \ref{theorem:compositionSeriesOfRightModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano derecho.
   \end{proof}
 
+  \chapter{Teorema de Artin-Wedderburn}
+
+  \begin{theorem}
+    \label{theorem:simpleLeftArtinianRingsArePrimitive}
+    Un anillo artiniano izquierdo es primitivo si es simple.
+  \end{theorem}
+  \begin{proof}
+    Primero observamos que \(I = \{r \in R \mid R r = 0\}\) es un ideal de \(R\), con la propiedad \(I R = 0\).
+    Pero \(R\) es simple: no tiene ideales bilaterales propios, por lo cual \(I = R\) o \(I = 0\).
+    Siendo \(R R \neq 0\), es imposible que \(R = 0\), por lo cual \(I = 0\).
+
+    Dado que \(R\) es artiniano izquierdo, el conjunto formado por todos sus ideales izquierdos nonulos contiene un ideal izquierdo minimal \(J\) (una consecuencia del teorema \ref{theorem:equivalenceOfChainConditions}).
+    Esta minimalidad hace que \(J\), como \(R\)-módulo, no tenga \(R\)--submódulos propios (un \(R\)--submódulo de \(J\) es un ideal izquierdo de \(R\) contenido en \(J\)).
+
+    Afirmamos que el aniquilador izquierdo \(\mathcal{A}(J)\) de \(J\) en \(R\) es cero.
+    Primero que nada, \(\mathcal{A}(J)\) es un ideal bilátero de \(R\) porque \(J\) es un ideal izquierdo.
+    Luego, la simplicidad de \(R\) implica que \(\mathcal{A}(J) = R\) o \(\mathcal{A}(J) = 0\).
+    Supongamos, para llegar a un absurdo, que \(\mathcal{A}(J) = 0\).
+    Entonces \(\mathcal{A}(J) = R\) y \(R J = 0\).
+    Pero existen elementos \(u \in J\) distintos de 0.
+    Cada uno de estos \(u\) nonulos pertenece al ideal \(I\) que estudiamos al inicio de la prueba.
+    Siendo \(I = 0\), llegamos a una contradicción.
+    Por lo tanto \(\mathcal{A}(J) = 0\) y \(R J \neq 0\).
+    En conclusión, \(J\) es un \(R\)--módulo simple y fiel. 
+    El anillo \(R\) es primitivo.
+  \end{proof}
+
+  \begin{theorem}[de Artin--Wedderburn]
+    Las siguientes condiciones sobre un anillo artiniano izquierdo \(R\) son equivalentes.
+    \begin{enumerate}
+      \item
+        \label{property:artin--wedderburn_simple-ring}
+        \(R\) es simple;
+      \item
+        \label{property:artin--wedderburn_primitive-ring}
+        \(R\) es primitivo;
+      \item
+        \label{property:artin--wedderburn_endomorphism-ring}
+        \(R\) es isomorfo al anillo de endomorfismos de un espacio vectorial nonulo sobre un anillo de división \(D\);
+      \item
+        \label{property:artin--wedderburn_matrix-ring}
+        para algún entero positivo \(n\), \(R\) es isomorfo al anillo formado por las matrices \(n \times n\) sobre un anillo de división.
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}
+    \(\ref{property:artin--wedderburn_simple-ring} \Rightarrow \ref{property:artin--wedderburn_primitive-ring}\).
+    Teorema \ref{theorem:simpleLeftArtinianRingsArePrimitive}
+    \(\ref{property:artin--wedderburn_primitive-ring} \Rightarrow \ref{property:artin--wedderburn_endomorphism-ring}\)
+    Por el Teorema de Densidad de Jacobson \ref{theorem:jacobsonDensityTheorem}, \(R\) es isomorfo a un anillo denso \(T\) compuesto por endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
+    Porque \(R\) es artiniano izquierdo, \(R \simeq T = \Hom _D(V, V)\) por el Teorema \ref{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}.
+
+    \(\ref{property:artin--wedderburn_endomorphism-ring} \Leftrightarrow \ref{property:artin--wedderburn_matrix-ring}\)
+    Teorema \ref{theorem:isomorphismBetweenMatrixAndHomomorphismRings}
+
+    \(\ref{property:artin--wedderburn_matrix-ring} \Leftrightarrow \ref{property:artin--wedderburn_simple-ring}\)
+    Teorema \ref{theorem:idealsInTheRingOfMatricesOverADivisionRing}
+  \end{proof}
+
   \newpage
 
   \begin{theorem}
@@ -756,51 +814,5 @@
     Recordar que \(u_i \in V_j\) para \(i \neq j\), luego \(t_j r_j u_i \in t_j (r_j V_i) = t_j 0 = 0\).
     Consecuentemente \(\alpha_r(u_i) = (t_1 r_1 + \cdots + t_n r_n) u_i = t_i r_i u_i = v_i\).
     Por lo tanto \(\image \alpha\) es un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
-  \end{proof}
-
-  \begin{theorem}[de Artin--Wedderburn]
-    Las siguientes condiciones sobre un anillo artiniano izquierdo \(R\) son equivalentes.
-    \begin{enumerate}
-      \item
-        \label{property:artin--wedderburn_simple-ring}
-        \(R\) es simple;
-      \item
-        \label{property:artin--wedderburn_primitive-ring}
-        \(R\) es primitivo;
-      \item
-        \label{property:artin--wedderburn_endomorphism-ring}
-        \(R\) es isomorfo al anillo de endomorfismos de un espacio vectorial nonulo sobre un anillo de división \(D\);
-      \item
-        \label{property:artin--wedderburn_matrix-ring}
-        para algún entero positivo \(n\), \(R\) es isomorfo al anillo formado por las matrices \(n \times n\) sobre un anillo de división.
-    \end{enumerate}
-  \end{theorem}
-  \begin{proof}
-    \(\ref{property:artin--wedderburn_simple-ring} \Rightarrow \ref{property:artin--wedderburn_primitive-ring}\).
-    Primero observamos que \(I = \{r \in R \mid R r = 0\}\) es un ideal de \(R\), con la propiedad \(I R = 0\).
-    Pero \(R\) es simple: no tiene ideales propios, por lo cual \(I = R\) o \(I = 0\);
-    y \(R R \neq 0\), por lo cual \(I = 0\).
-
-    Consideremos el conjunto \(\mathcal{S}\) formado por todos los ideales izquierdos nonulos de \(R\).
-    Dado que \(R\) es artiniano izquierdo, satisface la condición de la cadena descendente sobre ideales izquierdos.
-    En particular, para toda sucesión \(\{S_i\}_{i \in \naturalNumbers}\) en \(\mathcal{S}\) con \(S_0 \supseteq S_1 \supseteq S_2 \supseteq \cdots\), existe un \(m \in \naturalNumbers\) tal que \(S_m = S_i\) para todo \(i \geq m\).
-    El Lema de Zorn permite deducir de esto la existencia de un elemento minimal \(J \in \mathcal{S}\), tal que \(J \supseteq J' \rightarrow J = J'\) para todo \(J' \in \mathcal{S}\).
-    Esta minimalidad hace que \(J\) no tenga \(R\)--submódulos propios (un \(R\)--submódulo de \(J\) es un ideal izquierdo de \(R\) contenido en \(J\)).
-
-    Afirmamos que el aniquilador izquierdo \(\mathcal{A}(J)\) de \(J\) en \(R\) es cero.
-    De otro modo \(\mathcal{A}(J) = R\) por simplicidad y \(R u = 0\) para cada \(u \in J\) nonulo.
-    Consecuentemente, cada uno de estos \(u\) nonulos pertenece a \(I = 0\), lo cual es una contradicción.
-    Por lo tanto \(\mathcal{A}(J) = 0\) y \(R J \neq 0\).
-    En conclusión, \(J\) es un \(R\)--módulo simple y fiel, y \(R\) es primitivo.
-
-    \(\ref{property:artin--wedderburn_primitive-ring} \Rightarrow \ref{property:artin--wedderburn_endomorphism-ring}\)
-    Por el Teorema de Densidad de Jacobson \ref{theorem:jacobsonDensityTheorem}, \(R\) es isomorfo a un anillo denso \(T\) compuesto por endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
-    Porque \(R\) es artiniano izquierdo, \(R \simeq T = \Hom _D(V, V)\) por el Teorema \ref{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}.
-
-    \(\ref{property:artin--wedderburn_endomorphism-ring} \Leftrightarrow \ref{property:artin--wedderburn_matrix-ring}\)
-    Teorema \ref{theorem:isomorphismBetweenMatrixAndHomomorphismRings}
-
-    \(\ref{property:artin--wedderburn_matrix-ring} \Leftrightarrow \ref{property:artin--wedderburn_simple-ring}\)
-    Teorema \ref{theorem:idealsInTheRingOfMatricesOverADivisionRing}
   \end{proof}
 \end{document}
