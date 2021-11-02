@@ -466,13 +466,13 @@
 
   \begin{theorem}
     \label{theorem:matrixRingIdeals}
-    Sea \(R\) un anillo con identidad y \(S = \Mat_n D\).
-    Entonces \(J\) es un ideal de \(S\) si y solo si \(J = \Mat_n I\) para algún ideal \(I\) en \(R\).
+    Sea \(R\) un anillo con identidad.
+    Entonces \(J\) es un ideal de \(\Mat_n R\) si y solo si \(J = \Mat_n I\) para algún ideal \(I\) en \(R\).
   \end{theorem}
   \begin{proof}
     Escribimos \(E = E_{1, 1}\)
 
-    Sea \(J\) un ideal de \(S\).
+    Sea \(J\) un ideal de \(\Mat_n R\).
     Sea \(I\) el conjunto formado por todos los elementos de \(R\) que aparecen como entrada \((1, 1)\) de alguna matriz en \(J\).
     Afirmamos que, para todo \(a \in R\), \(a \in I\) si y solo si \(a E \in J\).
     En efecto, si \(a E \in J\) donde \(a \in R\), entonces \(a = (a E)_{1, 1} \in I\).
@@ -510,7 +510,7 @@
     Luego \(ra, ar \in I\).
 
     Afirmamos que \(M_n(I) = J\).
-    Sea \(A = (a_{i j})\) una matriz en \(S\).
+    Sea \(A = (a_{i j})\) una matriz en \(\Mat_n R\).
     Comenzamos suponiendo \(A \in J\).
     Consideremos \(i, j \in \{1, \dots, n\}\).
     Porque \(J\) es un ideal (bilátero), \(a_{i j} E = E_{1 i} A E_{j 1} \in J\).
