@@ -462,25 +462,28 @@
 
   \section{Ideales del anillo de matrices}
 
+  Nos introducimos en este capítulo con el estudio de los ideales formados por matrices sobre un anillo con unidad.
+
   \begin{theorem}
     \label{theorem:matrixRingIdeals}
-    Sea \(R\) un anillo con identidad y \(S\) el anillo formado por todas las matrices \(n \times n\) sobre \(R\).
-    \(J\) es un ideal de \(S\) si y solo si \(J\) es el anillo formado por todas las matrices \(n \times n\) sobre \(I\) para algún ideal \(I\) en \(R\).
+    Sea \(R\) un anillo con identidad y \(S = \Mat_n D\).
+    Entonces \(J\) es un ideal de \(S\) si y solo si \(J = \Mat_n I\) para algún ideal \(I\) en \(R\).
   \end{theorem}
   \begin{proof}
+    Escribimos \(E = E_{1, 1}\)
+
     Sea \(J\) un ideal de \(S\).
     Sea \(I\) el conjunto formado por todos los elementos de \(R\) que aparecen como entrada \((1, 1)\) de alguna matriz en \(J\).
-    Si \(a E \in J\) donde \(a \in R\) y \(E = E_{1 1} \in S\), entonces \(a \in I\).
-    La afirmación recíproca también es verdadera.
-    Notar que si \(a \in I\), entonces existe \(A = (a_{i j})\) en \(J\) con \(a_{1 1} = a\).
+    Afirmamos que, para todo \(a \in R\), \(a \in I\) si y solo si \(a E \in J\).
+    En efecto, si \(a E \in J\) donde \(a \in R\), entonces \(a = (a E)_{1, 1} \in I\).
+    Recíprocamente, si \(a \in I\), entonces existe \(A = (a_{i j})\) en \(J\) con \(a_{1 1} = a\).
     Al ser \(J\) un ideal (bilátero), tenemos \(E A E \in J\).
     Pero \(E A E = a E\).
     Entonces \(a E \in J\).
-    Hemos probado que \(a \in I\) si y solo si \(a E \in J\).
 
     Afirmamos que \(I\) es un ideal.
-    En efecto, \(0 \in J\) porque \(J\) es un ideal.
-    Luego \(0 \in I\) por definición de \(I\).
+    En efecto, \(0_S \in J\) porque \(J\) es un ideal.
+    Luego \(0_R = (0_S)_{1, 1} \in I\).
     Por otra parte, si \(a, b \in I\), entonces \(a E, b E \in J\).
     Pero \(J\) es un ideal.
     Entonces \((a + b) E = a E + b E \in J\).
@@ -510,8 +513,8 @@
     Sea \(A = (a_{i j})\) una matriz en \(S\).
     Comenzamos suponiendo \(A \in J\).
     Consideremos \(i, j \in \{1, \dots, n\}\).
-    Porque \(J\) es un ideal, \(a_{r s} E = E_{1 r} A E_{s 1} \in J\).
-    Luego \(a_{r s} \in I\).
+    Porque \(J\) es un ideal (bilátero), \(a_{i j} E = E_{1 i} A E_{j 1} \in J\).
+    Luego \(a_{i j} \in I\).
     Porque \(i, j\) eran arbitrarios, se deduce \(A \in M_n(I)\).
     Recíprocamente, suponemos que \(A = (a_{i j}) \in M_n(I)\).
     Consideramos \(i, j \in \{1, \dots, n\}\).
@@ -526,7 +529,7 @@
     El anillo \(\Mat_n D\) formado por todas las matrices \(n \times n\) con entradas en un anillo de división \(D\) no tiene ideales propios.
   \end{theorem}
   \begin{proof}
-    Si \(J\) es un ideal de \(S\), entonces, por el teorema \ref{theorem:matrixRingIdeals}, \(J\) es el anillo formado por todas las matrices \(n \times n\) sobre \(I\) para algún ideal \(I\) en \(D\).
+    Si \(J\) es un ideal de \(S\), entonces, por el teorema \ref{theorem:matrixRingIdeals}, \(J = \Mat_n I\) para algún ideal \(I\) en \(D\).
     Pero \(D\) es un anillo de división, no tiene ideales propios.
     Luego \(I = 0\) o \(I = D\), concluyendo que \(J = 0\) o \(J = S\).
   \end{proof}
@@ -546,54 +549,68 @@
     Todo módulo simple \(A\) es cíclico; de hecho, \(A = R a\) para todo \(a \in A\) nonulo.
   \end{proposition}
   \begin{proof}
-    Ambos \(Ra\) (con \(a \in A\) nonulo) y \(B = \{c \in A : R c = 0\}\) son submódulos de \(A\), de aquí que por simplicidad cada uno de ellos sea igual a 0 o \(A\).
-    También por simplicidad \(R A \neq 0\), esto implica \(B \neq A\) y \(B = 0\).
-    Luego \(a \notin B\) y \(R a \neq 0\).
+    Sea \(a \in A \setminus 0\).
+    Queremos probar \(R a = A\).
+    En primer lugar, \(R a\) es un submódulo de \(A\).
+    Por simplicidad de \(A\), se deduce que \(R a = A\) o \(R a = 0\).
+    Para descartar esta segunda posibilidad, consideramos el conjunto \(B = \{c \in A : R c = 0\}\).
+    Resulta que \(B\) también se un submódulo de \(A\).
+    Por simplicidad de \(A\), se deduce que \(B = A\) o \(B = 0\).
+    Pero la simplicidad de \(A\) también implica \(R A \neq 0\), mientras que \(R B = 0\).
+    Luego \(B \neq A\) y \(B = 0\).
+    Por lo tanto \(a \notin B\) y \(R a \neq 0\).
     En conclusión \(R a = A\).
   \end{proof}
 
-  \begin{theorem}
-    \label{theorem:anihilatorTheorem}
-    Sea \(B\) un subconjunto de un módulo izquierdo sobre un anillo \(R\).
-    Entonces \(\mathcal{A}(B) = \{r \in R \mid r b = 0 (\forall b \in B)\}\) es un ideal izquierdo de \(R\).
-    Si \(B\) es un submódulo de \(A\), entonces \(\mathcal{A}(B)\) es un ideal.
-  \end{theorem}
-  \(\mathcal{A}(B)\) es el \emph{aniquilador (izquierdo)} de \(B\).
-  El aniquilador derecho de un módulo derecho se define análogamente.
-
   \begin{definition}
-    Un módulo (izquierdo) \(A\) es \emph{fiel} si su aniquilador (izquierdo) \(\mathcal{A}(A)\) es 0.
-    Un anillo \(R\) es \emph{primitivo} (\emph{izquierdo}) si existe un \(R\)-módulo simple y fiel.
+    Sea \(B\) un subconjunto de un mádulo izquierdo \(A\) sobre un anillo \(R\).
+    Definimos el \emph{aniquilador (izquierdo)} de \(B\) como \(\mathcal{A}(B) = \{r \in R : r B = 0\}\).
   \end{definition}
 
-  Los anillos primitivos derechos se definen análogamente.
-  Sí existen anillos primitivos derechos que no son primitivos izquierdos.
-  De aquí en más \emph{primitivo} siempre significará \emph{primitivo izquierdo}.
-  Sin embargo, todos los resultados probados para anillos primitivos izquierdos son verdaderos, mutatis mutandis, para anillos primitivos derechos.
+  El aniquilador derecho de un módulo derecho se define análogamente.
+
+  \begin{theorem}
+    \label{theorem:anihilatorTheorem}
+    Sea \(B\) un subconjunto de un módulo izquierdo \(A\) sobre un anillo \(R\).
+    Entonces \(\mathcal{A}(B)\) es un ideal izquierdo de \(R\).
+    Si \(B\) es un submódulo de \(A\), entonces \(\mathcal{A}(B)\) es un ideal bilátero.
+  \end{theorem}
+
+  \begin{definition}
+    Un módulo (izquierdo) \(A\) es \emph{fiel} si \(\mathcal{A}(A) = 0\).
+    Un anillo \(R\) es \emph{primitivo} (\emph{izquierdo}) si existe un \(R\)-módulo simple y fiel.
+  \end{definition}
 
   \begin{theorem}
     \label{theorem:simpleLeftArtinianRingsArePrimitive}
     Un anillo artiniano izquierdo es primitivo si es simple.
   \end{theorem}
   \begin{proof}
-    Primero observamos que \(I = \{r \in R \mid R r = 0\}\) es un ideal de \(R\), con la propiedad \(I R = 0\).
-    Pero \(R\) es simple: no tiene ideales bilaterales propios, por lo cual \(I = R\) o \(I = 0\).
-    Siendo \(R R \neq 0\), es imposible que \(R = 0\), por lo cual \(I = 0\).
+    Sea \(R\) un anillo artiniano izquierdo simple.
 
     Dado que \(R\) es artiniano izquierdo, el conjunto formado por todos sus ideales izquierdos nonulos contiene un ideal izquierdo minimal \(J\) (una consecuencia del teorema \ref{theorem:equivalenceOfChainConditions}).
     Esta minimalidad hace que \(J\), como \(R\)-módulo, no tenga \(R\)--submódulos propios (un \(R\)--submódulo de \(J\) es un ideal izquierdo de \(R\) contenido en \(J\)).
 
+    Afirmamos que \(R J \neq 0\).
+    Para probarlo consideramos \(I = \{r \in R :  R r = 0\}\), notando que \(R J = 0\) si y solo si \(J \subseteq I\).
+    Vemos que \(I\) es un ideal de \(R\).
+    Por simplicidad de \(R\), se deduce \(I = R\) o \(I = 0\).
+    Pero \(R I = 0\), y la simplicidad de \(R\) también implica que \(R R \neq 0\).
+    Luego \(I \neq R\) e \(I = 0\).
+    Es decir que \(R J = 0\) si y solo si \(J = 0\).
+    Por construcción \(J \neq 0\).
+    En conclusión \(R J \neq 0\).
+
     Afirmamos que el aniquilador izquierdo \(\mathcal{A}(J)\) de \(J\) en \(R\) es cero.
     Primero que nada, \(\mathcal{A}(J)\) es un ideal bilátero de \(R\) porque \(J\) es un ideal izquierdo.
     Luego, la simplicidad de \(R\) implica que \(\mathcal{A}(J) = R\) o \(\mathcal{A}(J) = 0\).
-    Supongamos, para llegar a un absurdo, que \(\mathcal{A}(J) = 0\).
-    Entonces \(\mathcal{A}(J) = R\) y \(R J = 0\).
-    Pero existen elementos \(u \in J\) distintos de 0.
-    Cada uno de estos \(u\) nonulos pertenece al ideal \(I\) que estudiamos al inicio de la prueba.
-    Siendo \(I = 0\), llegamos a una contradicción.
-    Por lo tanto \(\mathcal{A}(J) = 0\) y \(R J \neq 0\).
-    En conclusión, \(J\) es un \(R\)--módulo simple y fiel. 
-    El anillo \(R\) es primitivo.
+    Si fuera \(\mathcal{A}(J) = R\), tendríamos \(R J = 0\).
+    Pero probamos \(R J \neq 0\).
+    Por lo tanto \(\mathcal{A}(J) \neq R\) y \(\mathcal{A}(J) = 0\).
+
+    Juntos, los dos primeros resultados nos dicen que \(J\) es un \(R\)-módulo simple.
+    El tercer resultado nos dice que \(J\) es fiel.
+    Luego, la existencia de \(J\) garantiza que \(R\) es primitivo.
   \end{proof}
 
   \section{El Teorema de Densidad de Jacobson}
@@ -609,18 +626,18 @@
     Entonces \(R\) es artiniano izquierdo [resp. derecho] si y solo si \(\dim_D V\) es finita, en cuyo caso \(R = \Hom_D(V, V)\).
   \end{theorem}
   \begin{proof}
-    Si \(R\) es artiniano izquierdo y \(\dim_D V\) es infinita, entonces existe un subconjunto de \(V\) linealmente independiente e infinito (numerable) \(\{u_1, u_2, \dots\}\).
-    Por el Ejercicio \ref{theorem:moduleHomomorphisms}, \(V\) es un \(\Hom_D(V, V)\)-módulo izquierdo y por tanto un \(R\)-módulo izquierdo (recordar que \(R \subseteq \Hom_D(V, V)\)).
-    Para cada \(n\) sea \(I_n\) el aniquilador izquierdo en \(R\) del conjunto \(\{u_1, \dots, u_n\}\).
-    Por el Teorema \ref{theorem:anihilatorTheorem} \(I_1 \supseteq I_2 \supseteq \cdots\) es una cadena descendente de ideales izquierdos de \(R\).
+    Supongamos \(\dim_D V\) es infinita.
+    Entonces existe un subconjunto de \(V\) linealmente independiente e infinito (numerable) \(\{u_1, u_2, \dots\}\).
+    Como \(V\) es un \(\Hom_D(V, V)\)-módulo izquierdo, también es un \(R\)-módulo izquierdo (recordar que \(R \subseteq \Hom_D(V, V)\)).
+    Para cada \(n\) sea \(I_n = \mathcal{A}(\{u_1, \dots, u_n\})\) el aniquilador izquierdo en \(R\) del conjunto \(\{u_1, \dots, u_n\}\).
+    Por el Teorema \ref{theorem:anihilatorTheorem}, la cadena descencendente \(I_1 \supseteq I_2 \supseteq \cdots\) está compuesta de ideales izquierdos de \(R\).
     Sea \(w\) un elemento nonulo de \(V\), no importa cual de ellos sea (podría ser \(u_1\), por ejemplo).
     Dado que \(\{u_1, \dots, u_{n + 1}\}\) es linealmente independiente (para cada \(n\)) y \(R\) es denso, existe \(\theta \in R\) tal que \(\theta u_i = 0\) \((\forall i \in \{1, \dots, n\})\) y \(\theta u_{n + 1} = w \neq 0\).
     Consecuentemente \(\theta \in I_n\) pero \(\theta \notin I_{n + 1}\).
     Por lo tanto \(I_1 \supset I_2 \supset \cdots\) es una cadena estrictamente descendente de \(R\)-módulos izquierdos.
-    La existencia de esta cadena lleva a una contradicción.
-    Luego \(\dim_D V\) es finita.
+    La existencia de esta cadena dice que \(R\) no es artiniano.
 
-    Recíprocamente, supongamos que \(\dim_D V\) es finita.
+    Supongamos que \(\dim_D V\) es finita.
     En este caso \(V\) tiene una base finita \(\{v_1, \dots, v_m\}\).
     Si \(f\) es un elemento de \(\Hom_D(V, V)\), entonces \(f\) está completamente determinado por su acción sobre \(v_1, \dots, v_m\) por los teoremas \ref{theorem:freeUnitalModulesOverARingWithIdentity} y \ref{theorem:vectorSpaceBasis}.
     Dado que \(R\) es denso, existe \(\theta \in R\) tal que \(\theta v_i = f v_i\) \(\forall i \in \{1, \dots, m\}\).
@@ -744,41 +761,6 @@
   \end{proof}
 
   \newpage
-
-  \begin{theorem}
-    \label{theorem:freeUnitalModulesOverARingWithIdentity}
-    Sea \(R\) un anillo con identidad.
-    Las siguientes condiciones sobre un \(R\)-módulo unitario \(F\) son equivalentes:
-    \begin{enumerate}
-      \item \(F\) tiene una base novacía;
-      \item \(F\) es la suma directa (interna) de una famile de \(R\)-módulos cíclicos, cada uno de los cuales es isomorfo (como \(R\)-módulo izquierdo) a \(R\);
-      \item \(F\) es isomorfo (como \(R\)-módulo) a una suma directa de copias del \(R\)-módulo izquierdo \(R\);
-      \item existe un conjunto novacío \(X\) y una función \(\imath : X \rightarrow F\) con la siguiente propiedad:
-      dado un \(R\)-módulo unitario \(A\) y una función \(f : X \rightarrow A\), existe un único homomorfismo de \(R\)-módulos \(\bar{f} : F \rightarrow A\) tal que \(\bar{f} \imath = f\).
-      En otras palabras, \(F\) es un objeto libre en la categoría de \(R\)-módulos unitarios.
-    \end{enumerate}
-  \end{theorem}
-
-  Un módulo unitario \(F\) sobre un anillo \(R\) con identidad, que satisface las condiciones del teorema, recibe el nombre de \emph{\(R\)-módulo libre} sobre el conjunto \(X\).
-  La cuarta propiedad hace de \(F\) un objeto libre en la categoría formada por los 
-
-  \begin{theorem}
-    \label{theorem:vectorSpaceBasis}
-    Todo espacio vectorial \(V\) sobre un anillo de división \(D\) tiene una base y es por tanto un \(D\)-módulo libre.
-    Con mayor generalidad, cada subconjunto linealmente independiente de \(V\) está contenido en una base de \(V\).
-  \end{theorem}
-
-  \begin{theorem}
-    \label{theorem:moduleHomomorphisms}
-    Sean \(A\) y \(B\) ambos \(R\)-módulos.
-    \begin{enumerate}
-      \item el conjunto \(\Hom_R(A, B)\) formado por los homomorfismos de \(R\)-módulos \(A \rightarrow B\) es un grupo abeliano con \(f + g : A \rightarrow B\) dada por \(a \mapsto f(a) + g(a)\).
-      El elemento identidad es la aplicación nula.
-      \item \(\Hom_R(A, A)\) es un anillo con identidad, donde la multiplicación es la composición de funciones.
-      \(\Hom_R(A, A)\) es el \emph{anillo de endomorfismos} de \(A\).
-      \item \(A\) es un \(\Hom_R(A, A)\)-módulo izquierdo con \(f a = f(a)\) \((\forall a \in A)\) \((\forall f \in \Hom_R(A, A))\).
-    \end{enumerate}
-  \end{theorem}
 
   \begin{theorem}
     \label{theorem:isomorphismBetweenMatrixAndHomomorphismRings}
