@@ -542,6 +542,7 @@
   \end{remark}
 
   \begin{proposition}
+    \label{proposition:simpleModulesAreCiclic}
     Todo módulo simple \(A\) es cíclico; de hecho, \(A = R a\) para todo \(a \in A\) nonulo.
   \end{proposition}
   \begin{proof}
@@ -652,7 +653,7 @@
     La prueba es por inducción sobre \(n = \dim_D V\).
     Comenzamos por el caso base.
     Si \(n = 0\), entonces \(V = 0\) y \(a \neq 0\).
-    Porque \(A\) es simple, \(a \neq 0\) implica \(R a = A\).
+    Porque \(A\) es simple, \(a \neq 0\) implica \(R a = A\) (Proposición \ref{proposition:simpleModulesAreCiclic}).
     Consecuentemente existe \(r \in R\) tal que \(r a = a \neq 0\) y \(r V = r 0 = 0\).
 
     En el paso inductivo, supongamos \(\dim_D V = n > 0\) y que el teorema es verdadero para dimensiones menores a \(n\).
