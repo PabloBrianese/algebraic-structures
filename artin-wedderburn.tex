@@ -7,6 +7,7 @@
 
 \newcommand{\naturalNumbers}{\mathbb{N}}
 \newcommand{\Hom}{\textnormal{Hom}}
+\newcommand{\End}{\textnormal{End}}
 \newcommand{\Mat}{\textnormal{Mat}}
 \newcommand{\Col}{\textnormal{Col}}
 \newcommand{\Fila}{\textnormal{Fila}}
@@ -543,7 +544,7 @@
 
   \begin{proposition}
     \label{proposition:simpleModulesAreCiclic}
-    Todo módulo simple \(A\) es cíclico; de hecho, \(A = R a\) para todo \(a \in A\) nonulo.
+    Todo \(R\)-módulo simple \(A\) es cíclico; de hecho, \(A = R a\) para todo \(a \in A\) nonulo.
   \end{proposition}
   \begin{proof}
     Sea \(a \in A \setminus 0\).
@@ -612,42 +613,45 @@
 
   \section{El Teorema de Densidad de Jacobson}
 
-  \begin{definition}
-    Sea \(V\) un espacio vectorial izquierdo sobre un anillo de división \(D\).
-    Un subanillo \(R\) del anillo de endomorfismos \(\Hom_D(V, V)\) es un \emph{anillo denso de endomorfismos} de \(V\) (o un \emph{subanillo denso} de \(\Hom_D(V, V)\)) si para todo entero positivo \(n\), cada subconjunto linealmente independiente \(\{u_1, \dots, u_n\}\) de \(V\) y cada subconjunto arbitrario \(\{v_1, \dots, v_n\}\) de \(V\), existe \(\theta \in R\) tal que \(\theta(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
-  \end{definition}
+  Sea \(R\) un anillo y \(A\) un \(R\)-módulo 
+  ¿Qué hace un elemento \(r \in R\) en esta relación?
+  Multiplica elementos \(a \in A\), resultando \(r a \in A\).
+  Es decir que cada \(r \in R\) define una función \(m_r : A \rightarrow A\) dada por \(a \mapsto r a\).
+  Esta función puede no ser un \(R\)-endomorfismo de \(A\), por ejemplo si \(R\) no es conmutativo.
+  A pesar de ello, si pensamos \(A\) como un módulo sobre el anillo \(E = \End_R A\), entonces \(m_r\) es un \(E\)-endomorfismo de \(A\): esto es, \(m_r \in \End_E A\).
+  Aquí no se termina la tela para cortar.
+  Tenemos \(m_{(r + s)} = m_r + m_s\) y \(m_{(r s)} = m_r m_s\) para todo par \(r, s \in R\).
+  Consecuentemente, la aplicación \(m : R \rightarrow \End_E A\) definida por \(r \mapsto m_r\) es un homomorfismo de anillos.
+  Llegamos a un nuevo anillo \(\mathcal{M} = \image(m)\).
+  Decimos que \(\mathcal{M}\) es un \emph{anillo de multiplicadores}.
+
+  Dados los anillos \(R\) y \(\mathcal{M}\), junto al homomorfismo \(m : R \rightarrow \mathcal{M}\) que los une, surge la pregunta
+  ¿cuándo es \(m\) un isomorfismo?
+  La respuesta es que si el \(R\)-módulo \(A\) es fiel, entonces \(m\) es un isomorfismo entre los anillos \(R\) y \(\mathcal{M}\).
 
   \begin{theorem}
-    \label{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}
-    Sea \(R\) un anillo denso de endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
-    Entonces \(R\) es artiniano izquierdo [resp. derecho] si y solo si \(\dim_D V\) es finita, en cuyo caso \(R = \Hom_D(V, V)\).
+    \label{theorem:multiplierIsomorphism}
+    Sea \(R\) un anillo, \(A\) un \(R\)-módulo y \(\mathcal{M}\) el anillo de multiplicadores.
+    Si \(A\) es fiel, entonces \(m : R \rightarrow \mathcal{M}\) es un isomorfismo.
   \end{theorem}
   \begin{proof}
-    Supongamos \(\dim_D V\) es infinita.
-    Entonces existe un subconjunto de \(V\) linealmente independiente e infinito (numerable) \(\{u_1, u_2, \dots\}\).
-    Como \(V\) es un \(\Hom_D(V, V)\)-módulo izquierdo, también es un \(R\)-módulo izquierdo (recordar que \(R \subseteq \Hom_D(V, V)\)).
-    Para cada \(n\) sea \(I_n = \mathcal{A}(\{u_1, \dots, u_n\})\) el aniquilador izquierdo en \(R\) del conjunto \(\{u_1, \dots, u_n\}\).
-    Por el Teorema \ref{theorem:anihilatorTheorem}, la cadena descencendente \(I_1 \supseteq I_2 \supseteq \cdots\) está compuesta de ideales izquierdos de \(R\).
-    Sea \(w\) un elemento nonulo de \(V\), no importa cual de ellos sea (podría ser \(u_1\), por ejemplo).
-    Dado que \(\{u_1, \dots, u_{n + 1}\}\) es linealmente independiente (para cada \(n\)) y \(R\) es denso, existe \(\theta \in R\) tal que \(\theta u_i = 0\) \((\forall i \in \{1, \dots, n\})\) y \(\theta u_{n + 1} = w \neq 0\).
-    Consecuentemente \(\theta \in I_n\) pero \(\theta \notin I_{n + 1}\).
-    Por lo tanto \(I_1 \supset I_2 \supset \cdots\) es una cadena estrictamente descendente de \(R\)-módulos izquierdos.
-    La existencia de esta cadena dice que \(R\) no es artiniano.
-
-    Supongamos que \(\dim_D V\) es finita.
-    En este caso \(V\) tiene una base finita \(\{v_1, \dots, v_m\}\).
-    Si \(f\) es un elemento de \(\Hom_D(V, V)\), entonces \(f\) está completamente determinado por su acción sobre \(v_1, \dots, v_m\) por los teoremas \ref{theorem:freeUnitalModulesOverARingWithIdentity} y \ref{theorem:vectorSpaceBasis}.
-    Dado que \(R\) es denso, existe \(\theta \in R\) tal que \(\theta v_i = f v_i\) \(\forall i \in \{1, \dots, m\}\).
-    Luego \(f = \theta \in R\).
-    Por lo tanto \(\Hom_D(V, V) = R\).
-    Pero \(\Hom_D(V, V)\) es artiniano por el Teorema \ref{theorem:isomorphismBetweenMatrixAndHomomorphismRings} y el corolario \ref{corollary:matrixRingIsArtinianAndNoetherian}.
+    Sea \(r \in R\).
+    Dado que \(A\) es un \(R\)-módulo fiel, \(m_r = 0\) si y solo si \(r \in \mathcal{A}(A) = 0\).
+    De aquí que \(m\) es un monomorfismo, y \(R\) es isomorfo al anillo \(\mathcal{M} = \image(m)\).
   \end{proof}
+
+  Vemos que el anillo \(\mathcal{M}\) se ve afectado por la hipótesis de que \(A\) es fiel
+  ¿Qué sucedería si \(A\) fuera simple?
+  Una primera aproximación nos muestra que este es un caso especial.
+  Si \(A\) es simple, entonces \(D = \End_R A\) es un anillo de división.
+  La respuesta completa es el resultado más denso de la sección, y resulta ser un lema fundamental para llegar al Teorema de Densidad de Jacobson.
+  Su contenido es de caracter topológico, y marca que el anillo de multiplicadores \(\mathcal{M}\) separa, dentro del \(D\)-espacio vectorial \(A\), elementos \(a \in A\) y subespacios \(V\) de dimensión finita.
 
   \begin{lemma}
     \label{lemma:anihilatorLemma}
-    Sea \(A\) un módulo simple sobre un anillo \(R\).
-    Consideramos \(A\) como un espacio vectorial sobre el anillo de división \(D = \Hom_R(A, A)\).
-    Si \(V\) es un subespacio finito-dimensional del \(D\)-espacio vectorial \(A\) y \(a \in A \setminus V\), entonces existe \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
+    Sea \(R\) un anillo, \(A\) un \(R\)-módulo simple y \(\mathcal{M}\) el anillo de multiplicadores.
+    Consideramos \(A\) como un espacio vectorial sobre el anillo de división \(D = \End_R A\).
+    Si \(V\) es un subespacio finito-dimensional del \(D\)-espacio vectorial \(A\) y \(a \in A \setminus V\), entonces existe \(T \in \mathcal{M}\) tal que \(T(a) \neq 0\) y \(T(V) = 0\).
   \end{lemma}
   \begin{proof}
     La prueba es por inducción sobre \(n = \dim_D V\).
@@ -688,33 +692,69 @@
     Por lo tanto, existe \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
   \end{proof}
 
-  \begin{theorem}[de Densidad de Jacobson]
-    \label{theorem:jacobsonDensityTheorem}
-    Sea \(R\) un anillo primitivo y \(A\) un \(R\)-módulo simple y fiel.
-    Considerar \(A\) como espacio vectorial sobre el anillo de división \(\Hom_R(A, A) = D\).
-    Entonces \(R\) es isomorfo a un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
+
+  \begin{definition}
+    Sea \(V\) un espacio vectorial izquierdo sobre un anillo de división \(D\).
+    Un subanillo \(R\) del anillo de endomorfismos \(\Hom_D(V, V)\) es un \emph{anillo denso de endomorfismos} de \(V\) (o un \emph{subanillo denso} de \(\Hom_D(V, V)\)) si para todo entero positivo \(n\), cada subconjunto linealmente independiente \(\{u_1, \dots, u_n\}\) de \(V\) y cada subconjunto arbitrario \(\{v_1, \dots, v_n\}\) de \(V\), existe \(\theta \in R\) tal que \(\theta(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
+  \end{definition}
+
+  \begin{theorem}
+    \label{theorem:denseMultiplierRing}
+    Sea \(R\) un anillo y \(A\) un \(R\)-módulo simple.
+    Considerar \(A\) como espacio vectorial sobre el anillo de división \(D = \End_R A\).
+    Entonces el anillo de multiplicadores \(\mathcal{M}\) es un subanillo denso de \(\End_D A\).
   \end{theorem}
   \begin{proof}
-    Para cada \(r \in R\) la aplicación \(\alpha_r : A \rightarrow A\) dada por \(\alpha_r(a) = r a\) es facilmente identificada como un \(D\)-endomorfismo de \(A\): esto es, \(\alpha_r \in \Hom_D(A, A)\).
-    Además \(\alpha_{(r + s)} = \alpha_r + \alpha_s\) y \(\alpha_{r s} = \alpha_r \alpha_s\) para todo par \(r, s \in R\).
-    Consecuentemente la aplicación \(\alpha : R \rightarrow \Hom_D(A, A)\) definida por \(\alpha(r) = \alpha r\) es un homomorfismo de anillos bien definido.
-    Dado que \(A\) es un \(R\)-módulo fiel, \(\alpha_r = 0\) si y solo si \(r \in \mathcal{A}(A) = 0\).
-    De aquí que \(\alpha\) es un monomorfismo, y \(R\) es isomorfo al subanillo \(\image \alpha\) de \(\Hom_D(A, A)\).
-
-    Para completar la prueba debemos mostrar que \(\image \alpha\) es un subanillo denso de \(\Hom_D(A, A)\).
-    Sea \(U = \{u_1, \dots, u_n\}\) un subconjunto \(D\)-linealmente independiente de \(A\); y sea \(\{v_1, \dots, v_n\}\) un subconjunto arbitrario de \(A\).
-    Debemos encontrar \(\alpha_r \in \image \alpha\) tal que \(\alpha_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
+    Sea \(U = \{u_1, \dots, u_n\}\) un subconjunto \(D\)-linealmente independiente de \(A\);
+    y sea \(\{v_1, \dots, v_n\}\) un subconjunto arbitrario de \(A\).
+    Debemos encontrar \(m_r \in \mathcal{M}\) tal que \(m_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\) un subconjunto arbitrario de \(A\).
+    Debemos encontrar \(m_r \in \mathcal{M}\) tal que \(m_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
     Para cada \(i\) sea \(V_i\) el \(D\)-subespacio de \(A\) generado por \(\{u_j : j \neq i\}\).
-    Dado que \(U\) es linealmente independiente, \(u_i \notin V_i\).
+    Dado que \(U\) es \(D\)-linealmente independiente, \(u_i \notin V_i\).
     Consecuentemente, por el lema \ref{lemma:anihilatorLemma} existe \(r_i \in R\) tal que \(r_i u_i \neq 0\) y \(r_i V_i = 0\).
-    Después aplicamos el lema \ref{lemma:anihilatorLemma} al subespacio nulo y al elemento nonulo \(r_i u_i\):
-    existe \(s_i \in R\) tal que \(s_i r_i u_i \neq 0\) y \(s_i 0 = 0\).
-    Siendo \(s_i r_i u_i \neq 0\), el \(R\)-submódulo \(R (r_i u_i)\) de \(A\) en nonulo, luego \(R (r_i u_i) = A\) por simplicidad.
+    La simplicidad de \(A\), por la proposición \ref{proposition:simpleModulesAreCiclic}, implica \(R (r_i u_i) = A\).
     Por esto existe \(t_i \in R\) tal que \(t_i r_i u_i = v_i\).
-    Sea \(r = t_1 r_1 + t_2 r_2 + \cdots + t_n r_n \in R\).
-    Recordar que \(u_i \in V_j\) para \(i \neq j\), luego \(t_j r_j u_i \in t_j (r_j V_i) = t_j 0 = 0\).
-    Consecuentemente \(\alpha_r(u_i) = (t_1 r_1 + \cdots + t_n r_n) u_i = t_i r_i u_i = v_i\).
-    Por lo tanto \(\image \alpha\) es un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
+    Sea \(r = t_1 r_1 + \cdots + t_n r_n \in R\).
+    Recordar que \(u_i \in V_j\) para \(i \neq j\), luego \(t_j r_j u_i \in t_j (r_j V_j) = t_j 0 = 0\).
+    Consecuentemente \(m_r(u_i) = (t_1 r_1 + \cdots + t_n r_n) u_i = t_i r_i u_i = v_i\).
+    Por lo tanto \(\mathcal{M}\) es un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
+  \end{proof}
+
+  \begin{theorem}
+    \label{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}
+    Sea \(R\) un anillo denso de endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
+    Entonces \(R\) es artiniano izquierdo [resp. derecho] si y solo si \(\dim_D V\) es finita, en cuyo caso \(R = \Hom_D(V, V)\).
+  \end{theorem}
+  \begin{proof}
+    Supongamos \(\dim_D V\) es infinita.
+    Entonces existe un subconjunto de \(V\) linealmente independiente e infinito (numerable) \(\{u_1, u_2, \dots\}\).
+    Como \(V\) es un \(\Hom_D(V, V)\)-módulo izquierdo, también es un \(R\)-módulo izquierdo (recordar que \(R \subseteq \Hom_D(V, V)\)).
+    Para cada \(n\) sea \(I_n = \mathcal{A}(\{u_1, \dots, u_n\})\) el aniquilador izquierdo en \(R\) del conjunto \(\{u_1, \dots, u_n\}\).
+    Por el Teorema \ref{theorem:anihilatorTheorem}, la cadena descencendente \(I_1 \supseteq I_2 \supseteq \cdots\) está compuesta de ideales izquierdos de \(R\).
+    Sea \(w\) un elemento nonulo de \(V\), no importa cual de ellos sea (podría ser \(u_1\), por ejemplo).
+    Dado que \(\{u_1, \dots, u_{n + 1}\}\) es linealmente independiente (para cada \(n\)) y \(R\) es denso, existe \(\theta \in R\) tal que \(\theta u_i = 0\) \((\forall i \in \{1, \dots, n\})\) y \(\theta u_{n + 1} = w \neq 0\).
+    Consecuentemente \(\theta \in I_n\) pero \(\theta \notin I_{n + 1}\).
+    Por lo tanto \(I_1 \supset I_2 \supset \cdots\) es una cadena estrictamente descendente de \(R\)-módulos izquierdos.
+    La existencia de esta cadena dice que \(R\) no es artiniano.
+
+    Supongamos que \(\dim_D V\) es finita.
+    En este caso \(V\) tiene una base finita \(\{v_1, \dots, v_m\}\).
+    Si \(f\) es un elemento de \(\Hom_D(V, V)\), entonces \(f\) está completamente determinado por su acción sobre \(v_1, \dots, v_m\) por los teoremas \ref{theorem:freeUnitalModulesOverARingWithIdentity} y \ref{theorem:vectorSpaceBasis}.
+    Dado que \(R\) es denso, existe \(\theta \in R\) tal que \(\theta v_i = f v_i\) \(\forall i \in \{1, \dots, m\}\).
+    Luego \(f = \theta \in R\).
+    Por lo tanto \(\Hom_D(V, V) = R\).
+    Pero \(\Hom_D(V, V)\) es artiniano por el Teorema \ref{theorem:isomorphismBetweenMatrixAndHomomorphismRings} y el corolario \ref{corollary:matrixRingIsArtinianAndNoetherian}.
+  \end{proof}
+
+  \begin{theorem}[de Densidad de Jacobson]
+    \label{theorem:jacobsonDensityTheorem}
+    Sea \(R\) un anillo y \(A\) un \(R\)-módulo simple y fiel.
+    Considerar \(A\) como espacio vectorial sobre el anillo de división \(D = \Hom_R(A, A)\).
+    Entonces \(R\) es isomorfo al anillo de multiplicadores \(\mathcal{M}\), y este es un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
+  \end{theorem}
+  \begin{proof}
+    Dado que \(A\) es un \(R\)-módulo fiel, el teorema \ref{theorem:multiplierIsomorphism} implica que \(R \simeq \mathcal{M}\).
+    Además, la simplicidad de \(A\), mediante el teorema \ref{theorem:denseMultiplierRing}, implica que \(\mathcal{M}\) es un subanillo denso de \(\End_D A\).
   \end{proof}
 
   \begin{corollary}
