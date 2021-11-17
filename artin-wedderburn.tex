@@ -720,6 +720,17 @@
     Por lo tanto \(\mathcal{M}\) es un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
   \end{proof}
 
+  \begin{theorem}[de Densidad de Jacobson]
+    \label{theorem:jacobsonDensityTheorem}
+    Sea \(R\) un anillo y \(A\) un \(R\)-módulo simple y fiel.
+    Considerar \(A\) como espacio vectorial sobre el anillo de división \(D = \Hom_R(A, A)\).
+    Entonces \(R\) es isomorfo al anillo de multiplicadores \(\mathcal{M}\), y este es un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
+  \end{theorem}
+  \begin{proof}
+    Dado que \(A\) es un \(R\)-módulo fiel, el teorema \ref{theorem:multiplierIsomorphism} implica que \(R \simeq \mathcal{M}\).
+    Además, la simplicidad de \(A\), mediante el teorema \ref{theorem:denseMultiplierRing}, implica que \(\mathcal{M}\) es un subanillo denso de \(\End_D A\).
+  \end{proof}
+
   \begin{theorem}
     \label{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}
     Sea \(R\) un anillo denso de endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
@@ -744,17 +755,6 @@
     Luego \(f = \theta \in R\).
     Por lo tanto \(\Hom_D(V, V) = R\).
     Pero \(\Hom_D(V, V)\) es artiniano por el Teorema \ref{theorem:isomorphismBetweenMatrixAndHomomorphismRings} y el corolario \ref{corollary:matrixRingIsArtinianAndNoetherian}.
-  \end{proof}
-
-  \begin{theorem}[de Densidad de Jacobson]
-    \label{theorem:jacobsonDensityTheorem}
-    Sea \(R\) un anillo y \(A\) un \(R\)-módulo simple y fiel.
-    Considerar \(A\) como espacio vectorial sobre el anillo de división \(D = \Hom_R(A, A)\).
-    Entonces \(R\) es isomorfo al anillo de multiplicadores \(\mathcal{M}\), y este es un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
-  \end{theorem}
-  \begin{proof}
-    Dado que \(A\) es un \(R\)-módulo fiel, el teorema \ref{theorem:multiplierIsomorphism} implica que \(R \simeq \mathcal{M}\).
-    Además, la simplicidad de \(A\), mediante el teorema \ref{theorem:denseMultiplierRing}, implica que \(\mathcal{M}\) es un subanillo denso de \(\End_D A\).
   \end{proof}
 
   \begin{corollary}
