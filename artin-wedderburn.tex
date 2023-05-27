@@ -7,6 +7,7 @@
 
 \newcommand{\naturalNumbers}{\mathbb{N}}
 \newcommand{\Hom}{\textnormal{Hom}}
+\newcommand{\End}{\textnormal{End}}
 \newcommand{\Mat}{\textnormal{Mat}}
 \newcommand{\Col}{\textnormal{Col}}
 \newcommand{\Fila}{\textnormal{Fila}}
@@ -24,13 +25,13 @@
 \author{Pablo Brianese}
 \begin{document}
   \maketitle
-
+  \tableofcontents
   \chapter{Matrices}
 
   En el presente capítulo estudiaremos matrices.
   Matrices cuadradas con entradas en un anillo de división.
   Nuestro objetivo final será probar que el anillo formado por estas es artiniano y noetheriano.
-  Para conocer las cadenas de ideales del anillo usaremos las llamadas series de composición.
+  Ambas nociones refieren a cadenas de ideales del anillo, para conocerlas usaremos las llamadas series de composición.
   Por un lado, trabajaremos con series de composición concretas.
   Por el otro, estudiaremos la relación abstracta que existe entre las series de composición y las cadenas de ideales.
 
@@ -129,8 +130,8 @@
 
     Supongamos que \(J\) es un submódulo nonulo de \(I\).
     Probaremos \(J = I\).
-    Entonces existe \(a \in J \setminus 0\).
-    Porque \(a \in I\) se sigue del teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull} que \(a = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\).
+    Por hipótesis existe \(a \in J \setminus 0\).
+    Porque \(a \in I\), se sigue del teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull} que \(a = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\).
     Notemos que \(a \neq 0\) implica \(a_{i_0 j_0} \neq 0\) para un \(i_0 \in \{1, \dots, n\}\).
     Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por izquierda) su fila \(i_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
     Entonces \(M a = E_{i_0 j_0} + \sum_{i \neq i_0} a_{i j_0} E_{i j_0}\).
@@ -317,7 +318,7 @@
     Concluímos que \(\phi : M / N \rightarrow E R\) es un isomorfismo.
   \end{proof}
 
-  \section{módulos}
+  \section{Módulos}
   \begin{theorem}
     \label{theorem:submodulesOfQuotientModule}
     Si \(R\) es un anillo y \(B\) es un submódulo de un \(R\)-módulo \(A\), entonces existe una correspondencia uno-a-uno entre el conjunto de los submódulos de \(A\) que contienen a \(B\) y el conjunto de todos los submódulos de \(A / B\), dada por \(C \mapsto C / B\).
@@ -325,7 +326,7 @@
   \end{theorem}
 
 
-  \section{cadenas de ideales}
+  \section{Cadenas de ideales}
 
   \begin{definition}
     Decimos que un módulo \(A\) satisface la \emph{condición de la cadena ascendente sobre submódulos} (o decimos que es \emph{noetheriano}) si para toda cadena \(A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots\) de submódulos de \(A\), existe un entero \(m\) tal que \(B_i = B_m\) para todo \(i \geq m\).
@@ -458,7 +459,10 @@
 
   \section{Ideales del anillo de matrices}
 
-  Nos introducimos en este capítulo con el estudio de los ideales formados por matrices sobre un anillo con unidad.
+  El Teorema de Artin-Wedderburn nos dice que el anillo de matrices cuadradas es especial.
+  Por eso nos introducimos en este capítulo con el estudio de ideales formados por matrices.
+  El primer teorema busca una forma que tiene dicho anillo de ser especial, y nos da la forma precisa que toman sus ideales.
+
 
   \begin{theorem}
     \label{theorem:matrixRingIdeals}
@@ -466,9 +470,9 @@
     Entonces \(J\) es un ideal de \(\Mat_n R\) si y solo si \(J = \Mat_n I\) para algún ideal \(I\) en \(R\).
   \end{theorem}
   \begin{proof}
-    Escribimos \(E = E_{1, 1}\)
+    Escribimos \(E = E_{1, 1}\), \(S = \Mat_n R\).
 
-    Sea \(J\) un ideal de \(\Mat_n R\).
+    Sea \(J\) un ideal de \(S\).
     Sea \(I\) el conjunto formado por todos los elementos de \(R\) que aparecen como entrada \((1, 1)\) de alguna matriz en \(J\).
     Afirmamos que, para todo \(a \in R\), \(a \in I\) si y solo si \(a E \in J\).
     En efecto, si \(a E \in J\) donde \(a \in R\), entonces \(a = (a E)_{1, 1} \in I\).
@@ -505,20 +509,23 @@
     \end{align}
     Luego \(ra, ar \in I\).
 
-    Afirmamos que \(M_n(I) = J\).
-    Sea \(A = (a_{i j})\) una matriz en \(\Mat_n R\).
+    Afirmamos que \(M_n I = J\).
+    Sea \(A = (a_{i j})_{i j}\) una matriz en \(S\).
     Comenzamos suponiendo \(A \in J\).
     Consideremos \(i, j \in \{1, \dots, n\}\).
     Porque \(J\) es un ideal (bilátero), \(a_{i j} E = E_{1 i} A E_{j 1} \in J\).
     Luego \(a_{i j} \in I\).
-    Porque \(i, j\) eran arbitrarios, se deduce \(A \in M_n(I)\).
-    Recíprocamente, suponemos que \(A = (a_{i j}) \in M_n(I)\).
+    Porque \(i, j\) eran arbitrarios, se deduce \(A \in M_n I\).
+    Recíprocamente, suponemos que \(A \in M_n I\).
     Consideramos \(i, j \in \{1, \dots, n\}\).
     Por hipótesis \(a_{i j} \in I\).
     Luego \(a_{i j} E \in J\).
     Porque \(J\) es un ideal, se deduce \(E_{i 1} (a_{i j} E) E_{1 j} \in J\) mientras \(E_{i 1} (a_{i j} E) E_{1 j} = a_{i j} E_{i j}\).
     Porque \(i, j\) eran arbitrarios, usando que \(J\) está cerrado bajo suma, se deduce \(A = \sum_{i j} a_{i j} E_{i j} \in J\).
   \end{proof}
+
+  Especializando el teorema \ref{theorem:matrixRingIdeals} al caso que es relevante para nosotros, el de los anillos de división, llegamos a uno de los cuatro pilares del Teorema de Artin-Wedderburn.
+  Un teorema que conecta un elemento concreto, las matrices, con una cierta organización abstracta de su familia de ideales.
 
   \begin{theorem}
     \label{theorem:idealsInTheRingOfMatricesOverADivisionRing}
@@ -543,7 +550,7 @@
 
   \begin{proposition}
     \label{proposition:simpleModulesAreCiclic}
-    Todo módulo simple \(A\) es cíclico; de hecho, \(A = R a\) para todo \(a \in A\) nonulo.
+    Todo \(R\)-módulo simple \(A\) es cíclico; de hecho, \(A = R a\) para todo \(a \in A\) nonulo.
   \end{proposition}
   \begin{proof}
     Sea \(a \in A \setminus 0\).
@@ -594,7 +601,7 @@
     Por simplicidad de \(R\), se deduce \(I = R\) o \(I = 0\).
     Pero \(R I = 0\), y la simplicidad de \(R\) también implica que \(R R \neq 0\).
     Luego \(I \neq R\) e \(I = 0\).
-    Es decir que \(R J = 0\) si y solo si \(J = 0\).
+    Es decir que \(R J = 0\) solo si \(J = 0\).
     Por construcción \(J \neq 0\).
     En conclusión \(R J \neq 0\).
 
@@ -612,10 +619,102 @@
 
   \section{El Teorema de Densidad de Jacobson}
 
+  Sea \(R\) un anillo y \(A\) un \(R\)-módulo 
+  ¿Qué hace un elemento \(r \in R\) en esta relación?
+  Multiplica elementos \(a \in A\), resultando \(r a \in A\).
+  Es decir que cada \(r \in R\) define una función \(m_r : A \rightarrow A\) dada por \(a \mapsto r a\).
+  Esta función puede no ser un \(R\)-endomorfismo de \(A\), por ejemplo si \(R\) no es conmutativo.
+  A pesar de ello, si pensamos \(A\) como un módulo sobre el anillo \(E = \End_R A\), entonces \(m_r\) es un \(E\)-endomorfismo de \(A\): esto es, \(m_r \in \End_E A\).
+  Aquí no se termina la tela para cortar.
+  Tenemos \(m_{r + s} = m_r + m_s\) y \(m_{r s} = m_r \circ m_s\) para todo par \(r, s \in R\).
+  Consecuentemente, la aplicación \(m : R \rightarrow \End_E A\) definida por \(r \mapsto m_r\) es un homomorfismo de anillos.
+  Llegamos a un nuevo anillo \(\mathcal{M} = \image(m)\), al que llamamos \emph{anillo de multiplicadores}.
+
+  Dados los anillos \(R\) y \(\mathcal{M}\), junto al homomorfismo \(m : R \rightarrow \mathcal{M}\) que los une, surge la pregunta
+  ¿cuándo es \(m\) un isomorfismo?
+  La respuesta es que si el \(R\)-módulo \(A\) es fiel, entonces \(m\) es un isomorfismo entre los anillos \(R\) y \(\mathcal{M}\).
+
+  \begin{theorem}
+    \label{theorem:multiplierIsomorphism}
+    Sea \(R\) un anillo, \(A\) un \(R\)-módulo y \(\mathcal{M}\) el anillo de multiplicadores.
+    Si \(A\) es fiel, entonces \(m : R \rightarrow \mathcal{M}\) es un isomorfismo.
+  \end{theorem}
+  \begin{proof}
+    Sea \(r \in R\).
+    Dado que \(A\) es un \(R\)-módulo fiel, \(m_r = 0\) si y solo si \(r \in \mathcal{A}(A) = 0\).
+    De aquí que \(m\) es un monomorfismo, y \(R\) es isomorfo al anillo \(\mathcal{M} = \image(m)\).
+  \end{proof}
+
+  Vemos que el anillo \(\mathcal{M}\) se ve afectado por la hipótesis de que \(A\) es fiel
+  ¿Qué sucedería si \(A\) fuera simple?
+  Una primera aproximación nos muestra que este es un caso especial.
+  Si \(A\) es simple, entonces \(D = \End_R A\) es un anillo de división y \(A\) es un espacio vectorial sobre \(D\).
+  La respuesta completa es el resultado más denso de la sección, y resulta ser un lema fundamental para llegar al Teorema de Densidad de Jacobson.
+  Afirma la existencia de una biyección entre los subespacios finito-dimensionales de \(A\) y sus aniquiladores.
+
+  \begin{lemma}
+    \label{lemma:anihilatorLemma}
+    Sea \(R\) un anillo y \(A\) un \(R\)-módulo simple.
+    Si \(V\) es un \(D\)-subespacio finito-dimensional de \(A\) entonces \(V = \{a \in A : \mathcal{A}(V) a = 0\}\).
+  \end{lemma}
+  \begin{proof}
+    Por inducción sobre \(n = \dim_D V\). 
+    Comenzamos por el caso base.
+    Si \(n = 0\), entonces \(V = 0\) y \(\mathcal{A}(V) = R\).
+    Por simplicidad de \(A\), para todo \(a \in A\) la ecuación \(R a = 0\) implica \(a = 0\).
+    Luego \(0 = \{a \in A : R a = 0\}\), como queríamos.
+
+    Supongamos \(n > 0\), y que el teorema es verdadero para dimensiones menores a \(n\).
+    Sea \(\{w_1, \dots, w_{n - 1}, u\}\) una \(D\)-base de \(V\) y sea \(W\) el subespacio \((n - 1)\)-dimensional de \(V\) generado por \(\{w_1, \dots, w_{n - 1}\}\) (siendo \(W = 0\) cuando \(n = 1\)).
+    Entonces \(V = W \oplus D u\) (suma directa) y (en consecuencia) \(\mathcal{A}(V) = \mathcal{A}(W) \cap \mathcal{A}(D u)\).
+    Sea \(a \in A\) tal que \(\mathcal{A}(V) a = 0\).
+    Definimos una relación \(\theta : A \rightarrow A\) como \(r u \mapsto r a\) para todo \(r \in \mathcal{A}(W)\).
+    Su dominio es el submódulo de \(A\) definido como \(\mathcal{A}(W) u\).
+    Este submódulo es nonulo porque \(u \notin W\) y nuestra hipótesis inductiva garantiza la existencia de un \(r \in \mathcal{A}(W)\) con \(r u \neq 0\).
+    Pero \(A\) es simple, y por lo tanto \(\mathcal{A}(W) u = A\).
+    Además de tener un dominio adecuado, es una función bien definida porque si \(r u = s u\) para \(r, s \in \mathcal{A}(W)\), entonces \(r - s \in \mathcal{A}(W)\) y \((r - s) u = 0\), lo que implica \(r - s \in \mathcal{A}(V)\).
+    Pero \(\mathcal{A}(V) a = 0\), y por lo tanto \(r a = s a\).
+    Podemos probar que \(\theta\) es un homomorfismo de \(R\)-módulos, un elemento de \(D\).
+    Por eso, para todo \(r \in \mathcal{A}(W)\) podemos calcular \(r (\theta(u) - a) = 0\).
+    Luego \( \mathcal{A}(W) (\theta u - a) = 0\).
+    Por hipótesis inductiva \(\theta u - a = - w \in W\).
+    Luego \(a = w + \theta u\) es un elemento de \(V\), como queríamos.
+  \end{proof}
+
   \begin{definition}
     Sea \(V\) un espacio vectorial izquierdo sobre un anillo de división \(D\).
     Un subanillo \(R\) del anillo de endomorfismos \(\Hom_D(V, V)\) es un \emph{anillo denso de endomorfismos} de \(V\) (o un \emph{subanillo denso} de \(\Hom_D(V, V)\)) si para todo entero positivo \(n\), cada subconjunto linealmente independiente \(\{u_1, \dots, u_n\}\) de \(V\) y cada subconjunto arbitrario \(\{v_1, \dots, v_n\}\) de \(V\), existe \(\theta \in R\) tal que \(\theta(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
   \end{definition}
+
+  \begin{theorem}
+    \label{theorem:denseMultiplierRing}
+    Sea \(R\) un anillo, y \(A\) un \(R\)-módulo simple considerado a la vez como espacio vectorial sobre \(D = \End_R A\).
+    El anillo de multiplicadores \(\mathcal{M}\) es un subanillo denso de endomorfismos de \(A\).
+  \end{theorem}
+  \begin{proof}
+    Sea \(U = \{u_1, \dots, u_n\}\) un subconjunto \(D\)-linealmente independiente de \(A\);
+    y sea \(\{v_1, \dots, v_n\}\) un subconjunto arbitrario de \(A\).
+    Debemos encontrar \(m_r \in \mathcal{M}\) tal que \(m_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
+    Para cada \(i\) sea \(V_i\) el \(D\)-subespacio de \(A\) generado por \(\{u_j : j \neq i\}\).
+    Dado que \(U\) es \(D\)-linealmente independiente, \(u_i \notin V_i\).
+    Por el lema \ref{lemma:anihilatorLemma} existen \(r_i \in \mathcal{A}(V_i)\) tales que \(r_i u_i \neq 0\).
+    La simplicidad de \(A\), por la proposición \ref{proposition:simpleModulesAreCiclic}, implica \(R (r_i u_i) = A\).
+    Por esto existen \(t_i \in R\) tales que \(t_i r_i u_i = v_i\).
+    Sea \(r = t_1 r_1 + \cdots + t_n r_n \in R\).
+    Recordar que \(u_i \in V_j\) para \(i \neq j\), luego \(t_j r_j u_i \in t_j (r_j V_j) = t_j 0 = 0\).
+    Consecuentemente \(m_r(u_i) = (t_1 r_1 + \cdots + t_n r_n) u_i = t_i r_i u_i = v_i\), tal como queríamos.
+  \end{proof}
+
+  \begin{theorem}[de Densidad de Jacobson]
+    \label{theorem:jacobsonDensityTheorem}
+    Sea \(R\) un anillo y \(A\) un \(R\)-módulo simple y fiel.
+    Considerar \(A\) como espacio vectorial sobre el anillo de división \(D = \End_R A\).
+    Entonces \(R\) es isomorfo al anillo de multiplicadores \(\mathcal{M}\), y este es un anillo denso de endomorfismos de \(A\).
+  \end{theorem}
+  \begin{proof}
+    Dado que \(A\) es un \(R\)-módulo fiel, el teorema \ref{theorem:multiplierIsomorphism} implica que \(R \simeq \mathcal{M}\).
+    Además, la simplicidad de \(A\), mediante el teorema \ref{theorem:denseMultiplierRing}, implica que \(\mathcal{M}\) es un subanillo denso de \(\End_D A\).
+  \end{proof}
 
   \begin{theorem}
     \label{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}
@@ -641,80 +740,6 @@
     Luego \(f = \theta \in R\).
     Por lo tanto \(\Hom_D(V, V) = R\).
     Pero \(\Hom_D(V, V)\) es artiniano por el Teorema \ref{theorem:isomorphismBetweenMatrixAndHomomorphismRings} y el corolario \ref{corollary:matrixRingIsArtinianAndNoetherian}.
-  \end{proof}
-
-  \begin{lemma}
-    \label{lemma:anihilatorLemma}
-    Sea \(A\) un módulo simple sobre un anillo \(R\).
-    Consideramos \(A\) como un espacio vectorial sobre el anillo de división \(D = \Hom_R(A, A)\).
-    Si \(V\) es un subespacio finito-dimensional del \(D\)-espacio vectorial \(A\) y \(a \in A \setminus V\), entonces existe \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
-  \end{lemma}
-  \begin{proof}
-    La prueba es por inducción sobre \(n = \dim_D V\).
-    Comenzamos por el caso base.
-    Si \(n = 0\), entonces \(V = 0\) y \(a \neq 0\).
-    Porque \(A\) es simple, \(a \neq 0\) implica \(R a = A\) (Proposición \ref{proposition:simpleModulesAreCiclic}).
-    Consecuentemente existe \(r \in R\) tal que \(r a = a \neq 0\) y \(r V = r 0 = 0\).
-
-    En el paso inductivo, supongamos \(\dim_D V = n > 0\) y que el teorema es verdadero para dimensiones menores a \(n\).
-    Sea \(\{u_1, \dots, u_{n - 1}, u\}\) una \(D\)-base de \(V\) y sea \(W\) el subespacio \((n - 1)\)-dimensional generado por \(\{u_1, \dots, u_{n - 1}\}\) (siendo \(W = 0\) cuando \(n = 1\)).
-    Entonces \(V = W \oplus D u\) (suma directa de espacios vectoriales).
-    Nuestra hipótesis inductiva tiene dos consecuencias importantes:
-    \begin{enumerate}
-      \item para todo \(v \in A \setminus W\) existe \(r \in R\) tal que \(r u \neq 0\) y \(r W = 0\);
-      \item para todo \(v \in A\), si \(r v = 0\) para todo \(r \in R\) entonces \(v \in W\).
-    \end{enumerate}
-    La primera consecuencia implica que existe \(r \in R\) tal que \(r u \neq 0\) y \(r W = 0\).
-    Pero \(r W = 0\) si y solo si \(r \in \mathcal{A}(W)\), siendo \(I = \mathcal{A}(W)\) un ideal izquierdo de \(R\).
-    Además \(r u \in I u \setminus 0\), siendo \(I u\) un submódulo de \(A\).
-    Por simplicidad, este submódulo nonulo debe ser \(I u = A\).
-
-    Para terminar el argumento inductivo, debemos encontrar \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
-    Si no existe tal \(r\), entonces podemos definir una aplicación \(\theta : A \rightarrow A\) como sigue.
-    Para \(r u \in I u = A\) definimos \(\theta(r u) = r a \in A\).
-    Afirmamos que \(\theta\) está bien definida.
-    Sean \(r_1, r_2 \in I\) tales que \(r_1 u = r_2 u\).
-    Por hipótesis \((r_1 - r_2) a = 0\) o \((r_1 - r_2) V \neq 0\).
-    Ahora bien, porque \(r_1 - r_2 \in I = \mathcal{A}(W)\) tenemos \((r_1 - r_2) W = 0\);
-    y porque \(D = \Hom_D(A, A)\), para cada \(d \in D\) tenemos \((r_1 - r_2) (d \cdot u) = (r_1 - r_2) d(u) = d((r_1 - r_2) u) = d(0) = 0\).
-    Juntos, estos dos datos implican \((r_1 - r_2) V = (r_1 - r_2) (W \oplus D u) = 0\).
-    Consecuentemente, por hipótesis \((r_1 - r_2) a = 0\).
-    Por lo tanto \(\theta(r_1 u) = r_1 a = r_2 a = \theta(r_2 u)\).
-    Podemos mostrar que \(\theta \in \Hom_D(A, A) = D\).
-    Luego para cada \(r \in I\), \(0 = \theta(r u) - r a = r \theta(u) - r a = r(\theta(u) - a)\).
-    De aquí que \(\theta(u) - a \in W\), por la segunda consecuencia de la hipótesis inductiva.
-    Consecuentemente \(a = \theta u - (\theta u - a) \in D u + W = V\),
-    lo cual contradice el hecho \(a \notin V\).
-    Por lo tanto, existe \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
-  \end{proof}
-
-  \begin{theorem}[de Densidad de Jacobson]
-    \label{theorem:jacobsonDensityTheorem}
-    Sea \(R\) un anillo primitivo y \(A\) un \(R\)-módulo simple y fiel.
-    Considerar \(A\) como espacio vectorial sobre el anillo de división \(\Hom_R(A, A) = D\).
-    Entonces \(R\) es isomorfo a un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
-  \end{theorem}
-  \begin{proof}
-    Para cada \(r \in R\) la aplicación \(\alpha_r : A \rightarrow A\) dada por \(\alpha_r(a) = r a\) es facilmente identificada como un \(D\)-endomorfismo de \(A\): esto es, \(\alpha_r \in \Hom_D(A, A)\).
-    Además \(\alpha_{(r + s)} = \alpha_r + \alpha_s\) y \(\alpha_{r s} = \alpha_r \alpha_s\) para todo par \(r, s \in R\).
-    Consecuentemente la aplicación \(\alpha : R \rightarrow \Hom_D(A, A)\) definida por \(\alpha(r) = \alpha r\) es un homomorfismo de anillos bien definido.
-    Dado que \(A\) es un \(R\)-módulo fiel, \(\alpha_r = 0\) si y solo si \(r \in \mathcal{A}(A) = 0\).
-    De aquí que \(\alpha\) es un monomorfismo, y \(R\) es isomorfo al subanillo \(\image \alpha\) de \(\Hom_D(A, A)\).
-
-    Para completar la prueba debemos mostrar que \(\image \alpha\) es un subanillo denso de \(\Hom_D(A, A)\).
-    Sea \(U = \{u_1, \dots, u_n\}\) un subconjunto \(D\)-linealmente independiente de \(A\); y sea \(\{v_1, \dots, v_n\}\) un subconjunto arbitrario de \(A\).
-    Debemos encontrar \(\alpha_r \in \image \alpha\) tal que \(\alpha_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
-    Para cada \(i\) sea \(V_i\) el \(D\)-subespacio de \(A\) generado por \(\{u_j : j \neq i\}\).
-    Dado que \(U\) es linealmente independiente, \(u_i \notin V_i\).
-    Consecuentemente, por el lema \ref{lemma:anihilatorLemma} existe \(r_i \in R\) tal que \(r_i u_i \neq 0\) y \(r_i V_i = 0\).
-    Después aplicamos el lema \ref{lemma:anihilatorLemma} al subespacio nulo y al elemento nonulo \(r_i u_i\):
-    existe \(s_i \in R\) tal que \(s_i r_i u_i \neq 0\) y \(s_i 0 = 0\).
-    Siendo \(s_i r_i u_i \neq 0\), el \(R\)-submódulo \(R (r_i u_i)\) de \(A\) en nonulo, luego \(R (r_i u_i) = A\) por simplicidad.
-    Por esto existe \(t_i \in R\) tal que \(t_i r_i u_i = v_i\).
-    Sea \(r = t_1 r_1 + t_2 r_2 + \cdots + t_n r_n \in R\).
-    Recordar que \(u_i \in V_j\) para \(i \neq j\), luego \(t_j r_j u_i \in t_j (r_j V_i) = t_j 0 = 0\).
-    Consecuentemente \(\alpha_r(u_i) = (t_1 r_1 + \cdots + t_n r_n) u_i = t_i r_i u_i = v_i\).
-    Por lo tanto \(\image \alpha\) es un anillo denso de endomorfismos del \(D\)-espacio vectorial \(A\).
   \end{proof}
 
   \begin{corollary}
