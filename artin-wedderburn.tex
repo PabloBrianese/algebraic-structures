@@ -648,55 +648,38 @@
   Vemos que el anillo \(\mathcal{M}\) se ve afectado por la hipótesis de que \(A\) es fiel
   ¿Qué sucedería si \(A\) fuera simple?
   Una primera aproximación nos muestra que este es un caso especial.
-  Si \(A\) es simple, entonces \(D = \End_R A\) es un anillo de división.
+  Si \(A\) es simple, entonces \(D = \End_R A\) es un anillo de división y \(A\) es un espacio vectorial sobre \(D\).
   La respuesta completa es el resultado más denso de la sección, y resulta ser un lema fundamental para llegar al Teorema de Densidad de Jacobson.
-  Su contenido es de caracter topológico, y marca que el anillo de multiplicadores \(\mathcal{M}\) separa, dentro del \(D\)-espacio vectorial \(A\), elementos \(a \in A\) y subespacios \(V\) de dimensión finita.
+  Afirma la existencia de una biyección entre los subespacios finito-dimensionales de \(A\) y sus aniquiladores.
 
   \begin{lemma}
     \label{lemma:anihilatorLemma}
-    Sea \(R\) un anillo, \(A\) un \(R\)-módulo simple y \(\mathcal{M}\) el anillo de multiplicadores.
-    Consideramos \(A\) como un espacio vectorial sobre el anillo de división \(D = \End_R A\).
-    Si \(V\) es un subespacio finito-dimensional del \(D\)-espacio vectorial \(A\) y \(a \in A \setminus V\), entonces existe \(T \in \mathcal{M}\) tal que \(T(a) \neq 0\) y \(T(V) = 0\).
+    Sea \(R\) un anillo y \(A\) un \(R\)-módulo simple.
+    Si \(V\) es un \(D\)-subespacio finito-dimensional de \(A\) entonces \(V = \{a \in A : \mathcal{A}(V) a = 0\}\).
   \end{lemma}
   \begin{proof}
-    La prueba es por inducción sobre \(n = \dim_D V\).
+    Por inducción sobre \(n = \dim_D V\). 
     Comenzamos por el caso base.
-    Si \(n = 0\), entonces \(V = 0\) y \(a \neq 0\).
-    Porque \(A\) es simple, \(a \neq 0\) implica \(R a = A\) (Proposición \ref{proposition:simpleModulesAreCiclic}).
-    Consecuentemente existe \(r \in R\) tal que \(r a = a \neq 0\) y \(r V = r 0 = 0\).
+    Si \(n = 0\), entonces \(V = 0\) y \(\mathcal{A}(V) = R\).
+    Por simplicidad de \(A\), para todo \(a \in A\) la ecuación \(R a = 0\) implica \(a = 0\).
+    Luego \(0 = \{a \in A : R a = 0\}\), como queríamos.
 
-    En el paso inductivo, supongamos \(\dim_D V = n > 0\) y que el teorema es verdadero para dimensiones menores a \(n\).
-    Sea \(\{u_1, \dots, u_{n - 1}, u\}\) una \(D\)-base de \(V\) y sea \(W\) el subespacio \((n - 1)\)-dimensional generado por \(\{u_1, \dots, u_{n - 1}\}\) (siendo \(W = 0\) cuando \(n = 1\)).
-    Entonces \(V = W \oplus D u\) (suma directa de espacios vectoriales).
-    Nuestra hipótesis inductiva tiene dos consecuencias importantes:
-    \begin{enumerate}
-      \item para todo \(v \in A \setminus W\) existe \(r \in R\) tal que \(r u \neq 0\) y \(r W = 0\);
-      \item para todo \(v \in A\), si \(r v = 0\) para todo \(r \in R\) entonces \(v \in W\).
-    \end{enumerate}
-    La primera consecuencia implica que existe \(r \in R\) tal que \(r u \neq 0\) y \(r W = 0\).
-    Pero \(r W = 0\) si y solo si \(r \in \mathcal{A}(W)\), siendo \(I = \mathcal{A}(W)\) un ideal izquierdo de \(R\).
-    Además \(r u \in I u \setminus 0\), siendo \(I u\) un submódulo de \(A\).
-    Por simplicidad, este submódulo nonulo debe ser \(I u = A\).
-
-    Para terminar el argumento inductivo, debemos encontrar \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
-    Si no existe tal \(r\), entonces podemos definir una aplicación \(\theta : A \rightarrow A\) como sigue.
-    Para \(r u \in I u = A\) definimos \(\theta(r u) = r a \in A\).
-    Afirmamos que \(\theta\) está bien definida.
-    Sean \(r_1, r_2 \in I\) tales que \(r_1 u = r_2 u\).
-    Por hipótesis \((r_1 - r_2) a = 0\) o \((r_1 - r_2) V \neq 0\).
-    Ahora bien, porque \(r_1 - r_2 \in I = \mathcal{A}(W)\) tenemos \((r_1 - r_2) W = 0\);
-    y porque \(D = \Hom_D(A, A)\), para cada \(d \in D\) tenemos \((r_1 - r_2) (d \cdot u) = (r_1 - r_2) d(u) = d((r_1 - r_2) u) = d(0) = 0\).
-    Juntos, estos dos datos implican \((r_1 - r_2) V = (r_1 - r_2) (W \oplus D u) = 0\).
-    Consecuentemente, por hipótesis \((r_1 - r_2) a = 0\).
-    Por lo tanto \(\theta(r_1 u) = r_1 a = r_2 a = \theta(r_2 u)\).
-    Podemos mostrar que \(\theta \in \Hom_D(A, A) = D\).
-    Luego para cada \(r \in I\), \(0 = \theta(r u) - r a = r \theta(u) - r a = r(\theta(u) - a)\).
-    De aquí que \(\theta(u) - a \in W\), por la segunda consecuencia de la hipótesis inductiva.
-    Consecuentemente \(a = \theta u - (\theta u - a) \in D u + W = V\),
-    lo cual contradice el hecho \(a \notin V\).
-    Por lo tanto, existe \(r \in R\) tal que \(r a \neq 0\) y \(r V = 0\).
+    Supongamos \(n > 0\), y que el teorema es verdadero para dimensiones menores a \(n\).
+    Sea \(\{w_1, \dots, w_{n - 1}, u\}\) una \(D\)-base de \(V\) y sea \(W\) el subespacio \((n - 1)\)-dimensional de \(V\) generado por \(\{w_1, \dots, w_{n - 1}\}\) (siendo \(W = 0\) cuando \(n = 1\)).
+    Entonces \(V = W \oplus D u\) (suma directa) y (en consecuencia) \(\mathcal{A}(V) = \mathcal{A}(W) \cap \mathcal{A}(D u)\).
+    Sea \(a \in A\) tal que \(\mathcal{A}(V) a = 0\).
+    Definimos una relación \(\theta : A \rightarrow A\) como \(r u \mapsto r a\) para todo \(r \in \mathcal{A}(W)\).
+    Su dominio es el submódulo de \(A\) definido como \(\mathcal{A}(W) u\).
+    Este submódulo es nonulo porque \(u \notin W\) y nuestra hipótesis inductiva garantiza la existencia de un \(r \in \mathcal{A}(W)\) con \(r u \neq 0\).
+    Pero \(A\) es simple, y por lo tanto \(\mathcal{A}(W) u = A\).
+    Además de tener un dominio adecuado, es una función bien definida porque si \(r u = s u\) para \(r, s \in \mathcal{A}(W)\), entonces \(r - s \in \mathcal{A}(W)\) y \((r - s) u = 0\), lo que implica \(r - s \in \mathcal{A}(V)\).
+    Pero \(\mathcal{A}(V) a = 0\), y por lo tanto \(r a = s a\).
+    Podemos probar que \(\theta\) es un homomorfismo de \(R\)-módulos, un elemento de \(D\).
+    Por eso, para todo \(r \in \mathcal{A}(W)\) podemos calcular \(r (\theta(u) - a) = 0\).
+    Luego \( \mathcal{A}(W) (\theta u - a) = 0\).
+    Por hipótesis inductiva \(\theta u - a = - w \in W\).
+    Luego \(a = w + \theta u\) es un elemento de \(V\), como queríamos.
   \end{proof}
-
 
   \begin{definition}
     Sea \(V\) un espacio vectorial izquierdo sobre un anillo de división \(D\).
