@@ -38,8 +38,7 @@
   Sea \(D\) un anillo de división, escribimos \(\Mat_n D\) para denotar al anillo formado por las matrices \(n \times n\) con entradas en \(D\).
   Nuestra principal herramienta a la hora de calcular dentro del anillo \(\Mat_n D\) seran las matrices elementales \(E_{r s}\), donde \(r, s \in \{1, \dots, n\}\), y \(E_{r s}\) tiene \(1_D\) como entrada \((r, s)\) y \(0_D\) en las demás posiciones.
   Parte de su valor se explica en la siguiente proposición.
-  \begin{proposition}
-    \label{proposition:matrixEntryCalculation}
+  \begin{proposition}\label{proposition:matrixEntryCalculation}
     Sea \(D\) un anillo de división y \(R = \Mat_n D\).
     Para toda matriz \(A = {(A_{i j})}_{i j}\) en \(R\)
     \begin{align}
@@ -83,8 +82,7 @@
   \end{proof}
 
   Argumentos análogos demuestran que
-  \begin{theorem}
-    \label{theorem:matricesWhereAlmostEveryRowIsNull}
+  \begin{theorem}\label{theorem:matricesWhereAlmostEveryRowIsNull}
     Si \(D\) es un anillo de división y \(R = \Mat_n D\), entonces
     \begin{align}
       \displaystyle
@@ -172,8 +170,7 @@
 
   Estos módulos cíclicos que hemos estudiado aparecen como cocientes en cadenas formadas por otros módulos cíclicos, que pasamos a investigar.
 
-  \begin{theorem}
-    \label{theorem:compositionSeriesOfLeftModulesForMatrixRing}
+  \begin{theorem}\label{theorem:compositionSeriesOfLeftModulesForMatrixRing}
     Sea \(D\) un anillo de división y \(R = \Mat_n D\).
     Definimos \(M_0 = 0\) y para \(j \in \{1, \dots, n\}\) definimos \(M_j = R (E_{1 1} + \cdots + E_{j j})\).
     Entonces la secuencia \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\), formada por \(R\)-submódulos izquierdos de \(R\), satisface \(M_j / M_{j - 1} \simeq R E_{j j}\).
@@ -245,8 +242,7 @@
   \end{proof}
 
   Argumentos análogos demuestran el siguiente teorema
-  \begin{theorem}
-    \label{theorem:compositionSeriesOfRightModulesForMatrixRing}
+  \begin{theorem}\label{theorem:compositionSeriesOfRightModulesForMatrixRing}
     Sea \(D\) un anillo de división y \(R = \Mat_n D\).
     Definimos \(M_0 = 0\) y para \(i \in \{1, \dots, n\}\) definimos \(M_i = (E_{1 1} + \cdots + E_{i i}) R\).
     Entonces la secuencia \(R = M_n \supseteq M_{n - 1} \supseteq \cdots \supseteq M_1 \supseteq M_0 = 0\), formada por \(R\)-módulos derechos, satisface \(M_i / M_{i - 1} \simeq E_{i i} R\).
@@ -318,8 +314,7 @@
   \end{proof}
 
   \section{Módulos}
-  \begin{theorem}
-    \label{theorem:submodulesOfQuotientModule}
+  \begin{theorem}\label{theorem:submodulesOfQuotientModule}
     Si \(R\) es un anillo y \(B\) es un submódulo de un \(R\)-módulo \(A\), entonces existe una correspondencia uno-a-uno entre el conjunto de los submódulos de \(A\) que contienen a \(B\) y el conjunto de todos los submódulos de \(A / B\), dada por \(C \mapsto C / B\).
     Por tanto todo submódulo de \(A / B\) es de la forma \(C / B\), donde \(C\) es un submódulo de \(A\) que contiene a \(B\).
   \end{theorem}
@@ -348,8 +343,7 @@
     Un módulo \(A\) satisface la \emph{condición maximal} [resp. \emph{minimal}] \emph{sobre submódulos} si todo conjunto novacío de submódulos de \(A\) contiene un elemento maximal [resp. minimal] (con respecto al orden dado por la inclusión de conjuntos).
   \end{definition}
 
-  \begin{theorem}
-    \label{theorem:equivalenceOfChainConditions}
+  \begin{theorem}\label{theorem:equivalenceOfChainConditions}
     Un módulo satisface la condición de la cadena ascendente [resp. descencendente] sobre submódulos si y solo si satisface la condición maximal [resp. minimal] sobre submódulos.
   \end{theorem}
   \begin{proof}
@@ -404,15 +398,13 @@
   La Teoría de Series Normales y Subnormales para grupos puede trasladarse al caso de los módulos.
   Esta teoría incluye análogos al lema de Zassenhaus, y a los teoremas de Schreier y Jordan-Hölder.
   Como consecuencia tenemos el siguiente teorema.
-  \begin{theorem}
-    \label{theorem:refinementAndEquivalenceOfNormalSeries}
+  \begin{theorem}\label{theorem:refinementAndEquivalenceOfNormalSeries}
     Cualesquiera dos series normales de un módulo \(A\) tienen refinamientos que son equivalentes.
     Caulesquiera dos series de composición de \(A\) son equivalentes.
   \end{theorem}
 
 
-  \begin{theorem}
-    \label{theorem:compositionSeriesAndChainConditions}
+  \begin{theorem}\label{theorem:compositionSeriesAndChainConditions}
     Un módulo nonulo \(A\) tiene una serie de composición si y solo si \(A\) satisface tanto la condición de la cadena descendente como la ascendente.
   \end{theorem}
   \begin{proof}
@@ -445,8 +437,7 @@
 
   \section{Conclusión}
 
-  \begin{corollary}
-    \label{corollary:matrixRingIsArtinianAndNoetherian}
+  \begin{corollary}\label{corollary:matrixRingIsArtinianAndNoetherian}
     Si \(D\) es un anillo de división, entonces el anillo \(\Mat_n D\) formado por todas las matrices \(n \times n\) sobre \(D\) es a la vez artiniano y noetheriano.
   \end{corollary}
   \begin{proof}
@@ -463,8 +454,7 @@
   El primer teorema busca una forma que tiene dicho anillo de ser especial, y nos da la forma precisa que toman sus ideales.
 
 
-  \begin{theorem}
-    \label{theorem:matrixRingIdeals}
+  \begin{theorem}\label{theorem:matrixRingIdeals}
     Sea \(R\) un anillo con identidad.
     Entonces \(J\) es un ideal de \(\Mat_n R\) si y solo si \(J = \Mat_n I\) para algún ideal \(I\) en \(R\).
   \end{theorem}
@@ -526,8 +516,7 @@
   Especializando el teorema \ref{theorem:matrixRingIdeals} al caso que es relevante para nosotros, el de los anillos de división, llegamos a uno de los cuatro pilares del Teorema de Artin-Wedderburn.
   Un teorema que conecta un elemento concreto, las matrices, con una cierta organización abstracta de su familia de ideales.
 
-  \begin{theorem}
-    \label{theorem:idealsInTheRingOfMatricesOverADivisionRing}
+  \begin{theorem}\label{theorem:idealsInTheRingOfMatricesOverADivisionRing}
     El anillo \(\Mat_n D\) formado por todas las matrices \(n \times n\) con entradas en un anillo de división \(D\) no tiene ideales propios.
   \end{theorem}
   \begin{proof}
@@ -547,8 +536,7 @@
     El teorema \ref{theorem:idealsInTheRingOfMatricesOverADivisionRing} dice que \(\Mat_n D\) es simple si \(D\) es un anillo de división.
   \end{remark}
 
-  \begin{proposition}
-    \label{proposition:simpleModulesAreCiclic}
+  \begin{proposition}\label{proposition:simpleModulesAreCiclic}
     Todo \(R\)-módulo simple \(A\) es cíclico; de hecho, \(A = R a\) para todo \(a \in A\) nonulo.
   \end{proposition}
   \begin{proof}
@@ -572,8 +560,7 @@
 
   El aniquilador derecho de un módulo derecho se define análogamente.
 
-  \begin{theorem}
-    \label{theorem:anihilatorTheorem}
+  \begin{theorem}\label{theorem:anihilatorTheorem}
     Sea \(B\) un subconjunto de un módulo izquierdo \(A\) sobre un anillo \(R\).
     Entonces \(\mathcal{A}(B)\) es un ideal izquierdo de \(R\).
     Si \(B\) es un submódulo de \(A\), entonces \(\mathcal{A}(B)\) es un ideal bilátero.
@@ -584,8 +571,7 @@
     Un anillo \(R\) es \emph{primitivo} (\emph{izquierdo}) si existe un \(R\)-módulo simple y fiel.
   \end{definition}
 
-  \begin{theorem}
-    \label{theorem:simpleLeftArtinianRingsArePrimitive}
+  \begin{theorem}\label{theorem:simpleLeftArtinianRingsArePrimitive}
     Un anillo artiniano izquierdo es primitivo si es simple.
   \end{theorem}
   \begin{proof}
@@ -633,8 +619,7 @@
   ¿cuándo es \(m\) un isomorfismo?
   La respuesta es que si el \(R\)-módulo \(A\) es fiel, entonces \(m\) es un isomorfismo entre los anillos \(R\) y \(\mathcal{M}\).
 
-  \begin{theorem}
-    \label{theorem:multiplierIsomorphism}
+  \begin{theorem}\label{theorem:multiplierIsomorphism}
     Sea \(R\) un anillo, \(A\) un \(R\)-módulo y \(\mathcal{M}\) el anillo de multiplicadores.
     Si \(A\) es fiel, entonces \(m : R \rightarrow \mathcal{M}\) es un isomorfismo.
   \end{theorem}
@@ -651,8 +636,7 @@
   La respuesta completa es el resultado más denso de la sección, y resulta ser un lema fundamental para llegar al Teorema de Densidad de Jacobson.
   Afirma la existencia de una biyección entre los subespacios finito-dimensionales de \(A\) y sus aniquiladores.
 
-  \begin{lemma}
-    \label{lemma:anihilatorLemma}
+  \begin{lemma}\label{lemma:anihilatorLemma}
     Sea \(R\) un anillo y \(A\) un \(R\)-módulo simple.
     Si \(V\) es un \(D\)-subespacio finito-dimensional de \(A\) entonces \(V = \{a \in A : \mathcal{A}(V) a = 0\}\).
   \end{lemma}
@@ -685,8 +669,7 @@
     Un subanillo \(R\) del anillo de endomorfismos \(\Hom_D(V, V)\) es un \emph{anillo denso de endomorfismos} de \(V\) (o un \emph{subanillo denso} de \(\Hom_D(V, V)\)) si para todo entero positivo \(n\), cada subconjunto linealmente independiente \(\{u_1, \dots, u_n\}\) de \(V\) y cada subconjunto arbitrario \(\{v_1, \dots, v_n\}\) de \(V\), existe \(\theta \in R\) tal que \(\theta(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
   \end{definition}
 
-  \begin{theorem}
-    \label{theorem:denseMultiplierRing}
+  \begin{theorem}\label{theorem:denseMultiplierRing}
     Sea \(R\) un anillo, y \(A\) un \(R\)-módulo simple considerado a la vez como espacio vectorial sobre \(D = \End_R A\).
     El anillo de multiplicadores \(\mathcal{M}\) es un subanillo denso de endomorfismos de \(A\).
   \end{theorem}
@@ -704,8 +687,7 @@
     Consecuentemente \(m_r(u_i) = (t_1 r_1 + \cdots + t_n r_n) u_i = t_i r_i u_i = v_i\), tal como queríamos.
   \end{proof}
 
-  \begin{theorem}[de Densidad de Jacobson]
-    \label{theorem:jacobsonDensityTheorem}
+  \begin{theorem}[de Densidad de Jacobson]\label{theorem:jacobsonDensityTheorem}
     Sea \(R\) un anillo y \(A\) un \(R\)-módulo simple y fiel.
     Considerar \(A\) como espacio vectorial sobre el anillo de división \(D = \End_R A\).
     Entonces \(R\) es isomorfo al anillo de multiplicadores \(\mathcal{M}\), y este es un anillo denso de endomorfismos de \(A\).
@@ -715,8 +697,7 @@
     Además, la simplicidad de \(A\), mediante el teorema \ref{theorem:denseMultiplierRing}, implica que \(\mathcal{M}\) es un subanillo denso de \(\End_D A\).
   \end{proof}
 
-  \begin{theorem}
-    \label{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}
+  \begin{theorem}\label{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}
     Sea \(R\) un anillo denso de endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
     Entonces \(R\) es artiniano izquierdo [resp. derecho] si y solo si \(\dim_D V\) es finita, en cuyo caso \(R = \Hom_D(V, V)\).
   \end{theorem}
@@ -741,8 +722,7 @@
     Pero \(\Hom_D(V, V)\) es artiniano por el Teorema \ref{theorem:isomorphismBetweenMatrixAndHomomorphismRings} y el corolario \ref{corollary:matrixRingIsArtinianAndNoetherian}.
   \end{proof}
 
-  \begin{corollary}
-    \label{corollary:leftArtinianPrimitiveRingsAreRingsOfEndomorphisms}
+  \begin{corollary}\label{corollary:leftArtinianPrimitiveRingsAreRingsOfEndomorphisms}
     Un anillo \(R\) artiniano izquierdo y primitivo es isomorfo al anillo de endomorfismos de un espacio vectorial nonulo sobre un anillo de división \(D\).
   \end{corollary}
   \begin{proof}
@@ -753,17 +733,13 @@
   \begin{theorem}[de Artin--Wedderburn]
     Las siguientes condiciones sobre un anillo artiniano izquierdo \(R\) son equivalentes.
     \begin{enumerate}
-      \item
-        \label{property:artin--wedderburn_simple-ring}
+      \item\label{property:artin--wedderburn_simple-ring}
         \(R\) es simple;
-      \item
-        \label{property:artin--wedderburn_primitive-ring}
+      \item\label{property:artin--wedderburn_primitive-ring}
         \(R\) es primitivo;
-      \item
-        \label{property:artin--wedderburn_endomorphism-ring}
+      \item\label{property:artin--wedderburn_endomorphism-ring}
         \(R\) es isomorfo al anillo de endomorfismos de un espacio vectorial nonulo sobre un anillo de división \(D\);
-      \item
-        \label{property:artin--wedderburn_matrix-ring}
+      \item\label{property:artin--wedderburn_matrix-ring}
         para algún entero positivo \(n\), \(R\) es isomorfo al anillo formado por las matrices \(n \times n\) sobre un anillo de división.
     \end{enumerate}
   \end{theorem}
