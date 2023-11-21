@@ -759,6 +759,25 @@
 
   \newpage
 
+  \begin{theorem}\label{theorem:vectorSpaceBasis}
+    Todo espacio vectorial \(V\) sobre un anillo de división \(D\) tiene una base y es por tanto un \(D\)-módulo libre.
+    Con mayor generalidad, cada subconjunto linealmente independiente de \(V\) está contenido en una base de \(V\).
+  \end{theorem}
+
+  La afirmación recíproca a \ref{theorem:vectorSpaceBasis} también es cierta.
+  Si todo módulo unitario sobre un anillo con identidad \(D\) es libre, entonces \(D\) es un anillo de división.
+
+  \begin{proof}
+    El primer enunciado es una consecuencia inmediata del segundo dado que el conjunto vacío es un subconjunto linealmente independiente de todo espacio vectorial.
+    Consecuentemente, asumimos que \(X\) es cualquier subconjunto linealmente independiente de \(V\) y dejamos que \(S\) sea el conjunto de todos los subconjuntos linealmente independientes de \(V\) que contienen \(X\).
+    Dado que \(X \in S\), \(S\) no es vacío.
+    Ordenamos (parcialmente) a \(S\) por inclusión de conjuntos.
+    Si \(\{C_i\}_{i \in I}\) es una cadena en \(S\), entonces \(\bigcup_{i \in I} C_i\) es un subconjunto linealmente independiente de \(V\) que contiene a \(X\).
+    Claramente \(C\) es una cota superior para la cadena \(\{C_i\}_{i \in I}\) en \(S\).
+    Por el Lema de Zorn, \(S\) tiene un elemento maximal \(B\) que contiene a \(X\) y es por necesidad un subconjunto de \(V\) maximalmente linealmente independiente.
+    Luego \(B\) es una base de \(V\).
+  \end{proof}
+
   \begin{theorem}\label{theorem:isomorphismBetweenMatrixAndHomomorphismRings}
     Sea \(R\) un anillo con identidad y \(E\) un \(R\)-módulo izquierdo libre con una base finita de \(n\) elementos.
     Entonces existe un isomorfismo de anillos
@@ -773,4 +792,10 @@
     Cuando \(R\) es conmutativo \(R = R^{\textnormal{op}}\).
     La fórmula del teorema resulta \(\Hom_R(E, E) \simeq \Mat_n R\).
   \end{remark}
+  \begin{proof}
+    Sea \(\phi: \End_R E \rightarrow
+    \Mat_n R\) el anti-isomorfismo que asigna a cada aplicación \(f\) su matriz relativa a la base dada.
+    Puede probarse que \(\psi : \Mat_n R \rightarrow \Mat_n R^{\mathnormal{op}}\) dado por \(\psi(A) = A^t\) es un anti-isomorfismo de anillos.
+    Entonces la aplicación compuesta \(\psi \circ \phi\) es un isomorfismo de anillos.
+  \end{proof}
 \end{document}
