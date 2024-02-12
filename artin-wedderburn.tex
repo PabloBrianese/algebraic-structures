@@ -1,5 +1,6 @@
 \documentclass{report}
 \usepackage[spanish]{babel}
+
 \usepackage{hyperref}
 
 \usepackage{mathtools}
@@ -66,7 +67,7 @@
     Fijamos \(j_0 \in \{1, \dots, n\}\), y escribimos \(I = R E_{j_0 j_0}\).
 
     Afirmamos que \(I' = \sum_{i = 1}^n D E_{i j_0}\) es igual a \(I\).
-    Lo demostraremos usando que, por la proposición~\ref{proposition:matrixEntryCalculation}, toda matriz \(a = (a_{i j})_{i j}\) en \(R\) verifica
+    Lo demostraremos usando que, por la proposición~\ref{proposition:matrixEntryCalculation}, toda matriz \(a = {(a_{i j})}_{i j}\) en \(R\) verifica
     \begin{align}
       a E_{j_0 j_0}
       =
@@ -78,7 +79,7 @@
     \end{align}
     Si \(A \in I\), entonces existe \(a \in R\) con \(A = a E_{j_0 j_0}\).
     Luego \(A = a E_{j_0 j_0} = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\), también pertenece a \(I'\).
-    Recíprocamente, si \(A = (A_{i j})_{i j}\) pertenece \(I'\), entonces \(A = \sum_{i = 1}^n A_{i j_0} E_{i j_0} = A E_{j_0 j_0}\), y también es un elemento de \(I\).
+    Recíprocamente, si \(A = {(A_{i j})}_{i j}\) pertenece \(I'\), entonces \(A = \sum_{i = 1}^n A_{i j_0} E_{i j_0} = A E_{j_0 j_0}\), y también es un elemento de \(I\).
   \end{proof}
 
   Argumentos análogos demuestran que
@@ -96,7 +97,7 @@
     Fijemos \(i_0 \in \{1, \dots, n\}\), y escribamos \(I = E_{i_0 i_0} R\).
 
     Afirmamos que \(I' = \sum_{j = 1}^n E_{i_0 j} D\) es igual a \(I\).
-    Lo demostraremos usando que, por la proposición \ref{proposition:matrixEntryCalculation}, toda matriz \(a = (a_{i j})_{i j}\) en \(R\) verifica
+    Lo demostraremos usando que, por la proposición~\ref{proposition:matrixEntryCalculation}, toda matriz \(a = {(a_{i j})}_{i j}\) en \(R\) verifica
     \begin{align}
       E_{i_0 i_0} a
       =
@@ -108,7 +109,7 @@
     \end{align}
     Si \(A \in I\) entonces existe \(a \in R\) con \(A = E_{i_0 i_0} a\).
     Luego \(A = E_{i_0 i_0} a = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\), también pertenece a \(I'\).
-    Recíprocamente, si \(A = (A_{i j})_{i j}\) pertenece a \(I'\), entonces \(A = \sum_{j = 1}^n A_{i_0 j} E_{i_0 j} = E_{i_0 i_0} A\), y también es un elemento de \(I\).
+    Recíprocamente, si \(A = {(A_{i j})}_{i j}\) pertenece a \(I'\), entonces \(A = \sum_{j = 1}^n A_{i_0 j} E_{i_0 j} = E_{i_0 i_0} A\), y también es un elemento de \(I\).
   \end{proof}
 
   Ahora probaremos propiedades importantes de estos módulos cíclicos.
@@ -128,7 +129,7 @@
     Supongamos que \(J\) es un submódulo nonulo de \(I\).
     Probaremos \(J = I\).
     Por hipótesis existe \(a \in J \setminus 0\).
-    Porque \(a \in I\), se sigue del teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull} que \(a = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\).
+    Porque \(a \in I\), se sigue del teorema~\ref{theorem:matricesWhereAlmostEveryColumnIsNull} que \(a = \sum_{i = 1}^n a_{i j_0} E_{i j_0}\).
     Notemos que \(a \neq 0\) implica \(a_{i_0 j_0} \neq 0\) para un \(i_0 \in \{1, \dots, n\}\).
     Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por izquierda) su fila \(i_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
     Entonces \(M a = E_{i_0 j_0} + \sum_{i \neq i_0} a_{i j_0} E_{i j_0}\).
@@ -137,7 +138,7 @@
     Finalmente, para cada \(i \in \{1, \dots, n\}\), existe una matriz elemental de transformación \(P_i\) que actúa sobre \(a\) permutando las filas \(i\) e \(i_0\).
     De ese modo \(P_i A_1 \cdots A_n M a = E_{i j_0}\).
     Por lo tanto \(E_{i j_0} \in J\) para todo \(i \in \{1, \dots, n\}\).
-    Eso implica que \(I = \sum_{i = 1}^n D E_{i j_0} \subseteq J\) (recordar el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}).
+    Eso implica que \(I = \sum_{i = 1}^n D E_{i j_0} \subseteq J\) (recordar el teorema~\ref{theorem:matricesWhereAlmostEveryColumnIsNull}).
     En conclusión \(J = I\).
   \end{proof}
 
@@ -155,7 +156,7 @@
 
     Supongamos que \(J\) es un submódulo nonulo de \(I\).
     Entonces existe \(a \in J \setminus 0\).
-    Porque \(a \in I\) se sigue del teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull} que \(a = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\).
+    Porque \(a \in I\) se sigue del teorema~\ref{theorem:matricesWhereAlmostEveryRowIsNull} que \(a = \sum_{j = 1}^n a_{i_0 j} E_{i_0 j}\).
     Notemos que \(a \neq 0\) implica \(a_{i_0 j_0} \neq 0\) para un \(j_0 \in \{1, \dots, n\}\).
     Porque \(D\) es un anillo de división, existe una matriz elemental de transformación \(M\), que actúa sobre \(a\) multiplicando (por derecha) su columna \(j_0\) por el elemento \(a_{i_0 j_0}^{- 1} \in D\).
     Entonces \(a M = E_{i_0 j_0} 1_D + \sum_{j \neq j_0} a_{i_0 j} E_{i_0 j}\).
@@ -164,7 +165,7 @@
     Finalmente, para cada \(j \in \{1, \dots, n\}\), existe una matriz elemental de transformación \(P_j\) que actúa sobre \(a\) permutando las columnas \(j\) y \(j_0\).
     De ese modo \(a M A_1 \cdots A_n P_j = E_{i_0 j} 1_D\).
     Por lo tanto \(E_{i_0 j} 1_D \in J\) para todo \(j \in \{1, \dots, n\}\).
-    Eso implica que \(I = \sum_{j = 1}^n E_{i_0 j} D \subseteq J\) (recordar el teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull}).
+    Eso implica que \(I = \sum_{j = 1}^n E_{i_0 j} D \subseteq J\) (recordar el teorema~\ref{theorem:matricesWhereAlmostEveryRowIsNull}).
     En conclusión \(J = I\).
   \end{proof}
 
@@ -179,7 +180,7 @@
     Primera observación.
     Sea \(j \in \{1, \dots, n\}\) arbitrario.
     Notar que \(M_j \subseteq R E_{1 1} + \cdots + R E_{j j}\).
-    Usando el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}, se sigue que, para toda \(A \in M_j\), son nulas las columnas \(j + 1, \dots, n\) de \(A\).
+    Usando el teorema~\ref{theorem:matricesWhereAlmostEveryColumnIsNull}, se sigue que, para toda \(A \in M_j\), son nulas las columnas \(j + 1, \dots, n\) de \(A\).
 
     Fijemos \(j_0 \in \{1, \dots, n\}\), y simplifiquemos la notación escribiendo \(E = E_{j_0 j_0}\), \(M = M_{j_0}\), \(N = M_{j_0 - 1}\).
 
@@ -251,7 +252,7 @@
     Primera observación.
     Sea \(i \in \{1, \dots, n\}\) arbitrario.
     Notar que \(M_i \subseteq E_{1 1} R + \cdots + E_{i i} R\).
-    Usando el teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull}, se sigue que, para toda \(A \in M_i\), son nulas las filas \(i + 1, \dots, n\) de \(A\).
+    Usando el teorema~\ref{theorem:matricesWhereAlmostEveryRowIsNull}, se sigue que, para toda \(A \in M_i\), son nulas las filas \(i + 1, \dots, n\) de \(A\).
 
     Fijemos \(i_0 \in \{1, \dots, n\}\), y simplifiquemos la notación escribiendo \(E = E_{i_0 i_0}\), \(M = M_{i_0}\), \(N = M_{i_0 - 1}\).
 
@@ -307,7 +308,7 @@
     Luego \(\Fila_i A = 0\) \((\forall i \in \{i_0, \dots, n\})\), y \(A \in N\).
     Entonces \(A + N = 0 + N\), el elemento nulo del cociente.
     También es un epimorfismo.
-    Dado \(E a \in E R\), tenemos \(E a \in M_i\) \ref{theorem:matricesWhereAlmostEveryRowIsNull}.
+    Dado \(E a \in E R\), tenemos \(E a \in M_i\)~\ref{theorem:matricesWhereAlmostEveryRowIsNull}.
     Calculamos \(\phi(E a + N) = E (E a) = E^2 a = E a\).
     Por lo tanto \(E a \in \image \phi\).
     Concluímos que \(\phi : M / N \rightarrow E R\) es un isomorfismo.
@@ -328,23 +329,23 @@
     Decimos que un módulo \(B\) satisface la \emph{condición de la cadena descendente sobre submódulos} (o que es \emph{artiniano}) si para toda cadena \(B_1 \supseteq B_2 \supseteq B_3 \supseteq \cdots\) de submódulos de \(B\), existe un entero \(m\) tal que \(B_i = B_m\) para todo \(i \geq m\).
   \end{definition}
 
-  Si un anillo \(R\) es pensado como módulo izquierdo (resp. derecho) sobre si mismo, entonces es facil ver que los submódulos de \(R\) son precisamente los ideales izquierdos (resp. derechos) de \(R\).
+  Si un anillo \(R\) es pensado como módulo izquierdo (resp.\ derecho) sobre si mismo, entonces es facil ver que los submódulos de \(R\) son precisamente los ideales izquierdos (resp.\ derechos) de \(R\).
   Consecuentemente, en este caso se acostumbra hablar de condiciones de cadena sobre ideales (izquierdos o derechos) en lugar de submódulos.
 
   \begin{definition}
-    Un anillo \(R\) es \emph{noetheriano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena ascendente sobre sus ideales izquierdos (resp. derechos).
+    Un anillo \(R\) es \emph{noetheriano izquierdo} (resp.\ \emph{derecho}) si \(R\) satisface la condición de la cadena ascendente sobre sus ideales izquierdos (resp.\ derechos).
     Se dice que \(R\) es \emph{noetheriano} si \(R\) es noetheriano izquierdo y derecho a la vez.
 
-    Un anillo \(R\) es \emph{artiniano izquierdo} (resp. \emph{derecho}) si \(R\) satisface la condición de la cadena descendente sobre sus ideales izquierdos (resp. derechos).
+    Un anillo \(R\) es \emph{artiniano izquierdo} (resp.\ \emph{derecho}) si \(R\) satisface la condición de la cadena descendente sobre sus ideales izquierdos (resp.\ derechos).
     Se dice que \(R\) es \emph{artiniano} si \(R\) es artiniano izquierdo y derecho a la vez.
   \end{definition}
 
   \begin{definition}
-    Un módulo \(A\) satisface la \emph{condición maximal} [resp. \emph{minimal}] \emph{sobre submódulos} si todo conjunto novacío de submódulos de \(A\) contiene un elemento maximal [resp. minimal] (con respecto al orden dado por la inclusión de conjuntos).
+    Un módulo \(A\) satisface la \emph{condición maximal} [resp.\ \emph{minimal}] \emph{sobre submódulos} si todo conjunto novacío de submódulos de \(A\) contiene un elemento maximal [resp.\ minimal] (con respecto al orden dado por la inclusión de conjuntos).
   \end{definition}
 
   \begin{theorem}\label{theorem:equivalenceOfChainConditions}
-    Un módulo satisface la condición de la cadena ascendente [resp. descencendente] sobre submódulos si y solo si satisface la condición maximal [resp. minimal] sobre submódulos.
+    Un módulo satisface la condición de la cadena ascendente [resp.\ descencendente] sobre submódulos si y solo si satisface la condición maximal [resp.\ minimal] sobre submódulos.
   \end{theorem}
   \begin{proof}
     Supongamos que el módulo \(A\) satisface la condición minimal sobre submódulos y que \(A_1 \supseteq A_2 \supseteq \cdots\) es una cadena de submódulos.
@@ -420,8 +421,7 @@
     Dado \(B\), un submódulo nonulo de \(A\), definimos \(S(B)\) como el conjunto formado por todos los submódulos \(C\) de \(B\) con \(C \neq B\).
     De tal modo que si \(B\) no tiene submódulos propios, entonces \(S(B) = \{0\}\).
     También definimos \(S(0) = \{0\}\).
-    Para cada \(B\), la condición de la cadena ascendente nos asegura que el conjunto \(S(B)\) tiene un elemento maximal \(B'\) (por el Teorema~\ref{theorem:equivalenceOfChainConditions}
-    ).
+    Para cada \(B\), la condición de la cadena ascendente nos asegura que el conjunto \(S(B)\) tiene un elemento maximal \(B'\) (por el Teorema~\ref{theorem:equivalenceOfChainConditions}).
     Sea \(S\) el conjunto de todos los submódulos de \(A\).
     Definimos una aplicación \(f : S \rightarrow S\) mediante \(f(B) = B'\) (usando el Axioma de Elección).
     Por el Teorema de la Recursión, existe una función \(\phi : \naturalNumbers \rightarrow S\) tal que \(\phi(0) = A\) y \(\phi(n + 1) = f(\phi(n))\).
@@ -431,7 +431,7 @@
     Sea \(m\) el menor entero tal que \(A_m = 0\).
     Entonces \(m \leq n\) y \(A_k \neq 0\) \((\forall k < m)\).
     Más aún, para cada \(k < m\), \(A_{k + 1}\) es por construcción un submódulo maximal de \(A_k\).
-    Consecuentemente, cada factor \(A_k / A_{k + 1}\) es nonulo y no tiene submódulos propios por el teorema \ref{theorem:submodulesOfQuotientModule}.
+    Consecuentemente, cada factor \(A_k / A_{k + 1}\) es nonulo y no tiene submódulos propios por el teorema~\ref{theorem:submodulesOfQuotientModule}.
     Por lo tanto \(A \supseteq A_1 \supseteq \cdots \supseteq A_m = 0\) es una serie de composición para \(A\).
   \end{proof}
 
@@ -441,8 +441,8 @@
     Si \(D\) es un anillo de división, entonces el anillo \(\Mat_n D\) formado por todas las matrices \(n \times n\) sobre \(D\) es a la vez artiniano y noetheriano.
   \end{corollary}
   \begin{proof}
-    Es una consecuencia del teorema \ref{theorem:compositionSeriesAndChainConditions}.
-    En efecto, usando tal resultado, el teorema \ref{theorem:compositionSeriesOfLeftModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano izquierdo; y el teorema \ref{theorem:compositionSeriesOfRightModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano derecho.
+    Es una consecuencia del teorema~\ref{theorem:compositionSeriesAndChainConditions}.
+    En efecto, usando tal resultado, el teorema~\ref{theorem:compositionSeriesOfLeftModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano izquierdo; y el teorema~\ref{theorem:compositionSeriesOfRightModulesForMatrixRing} implica que \(\Mat_n D\) es artiniano y noetheriano derecho.
   \end{proof}
 
   \chapter{Teorema de Artin-Wedderburn}
@@ -464,7 +464,7 @@
     Sea \(J\) un ideal de \(S\).
     Sea \(I\) el conjunto formado por todos los elementos de \(R\) que aparecen como entrada \((1, 1)\) de alguna matriz en \(J\).
     Afirmamos que, para todo \(a \in R\), \(a \in I\) si y solo si \(a E \in J\).
-    En efecto, si \(a E \in J\) donde \(a \in R\), entonces \(a = (a E)_{1, 1} \in I\).
+    En efecto, si \(a E \in J\) donde \(a \in R\), entonces \(a = {(a E)}_{1, 1} \in I\).
     Recíprocamente, si \(a \in I\), entonces existe \(A = (a_{i j})\) en \(J\) con \(a_{1 1} = a\).
     Al ser \(J\) un ideal (bilátero), tenemos \(E A E \in J\).
     Pero \(E A E = a E\).
@@ -472,7 +472,7 @@
 
     Afirmamos que \(I\) es un ideal.
     En efecto, \(0_S \in J\) porque \(J\) es un ideal.
-    Luego \(0_R = (0_S)_{1, 1} \in I\).
+    Luego \(0_R = {(0_S)}_{1, 1} \in I\).
     Por otra parte, si \(a, b \in I\), entonces \(a E, b E \in J\).
     Pero \(J\) es un ideal.
     Entonces \((a + b) E = a E + b E \in J\).
@@ -499,7 +499,7 @@
     Luego \(ra, ar \in I\).
 
     Afirmamos que \(M_n I = J\).
-    Sea \(A = (a_{i j})_{i j}\) una matriz en \(S\).
+    Sea \(A = {(a_{i j})}_{i j}\) una matriz en \(S\).
     Comenzamos suponiendo \(A \in J\).
     Consideremos \(i, j \in \{1, \dots, n\}\).
     Porque \(J\) es un ideal (bilátero), \(a_{i j} E = E_{1 i} A E_{j 1} \in J\).
@@ -513,14 +513,14 @@
     Porque \(i, j\) eran arbitrarios, usando que \(J\) está cerrado bajo suma, se deduce \(A = \sum_{i j} a_{i j} E_{i j} \in J\).
   \end{proof}
 
-  Especializando el teorema \ref{theorem:matrixRingIdeals} al caso que es relevante para nosotros, el de los anillos de división, llegamos a uno de los cuatro pilares del Teorema de Artin-Wedderburn.
+  Especializando el teorema~\ref{theorem:matrixRingIdeals} al caso que es relevante para nosotros, el de los anillos de división, llegamos a uno de los cuatro pilares del Teorema de Artin-Wedderburn.
   Un teorema que conecta un elemento concreto, las matrices, con una cierta organización abstracta de su familia de ideales.
 
   \begin{theorem}\label{theorem:idealsInTheRingOfMatricesOverADivisionRing}
     El anillo \(\Mat_n D\) formado por todas las matrices \(n \times n\) con entradas en un anillo de división \(D\) no tiene ideales propios.
   \end{theorem}
   \begin{proof}
-    Si \(J\) es un ideal de \(S\), entonces, por el teorema \ref{theorem:matrixRingIdeals}, \(J = \Mat_n I\) para algún ideal \(I\) en \(D\).
+    Si \(J\) es un ideal de \(S\), entonces, por el teorema~\ref{theorem:matrixRingIdeals}, \(J = \Mat_n I\) para algún ideal \(I\) en \(D\).
     Pero \(D\) es un anillo de división, no tiene ideales propios.
     Luego \(I = 0\) o \(I = D\), concluyendo que \(J = 0\) o \(J = S\).
   \end{proof}
@@ -533,7 +533,7 @@
   \end{definition}
 
   \begin{remark}
-    El teorema \ref{theorem:idealsInTheRingOfMatricesOverADivisionRing} dice que \(\Mat_n D\) es simple si \(D\) es un anillo de división.
+    El teorema~\ref{theorem:idealsInTheRingOfMatricesOverADivisionRing} dice que \(\Mat_n D\) es simple si \(D\) es un anillo de división.
   \end{remark}
 
   \begin{proposition}\label{proposition:simpleModulesAreCiclic}
@@ -577,7 +577,7 @@
   \begin{proof}
     Sea \(R\) un anillo artiniano izquierdo simple.
 
-    Dado que \(R\) es artiniano izquierdo, el conjunto formado por todos sus ideales izquierdos nonulos contiene un ideal izquierdo minimal \(J\) (una consecuencia del teorema \ref{theorem:equivalenceOfChainConditions}).
+    Dado que \(R\) es artiniano izquierdo, el conjunto formado por todos sus ideales izquierdos nonulos contiene un ideal izquierdo minimal \(J\) (una consecuencia del teorema~\ref{theorem:equivalenceOfChainConditions}).
     Esta minimalidad hace que \(J\), como \(R\)-módulo, no tenga \(R\)--submódulos propios (un \(R\)--submódulo de \(J\) es un ideal izquierdo de \(R\) contenido en \(J\)).
 
     Afirmamos que \(R J \neq 0\).
@@ -679,8 +679,8 @@
     Debemos encontrar \(m_r \in \mathcal{M}\) tal que \(m_r(u_i) = v_i\) \((\forall i \in \{1, \dots, n\})\).
     Para cada \(i\) sea \(V_i\) el \(D\)-subespacio de \(A\) generado por \(\{u_j : j \neq i\}\).
     Dado que \(U\) es \(D\)-linealmente independiente, \(u_i \notin V_i\).
-    Por el lema \ref{lemma:anihilatorLemma} existen \(r_i \in \mathcal{A}(V_i)\) tales que \(r_i u_i \neq 0\).
-    La simplicidad de \(A\), por la proposición \ref{proposition:simpleModulesAreCiclic}, implica \(R (r_i u_i) = A\).
+    Por el lema~\ref{lemma:anihilatorLemma} existen \(r_i \in \mathcal{A}(V_i)\) tales que \(r_i u_i \neq 0\).
+    La simplicidad de \(A\), por la proposición~\ref{proposition:simpleModulesAreCiclic}, implica \(R (r_i u_i) = A\).
     Por esto existen \(t_i \in R\) tales que \(t_i r_i u_i = v_i\).
     Sea \(r = t_1 r_1 + \cdots + t_n r_n \in R\).
     Recordar que \(u_i \in V_j\) para \(i \neq j\), luego \(t_j r_j u_i \in t_j (r_j V_j) = t_j 0 = 0\).
@@ -693,20 +693,20 @@
     Entonces \(R\) es isomorfo al anillo de multiplicadores \(\mathcal{M}\), y este es un anillo denso de endomorfismos de \(A\).
   \end{theorem}
   \begin{proof}
-    Dado que \(A\) es un \(R\)-módulo fiel, el teorema \ref{theorem:multiplierIsomorphism} implica que \(R \simeq \mathcal{M}\).
-    Además, la simplicidad de \(A\), mediante el teorema \ref{theorem:denseMultiplierRing}, implica que \(\mathcal{M}\) es un subanillo denso de \(\End_D A\).
+    Dado que \(A\) es un \(R\)-módulo fiel, el teorema~\ref{theorem:multiplierIsomorphism} implica que \(R \simeq \mathcal{M}\).
+    Además, la simplicidad de \(A\), mediante el teorema~\ref{theorem:denseMultiplierRing}, implica que \(\mathcal{M}\) es un subanillo denso de \(\End_D A\).
   \end{proof}
 
   \begin{theorem}\label{theorem:leftArtinianDenseEndomorphismRingsOfVectorSpaces}
     Sea \(R\) un anillo denso de endomorfismos de un espacio vectorial \(V\) sobre un anillo de división \(D\).
-    Entonces \(R\) es artiniano izquierdo [resp. derecho] si y solo si \(\dim_D V\) es finita, en cuyo caso \(R = \Hom_D(V, V)\).
+    Entonces \(R\) es artiniano izquierdo [resp.\ derecho] si y solo si \(\dim_D V\) es finita, en cuyo caso \(R = \Hom_D(V, V)\).
   \end{theorem}
   \begin{proof}
     Supongamos \(\dim_D V\) es infinita.
     Entonces existe un subconjunto de \(V\) linealmente independiente e infinito (numerable) \(\{u_1, u_2, \dots\}\).
     Como \(V\) es un \(\Hom_D(V, V)\)-módulo izquierdo, también es un \(R\)-módulo izquierdo (recordar que \(R \subseteq \Hom_D(V, V)\)).
     Para cada \(n\) sea \(I_n = \mathcal{A}(\{u_1, \dots, u_n\})\) el aniquilador izquierdo en \(R\) del conjunto \(\{u_1, \dots, u_n\}\).
-    Por el Teorema \ref{theorem:anihilatorTheorem}, la cadena descencendente \(I_1 \supseteq I_2 \supseteq \cdots\) está compuesta de ideales izquierdos de \(R\).
+    Por el Teorema~\ref{theorem:anihilatorTheorem}, la cadena descencendente \(I_1 \supseteq I_2 \supseteq \cdots\) está compuesta de ideales izquierdos de \(R\).
     Sea \(w\) un elemento nonulo de \(V\), no importa cual de ellos sea (podría ser \(u_1\), por ejemplo).
     Dado que \(\{u_1, \dots, u_{n + 1}\}\) es linealmente independiente (para cada \(n\)) y \(R\) es denso, existe \(\theta \in R\) tal que \(\theta u_i = 0\) \((\forall i \in \{1, \dots, n\})\) y \(\theta u_{n + 1} = w \neq 0\).
     Consecuentemente \(\theta \in I_n\) pero \(\theta \notin I_{n + 1}\).
@@ -715,7 +715,8 @@
 
     Supongamos que \(\dim_D V\) es finita.
     En este caso \(V\) tiene una base finita \(\{v_1, \dots, v_m\}\).
-    Si \(f\) es un elemento de \(\Hom_D(V, V)\), entonces \(f\) está completamente determinado por su acción sobre \(v_1, \dots, v_m\) por los teoremas \ref{theorem:freeUnitalModulesOverARingWithIdentity} y \ref{theorem:vectorSpaceBasis}.
+    Si \(f\) es un elemento de \(\Hom_D(V, V)\), entonces \(f\) está completamente determinado por su acción sobre \(v_1, \dots, v_m\) por los teoremas%~\ref{theorem:freeUnitalModulesOverARingWithIdentity}
+     y~\ref{theorem:vectorSpaceBasis}.
     Dado que \(R\) es denso, existe \(\theta \in R\) tal que \(\theta v_i = f v_i\) \(\forall i \in \{1, \dots, m\}\).
     Luego \(f = \theta \in R\).
     Por lo tanto \(\Hom_D(V, V) = R\).
