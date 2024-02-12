@@ -4,6 +4,6 @@
 *.fls
 *.log
 *.synctex.gz
-artin-wedderburn.out
-artin-wedderburn.pdf
-artin-wedderburn.toc
+*.out
+*.pdf
+*.toc
