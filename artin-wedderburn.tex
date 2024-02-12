@@ -66,7 +66,7 @@
     Fijamos \(j_0 \in \{1, \dots, n\}\), y escribimos \(I = R E_{j_0 j_0}\).
 
     Afirmamos que \(I' = \sum_{i = 1}^n D E_{i j_0}\) es igual a \(I\).
-    Lo demostraremos usando que, por la proposición \ref{proposition:matrixEntryCalculation}, toda matriz \(a = {(a_{i j})}_{i j}\) en \(R\) verifica
+    Lo demostraremos usando que, por la proposición~\ref{proposition:matrixEntryCalculation}, toda matriz \(a = (a_{i j})_{i j}\) en \(R\) verifica
     \begin{align}
       a E_{j_0 j_0}
       =
@@ -223,7 +223,7 @@
     Escribamos \(C = (A - B) E\).
     Por un lado, la ecuación \(A E + N = B E + N\) implica \(C \in N\), y por el otro \(C \in R E\).
     El primer dato, mediante nuestra primera observación, implica \(\Col_j C = 0\) para \(j \in \{j_0, \dots, n\}\).
-    El segundo dato, mediante el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}, implica \(\Col_j C = 0\) para \(j \in \{1, \dots, n\} \setminus j_0\).
+    El segundo dato, mediante el teorema~\ref{theorem:matricesWhereAlmostEveryColumnIsNull}, implica \(\Col_j C = 0\) para \(j \in \{1, \dots, n\} \setminus j_0\).
     Luego \(C = 0\).
     Es decir \(A E = B E\).
 
@@ -235,7 +235,7 @@
     Luego \(\Col_j A = 0\) \((\forall j \in \{j_0, \dots, n\})\), y \(A \in N\).
     Entonces \(A + N = 0 + N\), el elemento nulo del cociente.
     También es un epimorfismo.
-    Dado \(a E \in R E\), tenemos \(a E \in M\) por el teorema \ref{theorem:matricesWhereAlmostEveryColumnIsNull}.
+    Dado \(a E \in R E\), tenemos \(a E \in M\) por el teorema~\ref{theorem:matricesWhereAlmostEveryColumnIsNull}.
     Calculamos \(\phi(a E + N)= (a E) E = a E^2 = a E\).
     Por lo tanto \(a E \in \image \phi\).
     Concluímos que \(\phi : M / N \rightarrow R E\) es un isomorfismo.
@@ -295,7 +295,7 @@
     Escribamos \(C = E (A - B)\).
     Por un lado, la ecuación \(E A + N = E B + N\) implica \(C \in N\), y por el otro \(C \in E R\).
     El primer dato, mediante nuestra primera observación, implica \(\Fila_i C = 0\) para \(i \in \{i_0, \dots, n\}\).
-    El segundo dato, mediante el teorema \ref{theorem:matricesWhereAlmostEveryRowIsNull}, implica \(\Fila_i C = 0\) para \(i \in \{1, \dots, n\} \setminus i_0\).
+    El segundo dato, mediante el teorema~\ref{theorem:matricesWhereAlmostEveryRowIsNull}, implica \(\Fila_i C = 0\) para \(i \in \{1, \dots, n\} \setminus i_0\).
     Luego \(C = 0\).
     Es decir \(E A = E B\).
 
@@ -411,7 +411,7 @@
     Supongamos que \(A\) tiene una serie de composición \(S\) de longitud \(n\).
     Si alguna de las condiciones de la cadena falla, podemos encontrar submódulos \(A = A_0 \supset A_1 \supset A_2 \supset \cdots \supset A_n \supset A_{n + 1}\)
     que forman una serie normal \(T\) de longitud \(n + 1\).
-    Por el teorema \ref{theorem:refinementAndEquivalenceOfNormalSeries}, \(S\) y \(T\) tienen refinamientos equivalentes.
+    Por el teorema~\ref{theorem:refinementAndEquivalenceOfNormalSeries}, \(S\) y \(T\) tienen refinamientos equivalentes.
     Esto es una contradicción porque series equivalentes tienen igual longitud.
     Sin embargo todo refinamiento de la serie de composición \(S\) tiene longitud \(n\) al igual que \(S\), pero todo refinamiento de \(T\) tiene longitud al menos \(n + 1\).
     Por lo tanto \(A\) satisface ambas condiciones de la cadena.
@@ -420,7 +420,7 @@
     Dado \(B\), un submódulo nonulo de \(A\), definimos \(S(B)\) como el conjunto formado por todos los submódulos \(C\) de \(B\) con \(C \neq B\).
     De tal modo que si \(B\) no tiene submódulos propios, entonces \(S(B) = \{0\}\).
     También definimos \(S(0) = \{0\}\).
-    Para cada \(B\), la condición de la cadena ascendente nos asegura que el conjunto \(S(B)\) tiene un elemento maximal \(B'\) (por el Teorema \ref{theorem:equivalenceOfChainConditions}
+    Para cada \(B\), la condición de la cadena ascendente nos asegura que el conjunto \(S(B)\) tiene un elemento maximal \(B'\) (por el Teorema~\ref{theorem:equivalenceOfChainConditions}
     ).
     Sea \(S\) el conjunto de todos los submódulos de \(A\).
     Definimos una aplicación \(f : S \rightarrow S\) mediante \(f(B) = B'\) (usando el Axioma de Elección).
