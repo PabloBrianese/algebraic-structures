@@ -1,0 +1,128 @@
+\documentclass{article}
+
+% Packages
+\usepackage{amsmath} % For mathematical symbols and equations
+\usepackage{amssymb} % For additional mathematical symbols
+\usepackage{amsthm} % For theorem environments
+\usepackage{enumitem} % For customizing lists
+\usepackage{hyperref} % For hyperlinks
+\usepackage{tikz} % For drawing diagrams
+% babel package with spanish language
+\usepackage[spanish]{babel}
+
+% Theorem environments
+\newtheorem{theorem}{Teorema}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{remark}[theorem]{Observación}
+\newtheorem{exercise}[theorem]{Ejercicio}
+
+
+\begin{document}
+
+% Title and author
+\title{Grupos de Lie en Física}
+\author{Pablo Brianese}
+\date{\today}
+
+\maketitle
+
+% Abstract
+\begin{abstract}
+  % Add your abstract here
+\end{abstract}
+
+% Introduction
+\section{Introduction}
+
+Los grupos de Lie juegan un rol crucial en la física, particularmente en las áreas de Mecánica Cuántica, Relatividad, y Física de Partículas. Ejemplos del impacto de los grupos de Lie en la física incluyen:
+
+\begin{itemize}
+  \item \textbf{Simetría y Leyes de Conservación:} En física, las simetrías de un sistema suelen ser descritas por grupos de Lie. El Teorema de Noether, un principio fundamental de la física teórica, establece que a cada simetría diferenciable de un sistema físico le corresponde una ley de conservación. Por ejemplo, la simetría rotacional de un sistema mecánico, descrita por el grupo de Lie $SO(3)$, implica la conservación del momento angular.
+  
+  \item \textbf{Mecánica Cuántica:} Los grupos de Lie y sus álgebras de Lie asociadas son fundamentales en la formulación matemática de la Mecánica Cuántica. La teoría de los grupos de Lie ayuda a entender las propiedades del momento angular en sistemas cuánticos, incluyendo el spin intrínseco de las partículas elementales. El álgebra de Lie del grupo $SU(2)$ es particularmente importante al momento de describir los estados de espín y sus transformaciones.
+  
+  \item \textbf{Física de Partículas y el Modelo Estandar:} El Modelo Estándar de la física de partículas, el cual describe las fuerzas fundamentales (a exepción de la gravedad) y clasifica todas las partículas elementales conocidas, tiene raíces profundas en la teoría de grupos de Lie. Las partículas transportadoras de las fuerzas fundamentales (bosones gauge) son mediadores de los grupos de simetría de las fuerzas. Por ejemplo, la parte electrodebil del Modelo Estándar está basada en el grupo de Lie $SU(2) \times U(1)$, y la cronodinámica cuántica (QCD) está basada en el grupo de Lie $SU(3)$.  % ¿Las partículas elementales tienen algo que ver con los generadores de las álgebras de Lie?
+
+  \item \textbf{Relatividad General y Geometría Diferencial:} La Relatividad General, la teoría de la gravitación de Einstein, se vale de la geometría diferencial y de los grupos de Lie en su formulación matemática. Las simetrías del espacio-tiempo y la invarianza de algunos tensores bajo diferentes transformaciones de coordenadas pueden ser entendidas en términos de grupos de Lie.
+
+  \item \textbf{Teoría Cuántica de Campos (QFT):} En QFT, los grupos de Lie y sus álgebras de Lie asociadas son esenciales para construir Langrangianos que resulten invariantes bajo ciertas simetrías. Estas simetrías llevan a las teorias de gauge, donde los Campos se transfoman bajo representaciones de grupos de Lie, los cuales dicta los tipos de interacción y la estructura de la teoría.
+\end{itemize}
+
+En resumen, los grupos de Lie proveen un lenguage fundamental para describir simetrías en la física, las cuales son pivotales para formular leyes de la física tanto a escala clásica como cuántica. Su estructura matemática ayuda a elucidar las conexiones profundas entre los fenómenos físicos y los principios de simetría subyacentes.
+
+% Main content
+\section{Grupos de Lie}
+% Add your content here
+
+\subsection{Definición e Introducción a los Grupos de Lie}
+
+% Ver algo de historia de los grupos de Lie
+
+\begin{definition}
+  Un \textbf{grupo de Lie} es un grupo que es también una variedad diferenciable, de tal forma que las operaciones de grupo (multiplicación y inversa) son suaves en la variedad.
+\end{definition}
+
+\subsection{Examples}
+% Add some examples of Lie groups here
+
+\section{La rotación de un cuerpo rígido alrededor de un eje fijo en el vacío}
+
+% Conversación en ChatGPT "Lie Groups in Physics" https://chatgpt.com/share/69ba5332-e0f7-41b9-9333-865e237e6a5b
+
+% Momento angular en Wikipedia
+
+% [David Halliday; Robert Resnick, Jearl Walker] Fundamentals of Physics
+% Página 297
+
+Cuando un objeto extenso, como una rueda, gira en torno a un eje, el movimiento no puede ser analizado tratando al objeto como una pertícula porque en cualquier instante dado las diferentes partes del objeto tienen diferentes velocidades lineales y diferentes aceleraciones lineales. Por esta razón, es conveniente considerar al objeto extenso como un grán número de partículas, cada una de las cuales tiene su propia velocidad lineal y aceleración.
+
+Cuando se trata con un objeto en rotación, se simplifica enormemente el análisis asumiendo que el objeto es rígido. Un \textbf{objeto rígido} es uno que no es deformable -- es decir, es un objeto en el cual la separación entre cualquier par de partículas permanece constante. Todos los cuerpos reales son deformables en cierto grado; sin embargo, nuestro modelo de objeto rígido es útil en muchas situaciones en las cuales la deformación es despreciable.
+
+Trataremos la rotación de un objeto rígido alrededor de un eje fijo, que es comunmente llamada \textit{movimiento rotacional puro}.
+
+Vamos a considerar una aplicación de los grupos de Lie a un problema físico muy tangible. Imaginemos un un trompo girando sobre su punta. También podría tratarse de otro cuerpo rígido como un disco girando alrededor de un eje fijo en el espacio. Asumamos que no hay fuerzas externas actuando sobre el cuerpo (se encuentra en el vacío), de modo que no hay fricción que lo detenga. Nuestro trompo exhibe simetría rotacional alrededor de su eje de rotación. Este ejemplo servirá a modo de ilustración sobre cómo los grupos de Lie ayudan a entender las simetrías y las leyes de conservación en la física.
+
+\subsection{El concepto de espín y la rotación}
+
+¿Cuál es la simetría que muestra el trompo? Sin importar cómo lo giremos alrededor de su eje de rotación, el trompo se ve igual. Esta simetría rotacional puede ser descrita matemáticamente usando un grupo de Lie específico llamado $SO(3)$, que se lee como \textit{grupo ortogonal especial en tres dimensiones}. Este grupo incluye a todas las rotaciones en el espacio tridimensional y es crucial para describir cómo se comportan los objetos al rotar.
+
+\subsection{El grupo ortogonal especial en tres dimensiones}
+
+El grupo de Lie $SO(3)$ representa todas las posibles rotaciones en el espacio tridimensional. Matemáticamente, una rotación en $SO(3)$ es una matriz ortogonal de $3 \times 3$ con determinante igual a 1. Estas matrices satisfacen $R^T R = I$, donde $R^T$ es la transpuesta de $R$ e $I$ es la matriz identidad.
+
+\subsection{Aplicación al cuerpo en rotación}
+
+Para nuestro cuerpo giratorio, podemos usar una matriz de rotación en $SO(3)$ para describir su orientación en el espacio en cualquier instante $t$. Asumamos que el eje de rotación es el eje $z$. Entonces, la matriz de rotación $R(t)$ que describe la orientación del cuerpo en el tiempo $t$ puede ser expresada como:
+
+\[
+  R(t) = 
+  \begin{pmatrix}
+    \cos(\omega t) & -\sin(\omega t) & 0 \\
+    \sin(\omega t) & \cos(\omega t) & 0 \\
+    0 & 0 & 1
+  \end{pmatrix}
+\]
+
+Esta matriz describe una rotación en el plano $xy$ alrededor del eje $z$. Aquí, el ángulo de rotación $\theta$ está dado por $\omega t$, donde $\omega$ es la velocidad angular del cuerpo.
+
+\subsection{Momento angular y conservación}
+
+El momento angular es un concepto fundamental en física e ingeniería que describe como la masa de un objeto se distribuye en relación a un eje de rotación. Juega un papel crucial en la dinámica de los cuerpos en rotación, determinando cuánto torque se necesita para conseguir una cierta aceleración angular. El momento angular de un cuerpo rígido en rotación alrededor de un eje fijo es el equivalente de la masa para un cuerpo en traslación.
+
+\begin{definition}
+  El 
+\end{definition}
+
+\subsection{La conservación del momento angular}
+
+En física, siempre que un sistema muestra simetría, aparece una cantidad que es conservada. En el caso de la simetría rotacional (como nuestro trompo giratorio), esta cantidad conservada recibe el nombre de momento angular. La conservación del momento angular es un principio fundamental, observado en una amplia variedad de sistemas físicos, desde trompos hasta planetas, e incluso en el compartamiento de las partículas subatómicas.
+
+% References
+\begin{thebibliography}{9}
+  % Add your references here
+\end{thebibliography}
+
+\end{document}
