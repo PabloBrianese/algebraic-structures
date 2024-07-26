@@ -1,0 +1,401 @@
+\documentclass{article}
+
+% Packages
+\usepackage{amsmath} % For mathematical symbols and equations
+\usepackage{amssymb} % For additional mathematical symbols
+\usepackage{amsthm} % For theorem environments
+\usepackage{enumitem} % For customizing lists
+\usepackage{hyperref} % For hyperlinks
+\usepackage{tikz} % For drawing diagrams
+% babel package with spanish language
+\usepackage[spanish]{babel}
+
+% Theorem environments
+\newtheorem{theorem}{Teorema}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{remark}[theorem]{Observación}
+\newtheorem{exercise}[theorem]{Ejercicio}
+
+% Title and author
+\title{Notas de clase para el curso de Estructuras Algebráicas}
+\author{Pablo Brianese}
+
+\begin{document}
+
+\maketitle
+
+% Table of contents
+\tableofcontents
+
+% Introduction
+\section{Introduction}
+
+% Main content
+\section{Topic 1}
+
+Grupos
+
+Conjunto de simetrías del triángulo equilátero:
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+      % Draw the triangle
+      \draw (0,0) -- (4,0) -- (2,3.46) -- cycle;
+      % Label the vertices
+      \node at (0,0) [below left] {1};
+      \node at (4,0) [below right] {2};
+      \node at (2,3.46) [above] {3};
+  \end{tikzpicture}
+  \caption{Triángulo equilátero con vértices etiquetados}
+\end{figure}
+
+Transformación identidad \text{id} o \text{e}: no hace nada
+
+\begin{align*}
+  id: 1 \rightarrow 1, 2 \rightarrow 2, 3 \rightarrow 3
+\end{align*}
+
+Rotación de 120 grados en sentido antihorario $r$
+
+\begin{align*}
+  r: 1 \rightarrow 2, 2 \rightarrow 3, 3 \rightarrow 1
+\end{align*}
+
+Rotación de 240 grados en sentido antihorario $r^2$
+
+\begin{align*}
+  r^2: 1 \rightarrow 3, 2 \rightarrow 1, 3 \rightarrow 2
+\end{align*}
+
+Notemos que $r^3 = id$, esta es una \textit{relación de grupo}.
+
+Reflexión respecto a la recta que pasa por 1 y es perpendicular al segmento 2-3 $s_1$
+
+\begin{align*}
+  s_1: 1 \rightarrow 1, 2 \rightarrow 3, 3 \rightarrow 2
+\end{align*}
+
+Reflexión respecto a la recta que pasa por 2 y es perpendicular al segmento 1-3 $s_2$
+
+\begin{align*}
+  s_2: 1 \rightarrow 3, 2 \rightarrow 2, 3 \rightarrow 1
+\end{align*}
+
+Reflexión respecto a la recta que pasa por 3 y es perpendicular al segmento 1-2 $s_3$
+
+\begin{align*}
+  s_3: 1 \rightarrow 2, 2 \rightarrow 1, 3 \rightarrow 3
+\end{align*}
+
+% Ejercicio
+\begin{exercise}
+  Estas son todas las simetrías del triángulo equilátero.
+\end{exercise}
+
+\begin{proof}
+  Una primera observación, con la que comenzamos nuestra prueba, es que las transformaciones rígidas (que preservan distancias entre puntos) del triángulo en sí mismo envían vértices a vértices. También podemos agregar que las transformaciones sobre el conjunto de vértices son biyectivas. Pero lo más importante es que estas determinan las transformaciones rígidas del triángulo. Es decir, existe una inyección entre las transformaciones rígidas del triángulo y las biyecciones de los vértices del triángulo. En el caso del triángulo equilátero, además, todas las biyecciones de los vértices del triángulo dan lugar a una transformación rígida del triángulo. Por lo tanto, para demostrar que las simetrías mencionadas anteriormente son todas las simetrías del triángulo equilátero, es suficiente demostrar que estas biyecciones son todas las biyecciones posibles de los vértices del triángulo.
+
+  Enumeramos las biyecciones del conjunto de vértices del triángulo equilátero $V = \{1, 2, 3\}$. Primero aquellas en las que $1$ va a $1$, son sólo dos posibilidades:
+
+  \begin{align*}
+    1 \rightarrow 1, 2 \rightarrow 2, 3 \rightarrow 3 & \quad \text{id} \\
+    1 \rightarrow 1, 2 \rightarrow 3, 3 \rightarrow 2 & \quad s_1
+  \end{align*}
+
+  Luego, aquellas en las que $1$ va a $2$, son dos posibilidades:
+
+  \begin{align*}
+    1 \rightarrow 2, 2 \rightarrow 1, 3 \rightarrow 3 & \quad s_3 \\
+    1 \rightarrow 2, 2 \rightarrow 3, 3 \rightarrow 1 & \quad r
+  \end{align*}
+
+  Finalmente, aquellas en las que $1$ va a $3$, son dos posibilidades:
+
+  \begin{align*}
+    1 \rightarrow 3, 2 \rightarrow 2, 3 \rightarrow 1 & \quad s_2 \\
+    1 \rightarrow 3, 2 \rightarrow 1, 3 \rightarrow 2 & \quad r^2
+  \end{align*}
+
+  Habiendo enumerado todas las biyecciones posibles de los vértices del triángulo equilátero y encontrado su representante en el conjunto previamente definido, hemos demostrado que las simetrías mencionadas anteriormente son todas las simetrías del triángulo equilátero.
+
+\end{proof}
+
+El conjunto de simetrías del triángulo equilátero forma un grupo con la operación de composición de funciones. Este grupo se llama grupo de simetrías del triángulo equilátero y se denota $\mathbb{D}_3$.
+
+Recordemos que el conjunto de biyecciónes del un conjunto $\mathbb{I}_n = \{1, 2, \ldots, n\}$ se denota $B(\mathbb{I}_n)$.
+Entonces el grupo de simetrías del conjunto $\mathbb{I}_n$ se denota $\mathbb{S}_n = B(\mathbb{I}_n)$, con la composición de funciones como operación.
+
+En física cuántica, el grupo de simetrías de un sistema físico es un grupo de Lie.
+
+\subsection{Grupos de Lie en física}
+
+Lie groups play a crucial role in physics, particularly in the areas of quantum mechanics, relativity, and particle physics. Here are a few key ways in which Lie groups are relevant:
+
+1. **Symmetry and Conservation Laws**: In physics, symmetries of physical systems are often described using Lie groups. Noether's theorem, a fundamental principle in theoretical physics, states that every differentiable symmetry of the action of a physical system has a corresponding conservation law. For example, the rotational symmetry of a system, which can be described by the Lie group SO(3), corresponds to the conservation of angular momentum.
+
+2. **Quantum Mechanics**: Lie groups and their associated Lie algebras are integral in the formulation of quantum mechanics. The theory of Lie groups helps in understanding the properties of angular momentum in quantum systems, including the intrinsic spin of particles. The Lie algebra of the group SU(2) is particularly important in describing spin states and their transformations.
+
+3. **Particle Physics and the Standard Model**: The Standard Model of particle physics, which describes fundamental forces (except gravity) and classifies all known elementary particles, is deeply rooted in the theory of Lie groups. The force-carrying particles (gauge bosons) are mediators of the symmetry groups of the forces. For instance, the electroweak part of the Standard Model is based on the group SU(2) × U(1), and quantum chromodynamics, the theory of the strong interaction, is based on the group SU(3).
+
+4. **General Relativity and Differential Geometry**: General relativity, Einstein’s theory of gravitation, uses differential geometry and Lie groups in its mathematical formulation. The symmetry properties of spacetime and the invariance under different coordinate transformations can be understood through Lie groups.
+
+5. **Quantum Field Theory (QFT)**: In QFT, Lie groups and their algebras are essential for constructing Lagrangians that are invariant under certain symmetries. This symmetry leads to gauge theories, where the fields transform under representations of Lie groups. The gauge symmetries of the Lagrangian are described by Lie groups, which dictate the interaction types and the structure of the theory.
+
+Overall, Lie groups provide a fundamental language for describing symmetries in physics, which are pivotal for formulating laws of physics in both classical and quantum scales. Their mathematical structure helps in elucidating the deep connections between physical phenomena and symmetry principles.
+
+Certainly! Let's focus on a single example where we examine a rigid body rotating about a fixed axis in a vacuum, and explore how Lie groups, specifically the group SO(3), help us understand and describe this system mathematically.
+
+System Description
+Imagine a rigid body, like a disk, spinning around a fixed axis in space (like a spinning top on its tip). Assume there are no external forces acting on the body (it's in a vacuum), so there's no friction to slow it down. This system exhibits rotational symmetry about the axis of rotation.
+
+Lie Group SO(3)
+The Lie group SO(3) represents all possible rotations in 3-dimensional space. Mathematically, SO(3) consists of all 3x3 orthogonal matrices 
+𝑅
+R with determinant +1. These matrices satisfy 
+𝑅
+𝑇
+𝑅
+=
+𝐼
+R 
+T
+ R=I, where 
+𝑅
+𝑇
+R 
+T
+  is the transpose of 
+𝑅
+R, and 
+𝐼
+I is the identity matrix.
+
+Application to the Rotating Body
+For our rotating body, we can use a matrix from SO(3) to describe its orientation in space at any time 
+𝑡
+t. Let's assume the rotation axis is the z-axis, and the body rotates at a constant angular velocity 
+𝜔
+ω. The rotation matrix 
+𝑅
+(
+𝑡
+)
+R(t) that describes the orientation of the body at time 
+𝑡
+t can be expressed as:
+
+The rotation matrix 
+𝑅
+(
+𝑡
+)
+R(t) that describes the orientation of the body at time 
+𝑡
+t can be expressed as:
+
+𝑅
+(
+𝑡
+)
+=
+[
+cos
+⁡
+(
+𝜔
+𝑡
+)
+−
+sin
+⁡
+(
+𝜔
+𝑡
+)
+0
+sin
+⁡
+(
+𝜔
+𝑡
+)
+cos
+⁡
+(
+𝜔
+𝑡
+)
+0
+0
+0
+1
+]
+R(t)= 
+⎣
+⎡
+​
+  
+cos(ωt)
+sin(ωt)
+0
+​
+  
+−sin(ωt)
+cos(ωt)
+0
+​
+  
+0
+0
+1
+​
+  
+⎦
+⎤
+​
+ 
+This matrix is a standard rotation matrix in the 
+𝑥
+𝑦
+xy-plane, and the rotation angle 
+𝜃
+θ is 
+𝜔
+𝑡
+ωt, where 
+𝜔
+ω is the angular velocity and 
+𝑡
+t is the time.
+
+Physical Interpretation
+Rotation Matrix: 
+𝑅
+(
+𝑡
+)
+R(t) directly models the rotation of the body about the z-axis. Each column vector in 
+𝑅
+(
+𝑡
+)
+R(t) can be seen as the coordinates of the unit vectors along the principal axes of the body in the fixed coordinate system.
+Conservation of Angular Momentum: Given that there are no external torques and the body rotates symmetrically about a principal axis, its angular momentum 
+𝐿
+L is conserved. If 
+𝐼
+I is the moment of inertia matrix (diagonal if the body is symmetric about the rotation axis) and 
+𝜔
+ω is the angular velocity vector 
+(
+0
+,
+0
+,
+𝜔
+)
+(0,0,ω), then the angular momentum is given by:
+𝐿
+=
+𝐼
+𝜔
+L=Iω
+For a rotation about the z-axis, this simplifies to 
+𝐿
+=
+𝐼
+𝑧
+𝜔
+𝑧
+^
+L=I 
+z
+​
+ ω 
+z
+^
+ , where 
+𝐼
+𝑧
+I 
+z
+​
+  is the moment of inertia about the z-axis, and 
+𝑧
+^
+z
+^
+  is the unit vector along the z-axis.
+
+Connection to Lie Algebra
+The infinitesimal generators of the Lie group SO(3), which form the corresponding Lie algebra 
+𝑠
+𝑜
+(
+3
+)
+so(3), are related to the angular velocities and can be represented by skew-symmetric matrices. The matrix associated with a rotation about the z-axis is:
+
+[
+0
+−
+1
+0
+1
+0
+0
+0
+0
+0
+]
+⎣
+⎡
+​
+  
+0
+1
+0
+​
+  
+−1
+0
+0
+​
+  
+0
+0
+0
+​
+  
+⎦
+⎤
+​
+ 
+This matrix, when exponentiated, leads to the rotation matrices 
+𝑅
+(
+𝑡
+)
+R(t) described above.
+
+Summary
+In this example, SO(3) helps us rigorously define and calculate the state of the rotating body at any time. By representing the physical rotation as a matrix from SO(3), we can easily compute the effect of this rotation on any vector in 3D space (like the position of a point on the disk), which is crucial for understanding the dynamics of rotating systems in physics. This application is a fundamental example of how Lie groups provide a powerful framework for dealing with symmetries and conservation laws in physics.
+
+\subsection{Subtopic 1.2}
+
+\section{Topic 2}
+
+% Conclusion
+\section{Conclusion}
+
+% References
+\begin{thebibliography}{9}
+\bibitem{reference1}
+Author, A. (Year). \textit{Title of the paper}. Journal Name, Volume(Issue), Page numbers. \url{https://doi.org/10.xxxx/xxxxxx}
+\end{thebibliography}
+
+\end{document}
