@@ -44,4 +44,16 @@ Al igual que en el resto de este capítulo, todos los anillos tienen un elemento
 
 En rigor estos anillos deberían ser llamados \emph{anillos semisimples a izquierda}; pero mostraremos que $R$ es semisimple si y solo si todo $R$--módulo derecho es semisimple.
 
+Los anillos de división son semisimples. Ejemplos más elaborados emergen del siguiente resultado.
+
+\begin{proposition}
+    Un anillo $R$ es semisimple si y solo si el módulo \(\prescript{}{R}{R}\) es semisimple, si y solo si $R$ es suma directa de ideales izquierdos minimales, y en este caso $R$ es suma directa de finitos ideales izquierdos minimales.
+\end{proposition}
+
+\begin{proof}
+    Si todo \(R\)-módulo izquierdo es semisimple, en particular \(\prescript{}{R}{R}\) es semisimple. Recíprocamente, si \(\prescript{}{R}{R}\) es semisimple, entonces, por (2.2)\footnote{El resultao utilizado en este caso dice que una suma directa de $R$--módulos izquierdos semisimples es semisimple.}, todo \(R\)-módulo izquierdo libre \(F \simeq \bigoplus_{\prescript{}{R}{R}}\) es semisimple, y todo $R$--módulo izquierdo es semisimple, dado que es isomorfo al módulo cociente de un módulo libre.
+
+    Por definición, \(\prescript{}{R}{R}\) es semisimple si y solo si es la suma directa de submódulos simples, y un submódulo simple de \(\prescript{}{R}{R}\) es un ideal izquierdo (nonulo) minimal. Ahora, una suma directa \(\prescript{}{R}{R} = \bigoplus_{i \in I} L_i\) de ideales izquierdos nonulos es necesariamente finita. Debido a lo siguiente. El elemento identidad de $R$ es la suma $1 = \sum_{i \in I} e_i$, donde $e_i \in L_i$ para todo $i$, y $e_i e_j = 0$ para casi todo $i$. Si $x \in L_j$, entonces $\sum_{i \in I} e_i x = x$ es un elemento de $L_j$, con $x e_i \in L_i$, lo cual implica $ x e_j = x$ dentro de la suma directa. De aquí que $e_j = 0$ implica $L_j = 0$, y $L_i = 0$ para casi todo $i$. Si $L_i \neq 0$, entonces $I$ es finito.
+\end{proof}
+
 \end{document}
