@@ -66,4 +66,16 @@ La proposición 3.1\footnote{Refiere a la proposición recién demostrada.} prod
     Si $R_1, \ldots, R_n$ son semisimples, entonces cada $R_i$ es suma directa de ideales izquierdos minimales, los cuales, por 2.7\footnote{La proposición 2.7 dice lo siguiente. En un producto directo $R = R_1 \times \cdots \times R_n$ de anillos [con identidad], cada ideal izquierdo (derecho, bilátero) de $R_i$ es in ideal izquierdo (derecho, bilátero) de $R$; todo ideal minimal izquierdo (derecho, bilátero) de $R_i$ es un ideal minimal izquierdo (derecho, bilátero) de $R$; y todo ideal minimal izquierdo (derecho, bilátero) de $R$ es un ideal minimal izquierdo (derecho, bilátero) de algún $R_i$.}, son ideales izquierdos minimales de $R = R_1 \times \cdots \times R_n$; luego $R$ es suma de ideales izquierdos minimales.
 \end{proof}
 
+Ahora puede ser formulado y demostrado \textbf{el terorema de Artin-Wedderburn}.
+
+\begin{theorem}
+    Un anillo $R$ es semisimple si y solo si es isomorfo a un producto directo de anillos de matrices $M_{n_i}(D_i)$, donde los $D_i$ son anillos de división y los $n_i$ son enteros positivos.
+\end{theorem}
+
+En particular, los anillos semisimples son productos directos de anillos simples.
+
+\begin{proof}
+    Si $R$ es semisimple, entonces $R^{\text{op}} \simeq \End_R(\prescript{}{R}{R}) \simeq M_{n_1}(D_1) \times \cdots \times M_{n_s}(D_s)$ para algunos anillos de división $D_1, \dots, D_s$, por VIII.4.10\footnote{El corolario 4.10 dice lo siguiente. Si $M$ es un $R$-módulo izquierdo libre y $M$ tiene una base con $n$ elementos, entonces $\End_R(M) \simeq M_n(R^{\text{op}})$} y 2.5\footnote{La proposición 2.5 dice lo siguiente. Sear $M$ un $R$-módulo izquierdo. Si $M$ es suma directa de finitos submódulos simples, entonces $\End_R(M)$ es isomorfo al producto directo de finitos anillos de matrices $M_{n_i}(D_i)$ sobre anillos de división $D_i$}. Luego $R \simeq M_{n_1}(D_1)^{\text{op}} \times \cdots \times M_{n_s}(D_s)^{\text{op}} \simeq M_{n_1}(D_1^{\text{op}}) \times \cdots \times M_{n_s}(D_s^{\text{op}})$, por 1.6\footnote{La proposición 1.6 dice que para cada anillo $R$, existe un isomorfismo $M_n(R)^{\text{op}} \simeq M_n(R^{\text{op}})$}.
+\end{proof}
+
 \end{document}
