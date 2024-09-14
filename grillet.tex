@@ -86,5 +86,16 @@ En particular, los anillos semisimples son productos directos de anillos simples
     Si $R \simeq M_{n_1}(D_1) \times \cdots \times M_{n_s}(D_s)$ es semisimple, donde $D_1, \dots, D_s$ son anillos de división, entonces $R^\text{op} \simeq M_{n_1}(D_1^{\text{op}}) \times \cdots \times M_{n_s}(D_s^{\text{op}})$ es semisimple.
 \end{proof}
 
+\begin{corollary}
+    Todo anillo semisimple anillo es noetheriano izquierdo, aritiniano izquierdo, noetheriano derecho y artiniano derecho.
+\end{corollary}
+
+\begin{proof}
+    Por 3.1\footnote{Un anillo $R$ es semisimple si y solo si el módulo $\prescript{}{R}{R}$ es semisimple, si y solo si $R$ es suma directa de ideales izquierdos minimales, y en este caso $R$ es suma directa de finitos ideales izquierdos minimales.}, $\prescript{}{R}{R}$ es suma suma directa $\prescript{}{R}{R} = L_1 \oplus \cdots \oplus L_n$ de finitos submódulos simples. Por lo cual $\RAsRModule$ es tiene una serie de composición 
+    \[
+        0 = L_0 \subsetneqq L_1 \subsetneqq L_1 \oplus L_2 \subsetneqq \cdots \subsetneqq L_1 \oplus \cdots \oplus L_n = R
+    \]
+    y es noetheriano izquierdo y artiniano izquierdo. También lo es $R^\text{op}$, por 3.4\footnote{El corolario 3.4 dice que un anillo es semisimple si y solo sí $R^text{op}$ es semisimple}, y $R$ es noetheriano derecho y artiniano derecho.
+\end{proof}
 
 \end{document}
