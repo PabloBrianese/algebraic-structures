@@ -56,4 +56,14 @@ Los anillos de división son semisimples. Ejemplos más elaborados emergen del s
     Por definición, \(\prescript{}{R}{R}\) es semisimple si y solo si es la suma directa de submódulos simples, y un submódulo simple de \(\prescript{}{R}{R}\) es un ideal izquierdo (nonulo) minimal. Ahora, una suma directa \(\prescript{}{R}{R} = \bigoplus_{i \in I} L_i\) de ideales izquierdos nonulos es necesariamente finita. Debido a lo siguiente. El elemento identidad de $R$ es la suma $1 = \sum_{i \in I} e_i$, donde $e_i \in L_i$ para todo $i$, y $e_i e_j = 0$ para casi todo $i$. Si $x \in L_j$, entonces $\sum_{i \in I} e_i x = x$ es un elemento de $L_j$, con $x e_i \in L_i$, lo cual implica $ x e_j = x$ dentro de la suma directa. De aquí que $e_j = 0$ implica $L_j = 0$, y $L_i = 0$ para casi todo $i$. Si $L_i \neq 0$, entonces $I$ es finito.
 \end{proof}
 
+La proposición 3.1\footnote{Refiere a la proposición recién demostrada.} produce anillos semisimples adicionales. Los anillos de matrices $M_n(D)$ sobre un anillo de división $D$ son semisimples, por 1.7\footnote{La proposición 1.7 dice que si $D$ es un anillo de división, entonces $M_n(D)$ es la suma directa de $n$ ideales izquierdos minimales.}. Además, todos los productos directos de tales anillos son semisimples:
+
+\begin{proposition}
+    Un producto directo de finitos anillos semisimples es semisimple.
+\end{proposition}
+
+\begin{proof}
+    Si $R_1, \ldots, R_n$ son semisimples, entonces cada $R_i$ es suma directa de ideales izquierdos minimales, los cuales, por 2.7\footnote{La proposición 2.7 dice lo siguiente. En un producto directo $R = R_1 \times \cdots \times R_n$ de anillos [con identidad], cada ideal izquierdo (derecho, bilátero) de $R_i$ es in ideal izquierdo (derecho, bilátero) de $R$; todo ideal minimal izquierdo (derecho, bilátero) de $R_i$ es un ideal minimal izquierdo (derecho, bilátero) de $R$; y todo ideal minimal izquierdo (derecho, bilátero) de $R$ es un ideal minimal izquierdo (derecho, bilátero) de algún $R_i$.}, son ideales izquierdos minimales de $R = R_1 \times \cdots \times R_n$; luego $R$ es suma de ideales izquierdos minimales.
+\end{proof}
+
 \end{document}
