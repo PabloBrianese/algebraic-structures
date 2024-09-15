@@ -1,0 +1,90 @@
+\documentclass{article}
+
+% Packages
+\usepackage[a4paper, margin=1in]{geometry} % Adjusts the margins to 1 inch on all sides
+\usepackage{amsmath} % For mathematical symbols and equations
+\usepackage{amssymb} % For additional mathematical symbols
+\usepackage{graphicx} % For including images
+\usepackage{mathtools} % For mathematical environments
+\usepackage{lipsum} % For generating dummy text
+\usepackage[spanish]{babel} % For Spanish language support
+
+\usepackage{amsthm} % For theorem environments
+
+% Theorem environments
+\newtheorem{definition}{Definición}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[section]
+\newtheorem{lemma}{Lema}[section]
+\newtheorem{proposition}{Proposición}[section]
+
+% Macro for endomorphisms
+\newcommand{\End}{\text{End}}
+
+% Macro for a ring R as an R module
+\newcommand{\RAsRModule}{\prescript{}{R}{R}}
+
+% Title and author
+\title{El teorema de Artin-Wedderburn}
+\author{Pablo Brianese en base a Grillet}
+
+\begin{document}
+
+\maketitle
+
+% Page 370
+
+El teorema de Artin--Wedderburn construye todos los anillos $R$, llamados semisimples, tales que todo $R$--módulo izquierdo es semisimple\footnote{Un $R$--módulo izquierdo es semisimple si es suma directa de simples. Uno es simple cuando es igual a su único submódulo no trivial}. El paso del tiempo lo ha mantenido como un resultado fundamental de la teoría de anillos.
+
+Al igual que en el resto de este capítulo, todos los anillos tienen un elemento identidad, y todos los módulos son unitales. (El resultado principal se mantiene aún sin esta restricción; ver los ejercicios.)
+
+\begin{definition}
+    Un anillo $R$ es \emph{semisimple} cuando todo R--módulo izquierdo es semisimple.
+\end{definition}
+
+En rigor estos anillos deberían ser llamados \emph{anillos semisimples a izquierda}; pero mostraremos que $R$ es semisimple si y solo si todo $R$--módulo derecho es semisimple.
+
+Los anillos de división son semisimples. Ejemplos más elaborados emergen del siguiente resultado.
+
+\begin{proposition}
+    Un anillo $R$ es semisimple si y solo si el módulo \(\prescript{}{R}{R}\) es semisimple, si y solo si $R$ es suma directa de ideales izquierdos minimales, y en este caso $R$ es suma directa de finitos ideales izquierdos minimales.
+\end{proposition}
+
+\begin{proof}
+    Si todo \(R\)-módulo izquierdo es semisimple, en particular \(\prescript{}{R}{R}\) es semisimple. Recíprocamente, si \(\prescript{}{R}{R}\) es semisimple, entonces, por (2.2)\footnote{El resultao utilizado en este caso dice que una suma directa de $R$--módulos izquierdos semisimples es semisimple.}, todo \(R\)-módulo izquierdo libre \(F \simeq \bigoplus_{\prescript{}{R}{R}}\) es semisimple, y todo $R$--módulo izquierdo es semisimple, dado que es isomorfo al módulo cociente de un módulo libre.
+
+    Por definición, \(\prescript{}{R}{R}\) es semisimple si y solo si es la suma directa de submódulos simples, y un submódulo simple de \(\prescript{}{R}{R}\) es un ideal izquierdo (nonulo) minimal. Ahora, una suma directa \(\prescript{}{R}{R} = \bigoplus_{i \in I} L_i\) de ideales izquierdos nonulos es necesariamente finita. Debido a lo siguiente. El elemento identidad de $R$ es la suma $1 = \sum_{i \in I} e_i$, donde $e_i \in L_i$ para todo $i$, y $e_i e_j = 0$ para casi todo $i$. Si $x \in L_j$, entonces $\sum_{i \in I} e_i x = x$ es un elemento de $L_j$, con $x e_i \in L_i$, lo cual implica $ x e_j = x$ dentro de la suma directa. De aquí que $e_j = 0$ implica $L_j = 0$, y $L_i = 0$ para casi todo $i$. Si $L_i \neq 0$, entonces $I$ es finito.
+\end{proof}
+
+La proposición 3.1\footnote{Refiere a la proposición recién demostrada.} produce anillos semisimples adicionales. Los anillos de matrices $M_n(D)$ sobre un anillo de división $D$ son semisimples, por 1.7\footnote{La proposición 1.7 dice que si $D$ es un anillo de división, entonces $M_n(D)$ es la suma directa de $n$ ideales izquierdos minimales.}. Además, todos los productos directos de tales anillos son semisimples:
+
+\begin{proposition}
+    Un producto directo de finitos anillos semisimples es semisimple.
+\end{proposition}
+
+\begin{proof}
+    Si $R_1, \ldots, R_n$ son semisimples, entonces cada $R_i$ es suma directa de ideales izquierdos minimales, los cuales, por 2.7\footnote{La proposición 2.7 dice lo siguiente. En un producto directo $R = R_1 \times \cdots \times R_n$ de anillos [con identidad], cada ideal izquierdo (derecho, bilátero) de $R_i$ es in ideal izquierdo (derecho, bilátero) de $R$; todo ideal minimal izquierdo (derecho, bilátero) de $R_i$ es un ideal minimal izquierdo (derecho, bilátero) de $R$; y todo ideal minimal izquierdo (derecho, bilátero) de $R$ es un ideal minimal izquierdo (derecho, bilátero) de algún $R_i$.}, son ideales izquierdos minimales de $R = R_1 \times \cdots \times R_n$; luego $R$ es suma de ideales izquierdos minimales.
+\end{proof}
+
+Ahora puede ser formulado y demostrado \textbf{el terorema de Artin-Wedderburn}.
+
+\begin{theorem}
+    Un anillo $R$ es semisimple si y solo si es isomorfo a un producto directo de anillos de matrices $M_{n_i}(D_i)$, donde los $D_i$ son anillos de división y los $n_i$ son enteros positivos.
+\end{theorem}
+
+En particular, los anillos semisimples son productos directos de anillos simples.
+
+\begin{proof}
+    Si $R$ es semisimple, entonces $R^{\text{op}} \simeq \End_R(\prescript{}{R}{R}) \simeq M_{n_1}(D_1) \times \cdots \times M_{n_s}(D_s)$ para algunos anillos de división $D_1, \dots, D_s$, por VIII.4.10\footnote{El corolario 4.10 dice lo siguiente. Si $M$ es un $R$-módulo izquierdo libre y $M$ tiene una base con $n$ elementos, entonces $\End_R(M) \simeq M_n(R^{\text{op}})$} y 2.5\footnote{La proposición 2.5 dice lo siguiente. Sear $M$ un $R$-módulo izquierdo. Si $M$ es suma directa de finitos submódulos simples, entonces $\End_R(M)$ es isomorfo al producto directo de finitos anillos de matrices $M_{n_i}(D_i)$ sobre anillos de división $D_i$}. Luego $R \simeq M_{n_1}(D_1)^{\text{op}} \times \cdots \times M_{n_s}(D_s)^{\text{op}} \simeq M_{n_1}(D_1^{\text{op}}) \times \cdots \times M_{n_s}(D_s^{\text{op}})$, por 1.6\footnote{La proposición 1.6 dice que para cada anillo $R$, existe un isomorfismo $M_n(R)^{\text{op}} \simeq M_n(R^{\text{op}})$}.
+\end{proof}
+
+\begin{corollary}
+    Un anillo $R$ es simisimple si y solo si $R^\text{op}$ es semisimple.
+\end{corollary}
+
+\begin{proof}
+    Si $R \simeq M_{n_1}(D_1) \times \cdots \times M_{n_s}(D_s)$ es semisimple, donde $D_1, \dots, D_s$ son anillos de división, entonces $R^\text{op} \simeq M_{n_1}(D_1^{\text{op}}) \times \cdots \times M_{n_s}(D_s^{\text{op}})$ es semisimple.
+\end{proof}
+
+
+\end{document}
