@@ -104,4 +104,8 @@ En particular, los anillos semisimples son productos directos de anillos simples
     Si $R \simeq M_{n_1}(D_1) \times \cdots \times M_{n_s}(D_s)$ es un anillo semisimple, donde $D_1, \dots, D_s$ son anillos de división, entonces todo $R$--módulo izquierdo simple es isomorfo a un ideal izquierdo minimal de algún $M_{n_i}(D_i)$; por lo tanto existen exatamente $s$ clases de isomorfismo de $R$--módulos izquierdos simples.
 \end{proposition}
 
+\begin{proof}
+    Por 2.6, 3.3, $R = R_1 \times \cdots \times R_s$, donde $R_i \simeq M_{n_i}(D_i)$. Por 2.7, $L$ es un ideal izquierdo minimal de $R$ si y solo si $L$ es un ideal izquierdo minimal de algún $R_i$. Por 1.8, todos los ideales izquierdos minimales de $R_i$ son isomorfos como $R_i$--módulos izquierdos, y por lo tanto, también lo son como $R$--módulos izquierdos. Pero los idiales minimales izquierdos $L_i$ de $R_i$ y $L_j$ de $R_j$ nunca son isomorfos como $R$--módulos cuando $i \neq j$: por 1.8, $\text{Ann}_{R_i}(L_i) = 0$, de modo tal que $\text{Ann}(L_i) = \bigoplus_{j \neq i} R_j$; luego $\text{Ann}(L_i) \neq \text{Ann}(L_j)$ cuando $i \neq j$.
+\end{proof}
+
 \end{document}
