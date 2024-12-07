@@ -181,6 +181,15 @@ Esta construcción tan sencilla, rinde la totalidad de los $R$-módulos.
     Todo $R$-módulo izquierdo es isomorfo a una suma directa $S_1^{m_1} \oplus \cdots \oplus S_s^{m_s}$, para algunos (únicos) números cardinales $m_1, \dots, m_s$.
 \end{corollary}
 
+\begin{proof}
+    Salvo isomorfismo, $R = R_1 \times \cdots \times R_s$, donde $R_i \simeq M_{n_i}(D_i)$, y $S_1, \dots, S_s$ pueden ser numerados de modo tal que $S_i$ es isomorfo a un ideal izquierdo minimal de $R_i$.
+    Entonces $R_j S_i = 0$ siempre que $i \neq j$.
+    Todo $R$-módulo es suma directa de módulos simples, $m_i$ de los cuales son isomorfos a $S_i$
+    \footnote{
+        Este fraseo no me gusta, parece indicar que $m_i$ es finito ¿Es este el caso? Creo que no.
+    }.
+    En la suma directa $M \simeq S_1^{m_1} \oplus \cdots \oplus S_s^{m_s}$, $S_i^{m_i} \simeq R_i M$ es único salvo isomorfismo.
+    Entonces $m_i$ es único, dado que $S_i^{m_i}$ tiene dimensión $m_i n_i$ sobre $D_i$ y $n_i$ es finito.
 \end{proof}
 
 \end{document}
