@@ -48,6 +48,26 @@ Esta sección también estudia una clase de anillos simples: anillos de matrices
 
 Por ejemplo, un grupo abeliano es simple como módulo sobre $\mathbb{Z}$ si y solo si es simple como grupo, si y solo si es cíclico de orden primo.
 Un espacio vectorial es simple si y solo si tiene dimensión 1.
+
+Los $R$-módulos simples son fácilmente construidos a partir de $R$.
+
+\begin{proposition}
+    Un $R$-módulo izquierdo es simple si y solo si es isomorfo a $\RAsRModule / L$ para algún ideal izquierdo maximal $L$ de $R$.
+\end{proposition}
+
+\begin{proof}
+    Sea $M$ un $R$-módulo izquierdo.
+
+    Supongamos que $M$ es simple.
+    En este caso necesariamente es cíclico, generado por un elemento no nulo cualquiera.
+    Porque $M$ es cíclico, se sigue que $M \simeq \RAsRModule / L$ para algún ideal izquierdo $L$ de $R$.
+    Los submódulos de $M$ corresponden a los submódulos de $\RAsRModule$ que contienen a $L$.
+    Pero $M$ es simple, por lo que no hay submódulos intermedios y $L$ es maximal.
+
+    Recíprocamente, si $M$ es isomorfo a $\RAsRModule / L$ donde $L$ es un ideal izquierdo maximal de $R$, entonces los submódulos de $\RAsRModule / L$ corresponden a los submódulos de $\RAsRModule$ que contienen a $L$.
+    Pero al ser $L$ maximal, no hay submódulos intermedios y $M$ es simple.
+\end{proof}
+
 \section{El teorema de Artin-Wedderburn}
 
 El teorema de Artin--Wedderburn construye todos los anillos $R$, llamados semisimples, tales que todo $R$--módulo izquierdo es semisimple\footnote{Un $R$--módulo izquierdo es semisimple si es suma directa de simples.
