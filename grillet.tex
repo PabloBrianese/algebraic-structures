@@ -68,6 +68,20 @@ Los $R$-módulos simples son fácilmente construidos a partir de $R$.
     Pero al ser $L$ maximal, no hay submódulos intermedios y $M$ es simple.
 \end{proof}
 
+Cuando $M$ es un $R$-módulo izquierdo, denotamos por $\End_R(M)$ al anillo de todos los endomorfismos de $M$ como módulo, escritos a la izquierda.
+
+\begin{proposition}[Lema de Schur]
+    Si $S$ y $T$ son $R$-módulos izquierdos simples, entonces todo homomorfismo de $R$-módulos izquierdos de $S$ en $T$ es un isomorfismo o es nulo. En particular, $\End_R(S)$ es un anillo de división.
+\end{proposition}
+
+\begin{proof}
+    Sea $\phi: S \to T$ un homomorfismo de $R$-módulos izquierdos.
+    Si $\phi$ no es nulo, entonces $\ker(\phi) < S$ y $0 < \Im(\phi) \leq T$, de donde $\ker(\phi) = 0$ e $\Im(\phi) = T$.
+    Por lo tanto $\phi$ es inyectivo y suryectivo, y $\phi$ es un isomorfismo.
+
+    En particular, todo endomorfismo no nulo de $S$ es una unidad en el anillo de endomorfismos $\End_R(S)$.
+\end{proof}
+
 \section{El teorema de Artin-Wedderburn}
 
 El teorema de Artin--Wedderburn construye todos los anillos $R$, llamados semisimples, tales que todo $R$--módulo izquierdo es semisimple\footnote{Un $R$--módulo izquierdo es semisimple si es suma directa de simples.
