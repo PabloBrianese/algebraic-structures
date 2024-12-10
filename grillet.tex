@@ -82,6 +82,24 @@ Cuando $M$ es un $R$-módulo izquierdo, denotamos por $\End_R(M)$ al anillo de t
     En particular, todo endomorfismo no nulo de $S$ es una unidad en el anillo de endomorfismos $\End_R(S)$.
 \end{proof}
 
+Los módulos simples también pueden ser construidos a partir de ideales izquierdos minimales, cuando hay suficientes de estos últimos.
+
+\begin{definition}
+    Un ideal izquierdo $L$ de un anillo $R$ es minimal cuando $L \neq 0$ y no hay ningún ideal izquierdo $0 \subsetneq L' \subsetneq L$; equivalentemente, cuando $L$ es simple como módulo izquierdo sobre $R$.
+\end{definition}
+
+\begin{proposition}
+    Si $S$ es un $R$-módulo izquierdo simple, $L$ es un ideal izquierdo minimal de $R$, y $L S \neq 0$, entonces $S \simeq L$.
+    Además, si $R$ es suma de ideales izquierdos minimales $(L_i)_{i \in I}$, entonces todo $R$-módulo izquierdo simple es isomorfo a uno de los $L_i$.
+\end{proposition}
+
+\begin{proof}
+    Si $LS \neq 0$, entonces $Ls \neq 0$ para algún $s \in S$, además $l \mapsto ls$ es un homomorfismo nonulo de $L$ en $S$, y por el Lema de Schur, es un isomorfismo.
+    Ahora, sea $R = \sum_{i \in I} L_i$ una suma de ideales izquierdos minimales $L_i$.
+    Si $L_i S = 0$ para todo $i$, enconces $S = RS = \sum_{i \in I} L_i S = 0$; pero $S \neq 0$, dado que $S$ es simple; por lo tanto $S \simeq L_i$ para algún $i$.
+\end{proof}
+
+
 \section{El teorema de Artin-Wedderburn}
 
 El teorema de Artin--Wedderburn construye todos los anillos $R$, llamados semisimples, tales que todo $R$--módulo izquierdo es semisimple\footnote{Un $R$--módulo izquierdo es semisimple si es suma directa de simples.
