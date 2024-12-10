@@ -99,6 +99,34 @@ Los módulos simples también pueden ser construidos a partir de ideales izquier
     Si $L_i S = 0$ para todo $i$, enconces $S = RS = \sum_{i \in I} L_i S = 0$; pero $S \neq 0$, dado que $S$ es simple; por lo tanto $S \simeq L_i$ para algún $i$.
 \end{proof}
 
+Los \textbf{anillos de matrices} son la primera fuente de ejemplos no triviales de anillos simples.
+
+\begin{definition}
+    Un anillo $R$ [con identidad] es simple cuando $R \neq 0$ y no tiene ideales biláteros no triviales.
+\end{definition}
+
+Los cuerpos y anillos de división son simples. Los anillos de matrices sobre un anillo de división también lo son, debido a la siguiente proposición.
+
+\begin{proposition}
+    Todo ideal bilátero de un anillo de matrices $M_n(R)$ sobre un anillo $R$ es de la forma $M_n(I)$, donde $I$ es un (único) ideal bilátero de $R$.
+\end{proposition}
+
+\begin{proof}
+    Si $I$ es un ideal bilátero de $R$, entonces $M_n(I)$ es un ideal bilátero de $M_n(R)$.
+    Recíprocamente, consideremos un ideal bilátero $J$ de $M_n(R)$.
+    Sea $I$ el conjunto de las entradas $(1,1)$ de las matrices en $J$.
+    Entonces $I$ es un ideal de $R$.
+    Probaremos que $J = M_n(I)$.
+
+    Sea $E_{ij}$ la matriz con $1$ en la entrada $(i,j)$ y $0$ en las demás entradas.
+    Entonces, para cada $A = (a_{ij})$ en $M_n(R)$, tenemos $E_{ij} A E_{kl} = a_jk E_{il}$.
+    Luego $A \in J$ implica $a_{ij} E_{1 1} = E_{1 i} A E_{j 1} \in J$ y $a_{ij} \in I$ para todo $i,j$; por lo tanto $J \subset M_n(I)$.
+    Recíprocamente, si $r \in I$, entonces $r = c_{1 1}$ para alguna matriz $C = (c_{i j}) \in J$, y $r E_{i j} = E_{i 1} C E_{1 j} \in J$ para todo $i,j$; por lo tanto $A = (a_{ij}) \in M_n(I)$ implica $A = \sum_{i,j} a_{ij} E_{i j} \in J$.
+\end{proof}
+
+\begin{corollary}
+    Si $D$ es un anillo de división, entonces $M_n(D)$ es simple.
+\end{corollary}
 
 \section{El teorema de Artin-Wedderburn}
 
