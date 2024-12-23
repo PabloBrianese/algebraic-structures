@@ -325,6 +325,20 @@ también se sigue del teorema de Jordan-Hölder, o del teorema de Krull-Schmidt,
     (\ref{item:simple-artiniano}) implica (\ref{item:artiniano-fiel}).
     Dado que $R$ es artiniano izquierdo, $R$ tiene un ideal izquierdo minimal $L$, el cual es un $R$-módulo iqzquierdo simple.
     Entonces $\text{Ann}(L)$ es un ideal de $R$; $\text{Ann}(L) \neq R$ dado que $1 \notin \text{Ann}(L)$; $\text{Ann}(L) = 0$ dado que $R$ es simple; y $L$ es fiel.
+
+    (\ref{item:artiniano-fiel}) implica (\ref{item:semisimple-isomorfos}).
+    Sea $S$ un $R$-módulo izquierdo simple y fiel.
+    Dado que $R$ es artiniano izquierdo, el conjunto de núcleos de homomorfismos de módulos $\RAsRModule \rightarrow S^m$ con $m > 0$ arbitrario tiene un elemento minimal.
+    Sean $n > 0$ y $phi: \RAsRModule \rightarrow S^n$ tales que $\ker(\phi)$ es minimal en el conjunto recién descripto.
+    Si $\ker(\phi) \neq 0$, entonces existe $r \in R \setminus \{0\}$ tal que $\phi(r) = 0$.
+    Pero $S$ es fiel, luego existe $s\in S$ tal que $r s \neq 0$.
+    Ahora podemos definir un homomorfismo $\psi: \RAsRModule \rightarrow S^n \oplus S$ tal que $\psi(x) = (\phi(x), x s)$ para todo $x \in R$.
+    Llegamos a un absurdo porque $\ker(\psi) \subset \ker(\phi)$.
+    Esta peculiar contradicción muestra que $\ker(\psi) = 0$.
+    Por lo tanto, existe un isomorfismo entre $\RAsRModule$ y un submódulo de $S^n$, y $\RAsRModule$ es semisimple por 2.2.
+    Si $L$ es un ideal izquierdo minimal de $R$, entonces $LS \neq 0$ porque $S$ es fiel, y $S \simeq L$ por 1.3.
+    Por tanto, todo ideal izquierdo minimal de $R$ es isomorfo a $S$.
+    Por la proposición \ref{prop:00-module-isomorphism-classes}, estos isomorfismos pueden extenderse componerse para alcanzar a todo $R$-módulo izquierdo simple, dado que $R$ es semisimple.
 \end{proof}
 
 
