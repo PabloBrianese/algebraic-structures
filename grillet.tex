@@ -355,5 +355,25 @@ Estos anillos ahora pueden ser construídos a partir de $R$:
     Entonces $R_i$ es un ideal bilátero de $R$, además $R_i$ es un anillo artiniano izquierdo simple, y $R = R_1 \times \cdots \times R_s$.
 \end{proposition}
 
+\begin{proof}
+    Sea $L$ un ideal izquierdo minimal de $R$. Si $a \in R$ y $La \neq 0$, entonces el ideal izquierdo $La$ es minimal: si $A \subseteq La$ es un ideal izquierdo nonulo, entonces también lo es $L^\prime = \{x \in L | x a \in A\}$, de donde $L^\prime = L$ y $A = L^\prime a = La$.
+    Dado que $x \mapsto x a$ es un homomorfismo de módulos no nulo de $L$ en $La$, el lema de Schur implica que es $La \simeq L$.
+    
+    Este argumento muestra que $R_i$ es un ideal bilátero de $R$.
+    Si $L$ es un ideal izquierdo minimal de $R$ isomorfo a $S_i$, entonces para todo $a \in R \setminus \{0\}$ se tiene $La \simeq L \simeq S_i$ y $La \subseteq R_i$.
+    Entonces dada una expresión $R_i = \sum_{L \simeq S_i} L$, se tiene $R_i a = \sum_{L \simeq S_i} La \subseteq R_i$.
+
+    Además $R_i R_j = 0$ para $i \neq j$, dado que $L L^\prime = 0$ para $L$ y $L^\prime$ ideales izquierdos minimales no isomorfos entre sí, por 1.3.
+    Sabiendo que $R = \sum_i R_i$, porque $R$ es la suma de sus ideales izquierdos minimales, podemos deducir $R = R_1 \times \cdots \times R_s$ mediante la proposición 2.6.
+
+    También podemos probar que cada $R_i$, como anillo, es simple y artiniano izquierdo:
+    Por 2.7, la igualdad $R = R_1 \times \cdots \times R_s$ implica que cada ideal izquierdo minimal de $R$ es un ideal izquierdo minimal de algún $R_i$.
+    Dado un $R_i$, suma de ideales izquierdos minimales de $R$ escritos $L \simeq S_i$, entonces $L$ es un ideal izquierdo minimal de algún $R_j$ y $L \simeq S_j$.
+    Luego $i = j$ y $L$ es un ideal izquierdo minimal de $R_i$.
+    Entonces $R_i$ es suma de ideales izquierdos minimales de $R_i$.
+    Más aún, todos los ideales izquierdos minimales de $R_i$ son isomorfos como $R$-módulos y por tanto lo son también como $R_i$-módulos.
+    Por lo tanto, el teorema \ref{thm:equivalent-properties-simple-rings} nos permite deducir que $R_i$ es simple y artiniano izquierdo.
+\end{proof}
+
 
 \end{document}
